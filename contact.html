@@ -1,74 +1,143 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <title>Contact – Exotic</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact — Exotic未来</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Noto+Sans+JP:wght@300;400;500&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-<header>
-    <nav>
-        <h1 class="logo">Exotic<span>未来</span></h1>
+<canvas id="particles"></canvas>
+<div id="cur"></div>
+<div id="cur2"></div>
 
-        <ul class="nav-links">
-            <li><a href="index.html">ACCUEIL</a></li>
-            <li><a href="arsenal.html">ARSENAL</a></li>
-            <li><a href="projects.html">PROJETS</a></li>
-            <li><a href="contact.html">CONTACT</a></li>
-        </ul>
-    </nav>
-</header>
+<nav>
+  <a class="nav-logo" href="index.html">Exotic<span class="kanji">未来</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html">ACCUEIL</a></li>
+    <li><a href="arsenal.html">ARSENAL</a></li>
+    <li><a href="projects.html">PROJETS</a></li>
+    <li><a href="contact.html">CONTACT</a></li>
+  </ul>
+</nav>
 
 <main>
-
-<section class="section">
-    <h2 class="section-title">Me Contacter</h2>
-    <p class="section-sub">Réseaux – Email – Connexion</p>
-    <p class="section-jp">連絡先</p>
-
-    <p class="contact-text">
-        Tu peux me contacter via mes réseaux professionnels ou personnels.  
-        Je suis disponible pour discuter, collaborer ou répondre à tes questions.
-    </p>
-
-    <div class="contact-buttons">
-
-        <a href="mailto:philippe.viman@yahoo.com" class="contact-btn">
-            <img src="yahoo.png" class="icon-sm"> Email
-        </a>
-
-        <a href="https://www.linkedin.com/in/philippe-viman/" target="_blank" class="contact-btn">
-            <img src="linkedin.jpg" class="icon-sm"> LinkedIn
-        </a>
-
-        <a href="https://github.com/Eotics" target="_blank" class="contact-btn">
-            <img src="Github.png" class="icon-sm"> GitHub
-        </a>
-
-        <a href="https://www.instagram.com/sla_exotic/" target="_blank" class="contact-btn">
-            <img src="instagram.png" class="icon-sm"> Instagram
-        </a>
-
-        <a href="https://discord.com/users/sla_exotic" target="_blank" class="contact-btn">
-            <img src="discord.png" class="icon-sm"> Discord
-        </a>
-
-        <a href="https://linktr.ee/sla.exotic" target="_blank" class="contact-btn">
-            <img src="linktree.png" class="icon-sm"> Linktree
-        </a>
+  <div class="section">
+    <div class="section-head reveal">
+      <div class="section-tag">Contact</div>
+      <div class="section-jp">連絡先</div>
+      <h2 class="section-title">Me contacter <span>— Connexion</span></h2>
     </div>
 
-</section>
+    <div class="contact-grid">
 
+      <div>
+        <p class="contact-desc reveal">Tu peux me contacter via mes réseaux professionnels ou personnels. Je suis disponible pour discuter, collaborer ou répondre à tes questions.</p>
+
+        <div class="contact-links">
+          <a href="mailto:philippe.viman@yahoo.com" class="contact-link reveal">
+            <span class="link-icon">✉</span>
+            <div>
+              <div class="link-name">Email</div>
+              <div class="link-handle">philippe.viman@yahoo.com</div>
+            </div>
+            <span class="link-arrow">→</span>
+          </a>
+          <a href="https://www.linkedin.com/in/philippe-viman/" target="_blank" class="contact-link reveal">
+            <span class="link-icon">in</span>
+            <div>
+              <div class="link-name">LinkedIn</div>
+              <div class="link-handle">philippe-viman</div>
+            </div>
+            <span class="link-arrow">→</span>
+          </a>
+          <a href="https://github.com/Eotics" target="_blank" class="contact-link reveal">
+            <span class="link-icon">⌥</span>
+            <div>
+              <div class="link-name">GitHub</div>
+              <div class="link-handle">@Eotics</div>
+            </div>
+            <span class="link-arrow">→</span>
+          </a>
+          <a href="https://www.instagram.com/sla_exotic/" target="_blank" class="contact-link reveal">
+            <span class="link-icon">◎</span>
+            <div>
+              <div class="link-name">Instagram</div>
+              <div class="link-handle">@sla_exotic</div>
+            </div>
+            <span class="link-arrow">→</span>
+          </a>
+          <a href="https://discord.com/users/sla_exotic" target="_blank" class="contact-link reveal">
+            <span class="link-icon">◈</span>
+            <div>
+              <div class="link-name">Discord</div>
+              <div class="link-handle">sla_exotic</div>
+            </div>
+            <span class="link-arrow">→</span>
+          </a>
+          <a href="https://linktr.ee/sla.exotic" target="_blank" class="contact-link reveal">
+            <span class="link-icon">⛶</span>
+            <div>
+              <div class="link-name">Linktree</div>
+              <div class="link-handle">sla.exotic</div>
+            </div>
+            <span class="link-arrow">→</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="contact-terminal reveal">
+        <div class="terminal-bar">
+          <div class="term-dot"></div>
+          <div class="term-dot"></div>
+          <div class="term-dot"></div>
+          <div class="terminal-title">exotic_terminal — bash</div>
+        </div>
+        <div class="terminal-body">
+          <div class="term-line">
+            <span class="term-prompt">exotic@portfolio</span>
+            <span style="color:var(--muted)">:~$</span>
+            <span class="term-cmd"> whoami</span>
+          </div>
+          <div class="term-out">Philippe Viman — BTS SIO</div>
+          <div class="term-line">
+            <span class="term-prompt">exotic@portfolio</span>
+            <span style="color:var(--muted)">:~$</span>
+            <span class="term-cmd"> cat skills.txt</span>
+          </div>
+          <div class="term-out">→ Web Development</div>
+          <div class="term-out">→ Cybersecurity</div>
+          <div class="term-out">→ Linux / Windows</div>
+          <div class="term-line">
+            <span class="term-prompt">exotic@portfolio</span>
+            <span style="color:var(--muted)">:~$</span>
+            <span class="term-cmd"> ping contact</span>
+          </div>
+          <div class="term-out">PING success — I'm available ✓</div>
+          <div class="term-line">
+            <span class="term-prompt">exotic@portfolio</span>
+            <span style="color:var(--muted)">:~$</span>
+            <span class="term-cmd"> <span class="term-cursor"></span></span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
 </main>
 
+<div class="marquee-wrap"><div class="marquee-track" id="mtrack"></div></div>
+
 <footer>
-    <p>© 2025 – Philippe Viman</p>
-    <p class="footer-jp">繋がりから始まるプロジェクト</p>
+  <div class="footer-logo">Exotic<span>未来</span></div>
+  <div class="footer-right">
+    <div>© 2026 — Philippe Viman</div>
+    <div class="footer-jp">繋がりから始まるプロジェクト</div>
+  </div>
 </footer>
 
+<script src="main.js"></script>
 </body>
 </html>
