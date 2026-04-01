@@ -45,11 +45,12 @@ let W, H;
 const pts = [];
 
 function resizeCanvas() {
-  W = canvas.width = window.innerWidth;
+  W = canvas.width  = window.innerWidth;
   H = canvas.height = window.innerHeight;
 }
 resizeCanvas();
-window.addEventListener("resize", resizeCanvas);
+window.addEventListener('resize', resizeCanvas);
+window.addEventListener('load', resizeCanvas);
 
 const COLORS = [
   "rgba(124,58,237,",
