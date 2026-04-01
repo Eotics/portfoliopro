@@ -1,91 +1,119 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <title>Exotic – Portfolio</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-</head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Exotic未来 — Philippe Viman</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Noto+Sans+JP:wght@300;400;500&family=JetBrains+Mono:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <canvas id="particles"></canvas>
+    <div id="cur"></div>
+    <div id="cur2"></div>
 
-<body>
-
-<header>
     <nav>
-        <h1 class="logo">Exotic<span>未来</span></h1>
-
-        <ul class="nav-links">
-            <li><a href="index.html">ACCUEIL</a></li>
-            <li><a href="arsenal.html">ARSENAL</a></li>
-            <li><a href="projects.html">PROJETS</a></li>
-            <li><a href="contact.html">CONTACT</a></li>
-        </ul>
+      <a class="nav-logo" href="index.html"
+        >Exotic<span class="kanji">未来</span></a
+      >
+      <ul class="nav-links">
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="arsenal.html">Arsenal</a></li>
+        <li><a href="projects.html">Projets</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
     </nav>
-</header>
 
-<main>
-
-<section class="hero">
-    <div class="hero-left">
-        <h2 class="hero-title">Développeur & Créateur</h2>
-        <p class="hero-sub">Portfolio – Philippe Viman</p>
-        <p class="hero-jp">未来を創造する</p>
-
-        <p class="hero-text">
-            Je suis Philippe Viman, étudiant en BTS SIO et passionné par le développement web,
-            la cybersécurité et la création de projets modernes.  
-            Mon objectif : construire, apprendre, évoluer.
+    <div class="hero-wrap">
+      <div class="hero-inner">
+        <div class="hero-jp">未来を創造する — 2026</div>
+        <h1 class="hero-title">
+          <span class="line1">Développeur</span>
+          <span class="amp">&</span>
+          <span class="line2 glitch" data-text="Créateur">Créateur</span>
+        </h1>
+        <p class="hero-sub">Portfolio — Philippe Viman</p>
+        <p class="hero-desc">
+          Étudiant en BTS SIO, passionné par le développement web, la
+          cybersécurité et la création de projets modernes. Mon objectif :
+          construire, apprendre, évoluer.
         </p>
-
-        <div class="hero-buttons">
-            <a href="projects.html" class="btn">Voir mes projets</a>
-            <a href="contact.html" class="btn btn-secondary">Me contacter</a>
+        <div class="hero-btns">
+          <a href="projects.html" class="btn btn-primary"
+            ><span>Voir mes projets</span><span>→</span></a
+          >
+          <a href="contact.html" class="btn btn-outline">Me contacter</a>
         </div>
+        <div class="hero-kanji">未来</div>
+      </div>
+      <div class="hero-scroll">
+        <div class="scroll-line"></div>
+        <span>Scroll</span>
+      </div>
     </div>
-</section>
 
-<section class="section">
-    <h2 class="section-title">Aperçu</h2>
-    <p class="section-sub">Mes compétences – Mon univers</p>
-    <p class="section-jp">スキルと世界観</p>
-
-    <div class="grid grid-3">
-
-        <div class="card">
-            <h3 class="card-title">Développement Web</h3>
-            <p class="card-tag">HTML / CSS / JS</p>
-            <p class="card-jp">ウェブ開発</p>
-            <p class="card-text">
-                Création de sites modernes, animations, responsive design et interfaces propres.
-            </p>
+    <div class="section" style="padding-top: 3rem">
+      <div class="section-head reveal">
+        <div class="section-tag">Aperçu</div>
+        <div class="section-jp">スキルと世界観</div>
+        <h2 class="section-title">
+          Mes compétences <span>— Mon univers</span>
+        </h2>
+      </div>
+      <div class="apercu-grid">
+        <div class="skill-card reveal">
+          <div class="card-num">01</div>
+          <div class="card-jp">ウェブ開発</div>
+          <span class="card-icon">⌨</span>
+          <h3>Développement Web</h3>
+          <p class="card-sub">HTML / CSS / JS</p>
+          <p>
+            Création de sites modernes, animations, responsive design et
+            interfaces propres.
+          </p>
+          <div class="card-kanji-bg">W</div>
         </div>
-
-        <div class="card">
-            <h3 class="card-title">Systèmes & Réseaux</h3>
-            <p class="card-tag">Linux / Windows</p>
-            <p class="card-jp">システム管理</p>
-            <p class="card-text">
-                Administration, virtualisation, configuration et gestion d’environnements techniques.
-            </p>
+        <div class="skill-card reveal">
+          <div class="card-num">02</div>
+          <div class="card-jp">システム管理</div>
+          <span class="card-icon">🖥</span>
+          <h3>Systèmes &amp; Réseaux</h3>
+          <p class="card-sub">Linux / Windows</p>
+          <p>
+            Administration, virtualisation, configuration et gestion
+            d'environnements techniques.
+          </p>
+          <div class="card-kanji-bg">S</div>
         </div>
-
-        <div class="card">
-            <h3 class="card-title">Projets & Création</h3>
-            <p class="card-tag">Exotic.IA / Portfolio</p>
-            <p class="card-jp">プロジェクト</p>
-            <p class="card-text">
-                Conception de projets personnels, IA, outils web et expériences interactives.
-            </p>
+        <div class="skill-card reveal">
+          <div class="card-num">03</div>
+          <div class="card-jp">プロジェクト</div>
+          <span class="card-icon">◈</span>
+          <h3>Projets &amp; Création</h3>
+          <p class="card-sub">Exotic.IA / Portfolio</p>
+          <p>
+            Conception de projets personnels, IA, outils web et expériences
+            interactives.
+          </p>
+          <div class="card-kanji-bg">P</div>
         </div>
-
+      </div>
     </div>
-</section>
 
-</main>
+    <div class="marquee-wrap">
+      <div class="marquee-track" id="mtrack"></div>
+    </div>
+    <footer>
+      <div class="footer-logo">Exotic<span>未来</span></div>
+      <div class="footer-right">
+        <div>© 2026 — Philippe Viman</div>
+        <div class="footer-jp">繋がりから始まるプロジェクト</div>
+      </div>
+    </footer>
 
-<footer>
-    <p>© 2025 – Philippe Viman</p>
-    <p class="footer-jp">繋がりから始まるプロジェクト</p>
-</footer>
-
-</body>
+    <script src="main.js"></script>
+  </body>
 </html>
