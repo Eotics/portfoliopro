@@ -1,87 +1,121 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <title>Arsenal – Exotic</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arsenal — Exotic未来</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Noto+Sans+JP:wght@300;400;500&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-<header>
-    <nav>
-        <h1 class="logo">Exotic<span>未来</span></h1>
+<canvas id="particles"></canvas>
+<div id="cur"></div>
+<div id="cur2"></div>
 
-        <ul class="nav-links">
-            <li><a href="index.html">ACCUEIL</a></li>
-            <li><a href="arsenal.html">ARSENAL</a></li>
-            <li><a href="projects.html">PROJETS</a></li>
-            <li><a href="contact.html">CONTACT</a></li>
-        </ul>
-    </nav>
-</header>
+<nav>
+  <a class="nav-logo" href="index.html">Exotic<span class="kanji">未来</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html">Accueil</a></li>
+    <li><a href="arsenal.html">Arsenal</a></li>
+    <li><a href="projects.html">Projets</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
 
-<main>
+<div class="section" style="padding-top:8rem;">
+  <div class="section-head reveal">
+    <div class="section-tag">Arsenal</div>
+    <div class="section-jp">武器庫</div>
+    <h2 class="section-title">Compétences <span>— Technologies — Outils</span></h2>
+  </div>
 
-<section class="section">
-    <h2 class="section-title">Arsenal</h2>
-    <p class="section-sub">Compétences – Technologies – Outils</p>
-    <p class="section-jp">武器庫</p>
+  <div class="arsenal-grid">
 
-    <div class="grid grid-3">
-
-        <div class="card">
-            <h3 class="card-title">Développement Web</h3>
-            <p class="card-tag">HTML / CSS / JavaScript</p>
-            <p class="card-jp">ウェブ開発</p>
-            <p class="card-text">
-                Création d’interfaces modernes, responsive design, animations, composants dynamiques.
-            </p>
-            <div class="tech-list">
-                <span class="tech-pill">HTML5</span>
-                <span class="tech-pill">CSS3</span>
-                <span class="tech-pill">JavaScript</span>
-            </div>
+    <div class="arsenal-block reveal">
+      <div class="arsenal-block-jp">ウェブ開発</div>
+      <h3>Développement Web</h3>
+      <div class="arsenal-block-sub">HTML / CSS / JavaScript</div>
+      <p>Création d'interfaces modernes, responsive design, animations, composants dynamiques.</p>
+      <div style="margin-bottom:1.5rem;">
+        <div class="skill-bar-item">
+          <div class="skill-bar-head"><span>HTML5</span><span>90%</span></div>
+          <div class="skill-bar-track"><div class="skill-bar-fill" data-w="90"></div></div>
         </div>
-
-        <div class="card">
-            <h3 class="card-title">Systèmes</h3>
-            <p class="card-tag">Linux / Windows</p>
-            <p class="card-jp">システム管理</p>
-            <p class="card-text">
-                Administration, virtualisation, gestion de services, configuration réseau.
-            </p>
-            <div class="tech-list">
-                <span class="tech-pill">Linux</span>
-                <span class="tech-pill">Windows</span>
-                <span class="tech-pill">VirtualBox</span>
-            </div>
+        <div class="skill-bar-item">
+          <div class="skill-bar-head"><span>CSS3</span><span>85%</span></div>
+          <div class="skill-bar-track"><div class="skill-bar-fill" data-w="85"></div></div>
         </div>
-
-        <div class="card">
-            <h3 class="card-title">Outils & Workflow</h3>
-            <p class="card-tag">Git / GitHub / VSCode</p>
-            <p class="card-jp">ツール</p>
-            <p class="card-text">
-                Gestion de versions, collaboration, documentation, optimisation du workflow.
-            </p>
-            <div class="tech-list">
-                <span class="tech-pill">Git</span>
-                <span class="tech-pill">GitHub</span>
-                <span class="tech-pill">VSCode</span>
-            </div>
+        <div class="skill-bar-item">
+          <div class="skill-bar-head"><span>JavaScript</span><span>70%</span></div>
+          <div class="skill-bar-track"><div class="skill-bar-fill" data-w="70"></div></div>
         </div>
-
+      </div>
+      <div class="tags">
+        <span class="tag">HTML5</span><span class="tag">CSS3</span><span class="tag">JavaScript</span>
+      </div>
     </div>
-</section>
 
-</main>
+    <div class="arsenal-block reveal">
+      <div class="arsenal-block-jp">システム管理</div>
+      <h3>Systèmes</h3>
+      <div class="arsenal-block-sub">Linux / Windows</div>
+      <p>Administration, virtualisation, gestion de services, configuration réseau.</p>
+      <div style="margin-bottom:1.5rem;">
+        <div class="skill-bar-item">
+          <div class="skill-bar-head"><span>Linux</span><span>75%</span></div>
+          <div class="skill-bar-track"><div class="skill-bar-fill" data-w="75"></div></div>
+        </div>
+        <div class="skill-bar-item">
+          <div class="skill-bar-head"><span>Windows Server</span><span>70%</span></div>
+          <div class="skill-bar-track"><div class="skill-bar-fill" data-w="70"></div></div>
+        </div>
+        <div class="skill-bar-item">
+          <div class="skill-bar-head"><span>VirtualBox</span><span>80%</span></div>
+          <div class="skill-bar-track"><div class="skill-bar-fill" data-w="80"></div></div>
+        </div>
+      </div>
+      <div class="tags">
+        <span class="tag">Linux</span><span class="tag">Windows</span><span class="tag">VirtualBox</span>
+      </div>
+    </div>
 
+    <div class="arsenal-block reveal">
+      <div class="arsenal-block-jp">ツール</div>
+      <h3>Outils &amp; Workflow</h3>
+      <div class="arsenal-block-sub">Git / GitHub / VSCode</div>
+      <p>Gestion de versions, collaboration, documentation, optimisation du workflow.</p>
+      <div style="margin-bottom:1.5rem;">
+        <div class="skill-bar-item">
+          <div class="skill-bar-head"><span>Git</span><span>80%</span></div>
+          <div class="skill-bar-track"><div class="skill-bar-fill" data-w="80"></div></div>
+        </div>
+        <div class="skill-bar-item">
+          <div class="skill-bar-head"><span>GitHub</span><span>82%</span></div>
+          <div class="skill-bar-track"><div class="skill-bar-fill" data-w="82"></div></div>
+        </div>
+        <div class="skill-bar-item">
+          <div class="skill-bar-head"><span>VSCode</span><span>90%</span></div>
+          <div class="skill-bar-track"><div class="skill-bar-fill" data-w="90"></div></div>
+        </div>
+      </div>
+      <div class="tags">
+        <span class="tag">Git</span><span class="tag">GitHub</span><span class="tag">VSCode</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="marquee-wrap"><div class="marquee-track" id="mtrack"></div></div>
 <footer>
-    <p>© 2025 – Philippe Viman</p>
-    <p class="footer-jp">繋がりから始まるプロジェクト</p>
+  <div class="footer-logo">Exotic<span>未来</span></div>
+  <div class="footer-right">
+    <div>© 2026 — Philippe Viman</div>
+    <div class="footer-jp">繋がりから始まるプロジェクト</div>
+  </div>
 </footer>
 
+<script src="main.js"></script>
 </body>
 </html>
