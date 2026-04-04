@@ -4,117 +4,129 @@
 ========================================== */
 
 
-/* ─── PARTICULES (points violets animés en fond) ─── */
+/* ─── PARTICULES ─── */
 
-// On récupère le canvas (zone de dessin) dans la page
 const canvas = document.getElementById("particles");
-const ctx = canvas.getContext("2d"); // outil de dessin
+const ctx = canvas.getContext("2d");
 
-// Le canvas prend toute la taille de la fenêtre
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
-// Si la fenêtre est redimensionnée, on remet à jour la taille
 window.addEventListener("resize", function () {
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
 });
 
-// On crée 60 particules avec une position et vitesse aléatoires
+// Couleurs disponibles pour les particules
+const couleurs = [
+  "rgba(124, 58, 237,",   // violet
+  "rgba(168, 85, 247,",   // violet clair
+  "rgba(217, 70, 239,",   // rose
+  "rgba(34, 211, 238,",   // cyan
+];
+
+// Création de 70 particules aléatoires
 const particules = [];
-for (let i = 0; i < 60; i++) {
+for (let i = 0; i < 70; i++) {
   particules.push({
-    x: Math.random() * canvas.width,
-    y: Math.random() * canvas.height,
-    vitesseX: (Math.random() - 0.5) * 0.4,
-    vitesseY: (Math.random() - 0.5) * 0.4,
-    rayon: Math.random() * 1.5 + 0.5,
+    x:        Math.random() * canvas.width,
+    y:        Math.random() * canvas.height,
+    vitesseX: (Math.random() - 0.5) * 0.3,
+    vitesseY: (Math.random() - 0.5) * 0.3,
+    rayon:    Math.random() * 1.5 + 0.3,
+    couleur:  couleurs[Math.floor(Math.random() * couleurs.length)],
+    opacite:  Math.random() * 0.5 + 0.2,
   });
 }
 
-// Cette fonction dessine et anime les particules en boucle infinie
 function animer() {
-  // On efface le canvas avant de redessiner
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
+  // Déplacement et dessin de chaque particule
   for (const p of particules) {
-    // On déplace la particule selon sa vitesse
     p.x += p.vitesseX;
     p.y += p.vitesseY;
 
-    // Si elle sort d'un côté, elle réapparaît de l'autre côté
+    // Rebond de l'autre côté si elle sort de l'écran
     if (p.x < 0) p.x = canvas.width;
     if (p.x > canvas.width) p.x = 0;
     if (p.y < 0) p.y = canvas.height;
     if (p.y > canvas.height) p.y = 0;
 
-    // On dessine un petit cercle violet semi-transparent
     ctx.beginPath();
     ctx.arc(p.x, p.y, p.rayon, 0, Math.PI * 2);
-    ctx.fillStyle = "rgba(168, 85, 247, 0.5)";
+    ctx.fillStyle = p.couleur + p.opacite + ")";
     ctx.fill();
   }
 
-  // requestAnimationFrame relance la fonction à chaque image (~60 fois/s)
+  // Lignes entre les particules proches (effet constellation)
+  for (let i = 0; i < particules.length; i++) {
+    for (let j = i + 1; j < particules.length; j++) {
+      const dx = particules[i].x - particules[j].x;
+      const dy = particules[i].y - particules[j].y;
+      const distance = Math.sqrt(dx * dx + dy * dy);
+
+      // On ne trace la ligne que si les deux particules sont assez proches
+      if (distance < 120) {
+        // Plus elles sont proches, plus la ligne est visible
+        const opaciteLigne = 0.15 * (1 - distance / 120);
+        ctx.beginPath();
+        ctx.moveTo(particules[i].x, particules[i].y);
+        ctx.lineTo(particules[j].x, particules[j].y);
+        ctx.strokeStyle = "rgba(124, 58, 237," + opaciteLigne + ")";
+        ctx.lineWidth = 0.5;
+        ctx.stroke();
+      }
+    }
+  }
+
   requestAnimationFrame(animer);
 }
 animer();
 
 
-/* ─── MARQUEE (bande de texte qui défile en bas de page) ─── */
+/* ─── MARQUEE ─── */
 
 const mots = [
-  "Développement Web",
-  "BTS SIO",
-  "Cybersécurité",
-  "Linux",
-  "JavaScript",
-  "Design",
-  "Exotic.IA",
-  "GitHub",
+  "Développement Web", "BTS SIO", "Cybersécurité",
+  "Linux", "JavaScript", "Design", "Exotic.IA", "GitHub",
 ];
 
 const piste = document.getElementById("mtrack");
-
 if (piste) {
-  // On double la liste pour que le défilement soit continu et sans coupure
-  const tousLesMots = [...mots, ...mots];
-  piste.innerHTML = tousLesMots
+  // Liste doublée pour que le défilement soit continu
+  piste.innerHTML = [...mots, ...mots]
     .map((mot) => `<span class="marquee-item">${mot}<span class="dot">✦</span></span>`)
     .join("");
 }
 
 
-/* ─── APPARITION AU SCROLL (les éléments arrivent en scrollant) ─── */
+/* ─── APPARITION AU SCROLL ─── */
 
-// IntersectionObserver détecte quand un élément est visible à l'écran
+// Quand un élément .reveal arrive à l'écran, on lui ajoute .visible (animé en CSS)
 const observer = new IntersectionObserver(
   function (entries) {
     entries.forEach(function (entry) {
       if (entry.isIntersecting) {
-        // Quand l'élément est visible, on ajoute la classe "visible"
-        // Cette classe déclenche l'animation CSS (voir style.css)
         entry.target.classList.add("visible");
       }
     });
   },
-  { threshold: 0.12 } // se déclenche quand 12% de l'élément est visible
+  { threshold: 0.12 }
 );
 
-// On observe tous les éléments qui ont la classe "reveal"
 document.querySelectorAll(".reveal").forEach(function (el) {
   observer.observe(el);
 });
 
 
-/* ─── BARRES DE COMPÉTENCES (uniquement sur arsenal.html) ─── */
+/* ─── BARRES DE COMPÉTENCES (arsenal.html) ─── */
 
-// On observe quand les blocs arsenal arrivent à l'écran
+// Quand un bloc arsenal est visible, on anime les barres avec data-w
 const barreObserver = new IntersectionObserver(
   function (entries) {
     entries.forEach(function (entry) {
       if (entry.isIntersecting) {
-        // On remplit chaque barre jusqu'au pourcentage indiqué (data-w)
         document.querySelectorAll(".skill-bar-fill").forEach(function (barre) {
           barre.style.width = barre.dataset.w + "%";
         });
@@ -129,12 +141,11 @@ document.querySelectorAll(".arsenal-block").forEach(function (el) {
 });
 
 
-/* ─── LIEN ACTIF DANS LA NAVIGATION ─── */
+/* ─── LIEN ACTIF DANS LA NAV ─── */
 
-// On récupère le nom de la page actuelle (ex: "contact.html")
+// On compare l'URL actuelle avec le href de chaque lien
 const pageCourante = window.location.pathname.split("/").pop() || "index.html";
 
-// On ajoute la classe "active" au lien qui correspond à la page ouverte
 document.querySelectorAll(".nav-links a").forEach(function (lien) {
   if (lien.getAttribute("href") === pageCourante) {
     lien.classList.add("active");
