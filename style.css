@@ -1,8 +1,9 @@
-/* ═══════════════════════════════════════
-   EXOTIC未来 — Portfolio Philippe Viman
-   style.css — Tous les styles
-═══════════════════════════════════════ */
+/* ==========================================
+   style.css — Portfolio Philippe Viman
+========================================== */
 
+
+/* COULEURS GLOBALES — utilisées partout avec var(--nom) */
 :root {
   --bg: #07050f;
   --bg2: #0e0a1a;
@@ -19,6 +20,8 @@
   --glow2: 0 0 40px rgba(217, 70, 239, 0.3);
 }
 
+
+/* RESET — supprime les marges/paddings par défaut du navigateur */
 *,
 *::before,
 *::after {
@@ -26,6 +29,7 @@
   margin: 0;
   padding: 0;
 }
+
 html {
   scroll-behavior: smooth;
 }
@@ -35,64 +39,21 @@ body {
   background: var(--bg);
   color: var(--text);
   overflow-x: hidden;
-  cursor: none;
 }
 
-/* ─── CURSOR ─── */
-#cur,
-#cur2 {
+
+/* CANVAS PARTICULES — fixé derrière tout le contenu */
+#particles {
   position: fixed;
+  inset: 0; /* = top/right/bottom/left: 0 en raccourci */
+  z-index: 0;
   pointer-events: none;
-  border-radius: 50%;
-  z-index: 9999;
-  transform: translate(-50%, -50%);
-}
-#cur {
-  width: 8px;
-  height: 8px;
-  background: var(--neon);
-}
-#cur2 {
-  width: 36px;
-  height: 36px;
-  border: 1px solid rgba(168, 85, 247, 0.6);
-  background: transparent;
-  transition:
-    width 0.25s,
-    height 0.25s,
-    border-color 0.25s;
-}
-#cur2.big {
-  width: 56px;
-  height: 56px;
-  border-color: var(--neon);
+  width: 100%;
+  height: 100%;
 }
 
-/* ─── SCAN LINES ─── */
-body::after {
-  content: "";
-  position: fixed;
-  inset: 0;
-  background: repeating-linear-gradient(
-    0deg,
-    transparent,
-    transparent 2px,
-    rgba(0, 0, 0, 0.08) 2px,
-    rgba(0, 0, 0, 0.08) 4px
-  );
-  pointer-events: none;
-  z-index: 900;
-}
 
-#particles { 
-   position: fixed; 
-   inset: 0; 
-   z-index: 0; 
-   pointer-events: none; 
-   width: 100%; 
-   height: 100%; }
-
-/* ─── NAV ─── */
+/* NAV — barre fixée en haut */
 nav {
   position: fixed;
   top: 0;
@@ -105,9 +66,10 @@ nav {
   align-items: center;
   border-bottom: 1px solid var(--border);
   background: rgba(7, 5, 15, 0.75);
-  backdrop-filter: blur(18px);
+  backdrop-filter: blur(18px); /* flou derrière la nav (comme du verre) */
   -webkit-backdrop-filter: blur(18px);
 }
+
 .nav-logo {
   font-family: "JetBrains Mono", monospace;
   font-size: 1.15rem;
@@ -115,22 +77,24 @@ nav {
   letter-spacing: 0.05em;
   color: #fff;
   text-decoration: none;
-  cursor: none;
   display: flex;
   align-items: center;
   gap: 10px;
 }
+
 .nav-logo .kanji {
   color: var(--violet2);
   font-family: "Noto Sans JP", sans-serif;
   font-size: 1rem;
   opacity: 0.8;
 }
+
 .nav-links {
   display: flex;
   gap: 2.5rem;
   list-style: none;
 }
+
 .nav-links a {
   font-family: "JetBrains Mono", monospace;
   font-size: 0.7rem;
@@ -138,11 +102,12 @@ nav {
   text-transform: uppercase;
   text-decoration: none;
   color: var(--muted);
-  cursor: none;
   transition: color 0.2s;
   position: relative;
   padding-bottom: 4px;
 }
+
+/* Ligne sous le lien — commence à 0 et s'étire au survol */
 .nav-links a::after {
   content: "";
   position: absolute;
@@ -153,30 +118,36 @@ nav {
   background: var(--neon);
   transition: width 0.3s ease;
 }
+
 .nav-links a:hover,
 .nav-links a.active {
   color: #fff;
 }
+
 .nav-links a:hover::after,
 .nav-links a.active::after {
   width: 100%;
 }
 
-/* ─── LAYOUT ─── */
+
+/* LAYOUT — conteneur centré des sections */
 main {
   padding-top: 80px;
   position: relative;
   z-index: 10;
   min-height: 100vh;
 }
+
 .section {
   max-width: 1100px;
   margin: 0 auto;
   padding: 5rem 3rem;
 }
+
 .section-head {
   margin-bottom: 4rem;
 }
+
 .section-tag {
   font-family: "JetBrains Mono", monospace;
   font-size: 0.68rem;
@@ -188,12 +159,15 @@ main {
   align-items: center;
   gap: 12px;
 }
+
+/* Petit trait avant le label de section */
 .section-tag::before {
   content: "";
   width: 28px;
   height: 1px;
   background: var(--neon);
 }
+
 .section-jp {
   font-family: "Noto Sans JP", sans-serif;
   font-size: 0.7rem;
@@ -202,12 +176,16 @@ main {
   color: rgba(168, 85, 247, 0.5);
   margin-top: 0.4rem;
 }
+
 .section-title {
+  /* clamp(min, idéal, max) — taille adaptative selon la largeur d'écran */
   font-size: clamp(2rem, 4vw, 3.5rem);
   font-weight: 800;
   line-height: 1.1;
   color: #fff;
 }
+
+/* Dégradé sur le texte — technique un peu avancée mais très utilisée */
 .section-title span {
   background: linear-gradient(90deg, var(--violet2), var(--neon));
   -webkit-background-clip: text;
@@ -215,7 +193,8 @@ main {
   background-clip: text;
 }
 
-/* ─── BOUTONS ─── */
+
+/* BOUTONS */
 .btn {
   padding: 0.8rem 2rem;
   font-family: "JetBrains Mono", monospace;
@@ -223,7 +202,6 @@ main {
   letter-spacing: 0.18em;
   text-transform: uppercase;
   text-decoration: none;
-  cursor: none;
   border: none;
   background: transparent;
   transition: all 0.25s ease;
@@ -233,11 +211,14 @@ main {
   position: relative;
   overflow: hidden;
 }
+
 .btn-primary {
   background: linear-gradient(135deg, var(--violet), var(--neon));
   color: #fff;
   box-shadow: var(--glow);
 }
+
+/* Couche cachée qui inverse le dégradé au survol */
 .btn-primary::before {
   content: "";
   position: absolute;
@@ -252,6 +233,7 @@ main {
 .btn-primary:hover {
   box-shadow: var(--glow2);
 }
+
 .btn-outline {
   border: 1px solid var(--border);
   color: var(--text);
@@ -262,12 +244,14 @@ main {
   box-shadow: var(--glow);
 }
 
-/* ─── TAGS ─── */
+
+/* TAGS — petits badges (HTML, CSS, Linux...) */
 .tags {
   display: flex;
   flex-wrap: wrap;
   gap: 6px;
 }
+
 .tag {
   font-family: "JetBrains Mono", monospace;
   font-size: 0.68rem;
@@ -285,20 +269,21 @@ main {
   box-shadow: 0 0 12px rgba(168, 85, 247, 0.3);
 }
 
-/* ─── REVEAL ─── */
+
+/* REVEAL — animation d'apparition au scroll
+   Les éléments partent invisibles, le JS ajoute .visible quand ils arrivent à l'écran */
 .reveal {
   opacity: 0;
   transform: translateY(24px);
-  transition:
-    opacity 0.65s ease,
-    transform 0.65s ease;
+  transition: opacity 0.65s ease, transform 0.65s ease;
 }
 .reveal.visible {
   opacity: 1;
   transform: translateY(0);
 }
 
-/* ─── MARQUEE ─── */
+
+/* MARQUEE — bande de texte défilante */
 .marquee-wrap {
   overflow: hidden;
   border-top: 1px solid var(--border);
@@ -308,12 +293,13 @@ main {
   position: relative;
   z-index: 10;
 }
+
 .marquee-track {
   display: inline-flex;
   white-space: nowrap;
   animation: marquee 18s linear infinite;
-  gap: 0;
 }
+
 .marquee-item {
   font-family: "JetBrains Mono", monospace;
   font-size: 0.65rem;
@@ -326,16 +312,15 @@ main {
   color: var(--neon);
   margin-left: 2rem;
 }
+
+/* -50% fonctionne parce que le JS double la liste */
 @keyframes marquee {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-50%);
-  }
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
 }
 
-/* ─── FOOTER ─── */
+
+/* FOOTER */
 footer {
   position: relative;
   z-index: 10;
@@ -347,6 +332,7 @@ footer {
   background: rgba(7, 5, 15, 0.8);
   backdrop-filter: blur(10px);
 }
+
 .footer-logo {
   font-family: "JetBrains Mono", monospace;
   font-size: 0.9rem;
@@ -356,6 +342,7 @@ footer {
 .footer-logo span {
   color: var(--violet2);
 }
+
 .footer-right {
   font-family: "JetBrains Mono", monospace;
   font-size: 0.65rem;
@@ -372,21 +359,27 @@ footer {
   color: rgba(168, 85, 247, 0.4);
 }
 
-/* ═══ INDEX ═══ */
+
+/* ══════════════════
+   INDEX
+══════════════════ */
+
 .hero {
-  min-height: calc(100vh - 80px);
+  min-height: calc(100vh - 80px); /* toute la hauteur minus la nav */
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   position: relative;
 }
+
 .hero-inner {
   max-width: 900px;
   width: 100%;
   padding: 0 3rem;
   position: relative;
 }
+
 .hero-jp {
   font-family: "Noto Sans JP", sans-serif;
   font-size: 0.75rem;
@@ -405,6 +398,7 @@ footer {
   height: 1px;
   background: var(--violet2);
 }
+
 .hero-title {
   font-size: clamp(3.5rem, 8vw, 7rem);
   font-weight: 800;
@@ -427,6 +421,7 @@ footer {
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
+
 .hero-sub {
   font-family: "JetBrains Mono", monospace;
   font-size: 0.8rem;
@@ -434,6 +429,7 @@ footer {
   color: var(--muted);
   margin-bottom: 0.5rem;
 }
+
 .hero-desc {
   font-size: 1.05rem;
   line-height: 1.8;
@@ -441,11 +437,14 @@ footer {
   max-width: 520px;
   margin-bottom: 3rem;
 }
+
 .hero-btns {
   display: flex;
   gap: 1rem;
   flex-wrap: wrap;
 }
+
+/* Grand kanji décoratif en fond — très transparent, juste visuel */
 .hero-kanji {
   position: absolute;
   right: -2rem;
@@ -459,6 +458,8 @@ footer {
   pointer-events: none;
   user-select: none;
 }
+
+/* Indicateur scroll qui rebondit */
 .hero-scroll {
   position: absolute;
   bottom: 2.5rem;
@@ -473,30 +474,27 @@ footer {
   letter-spacing: 0.2em;
   color: var(--muted);
   text-transform: uppercase;
-  animation: float 2.5s ease-in-out infinite;
+  animation: flotter 2.5s ease-in-out infinite;
 }
 .scroll-line {
   width: 1px;
   height: 40px;
   background: linear-gradient(to bottom, var(--violet2), transparent);
 }
-@keyframes float {
-  0%,
-  100% {
-    transform: translateX(-50%) translateY(0);
-  }
-  50% {
-    transform: translateX(-50%) translateY(8px);
-  }
+@keyframes flotter {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50%       { transform: translateX(-50%) translateY(8px); }
 }
 
+/* GLITCH — effet de dédoublement sur "Créateur"
+   ::before et ::after sont des copies du texte positionnées par-dessus */
 .glitch {
   position: relative;
   display: inline-block;
 }
 .glitch::before,
 .glitch::after {
-  content: attr(data-text);
+  content: attr(data-text); /* lit le texte depuis l'attribut HTML data-text */
   position: absolute;
   top: 0;
   left: 0;
@@ -514,64 +512,45 @@ footer {
   clip-path: polygon(0 65%, 100% 65%, 100% 100%, 0 100%);
 }
 @keyframes glitch1 {
-  0%,
-  94%,
-  100% {
-    transform: translate(0);
-  }
-  95% {
-    transform: translate(-3px, 1px);
-  }
-  97% {
-    transform: translate(3px, -1px);
-  }
+  0%, 94%, 100% { transform: translate(0); }
+  95%           { transform: translate(-3px, 1px); }
+  97%           { transform: translate(3px, -1px); }
 }
 @keyframes glitch2 {
-  0%,
-  94%,
-  100% {
-    transform: translate(0);
-  }
-  95% {
-    transform: translate(3px, 2px);
-  }
-  97% {
-    transform: translate(-2px, -2px);
-  }
+  0%, 94%, 100% { transform: translate(0); }
+  95%           { transform: translate(3px, 2px); }
+  97%           { transform: translate(-2px, -2px); }
 }
 
+/* Grille 3 colonnes des cartes compétences */
 .apercu-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1.5px;
   border: 1px solid var(--border);
 }
+
 .skill-card {
   background: var(--bg2);
   padding: 2.5rem 2rem;
   position: relative;
   overflow: hidden;
   transition: background 0.3s;
-  cursor: none;
 }
+
+/* Teinte au survol via ::before (opacity 0 → 1) */
 .skill-card::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    135deg,
-    rgba(124, 58, 237, 0.08),
-    rgba(217, 70, 239, 0.05)
-  );
+  background: linear-gradient(135deg, rgba(124, 58, 237, 0.08), rgba(217, 70, 239, 0.05));
   opacity: 0;
   transition: opacity 0.3s;
 }
-.skill-card:hover::before {
-  opacity: 1;
-}
-.skill-card:hover {
-  background: var(--bg3);
-}
+.skill-card:hover::before { opacity: 1; }
+.skill-card:hover { background: var(--bg3); }
+
+/* Ligne en bas de la carte qui s'étire au survol */
 .skill-card::after {
   content: "";
   position: absolute;
@@ -582,9 +561,8 @@ footer {
   background: linear-gradient(90deg, var(--violet), var(--neon));
   transition: width 0.4s ease;
 }
-.skill-card:hover::after {
-  width: 100%;
-}
+.skill-card:hover::after { width: 100%; }
+
 .card-num {
   font-family: "JetBrains Mono", monospace;
   font-size: 0.65rem;
@@ -623,6 +601,8 @@ footer {
   color: var(--muted);
   line-height: 1.75;
 }
+
+/* Lettre décorative en fond de carte */
 .card-kanji-bg {
   position: absolute;
   bottom: -10px;
@@ -636,26 +616,30 @@ footer {
   line-height: 1;
 }
 
-/* ═══ ARSENAL ═══ */
+
+/* ══════════════════
+   ARSENAL
+══════════════════ */
+
 .arsenal-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 1.5rem;
 }
+
 .arsenal-block {
   background: var(--bg2);
   border: 1px solid var(--border);
   padding: 2rem;
   position: relative;
   overflow: hidden;
-  transition:
-    border-color 0.3s,
-    box-shadow 0.3s;
+  transition: border-color 0.3s, box-shadow 0.3s;
 }
 .arsenal-block:hover {
   border-color: var(--violet);
   box-shadow: var(--glow);
 }
+
 .arsenal-block-jp {
   font-family: "Noto Sans JP", sans-serif;
   font-size: 0.65rem;
@@ -682,9 +666,9 @@ footer {
   line-height: 1.7;
   margin-bottom: 1.5rem;
 }
-.skill-bar-item {
-  margin-bottom: 1.2rem;
-}
+
+/* Barres de compétences — la largeur est animée via JS */
+.skill-bar-item { margin-bottom: 1.2rem; }
 .skill-bar-head {
   display: flex;
   justify-content: space-between;
@@ -703,33 +687,36 @@ footer {
   height: 100%;
   background: linear-gradient(90deg, var(--violet), var(--neon));
   box-shadow: 0 0 8px var(--violet2);
-  width: 0;
+  width: 0; /* JS met à jour avec data-w */
   transition: width 1.2s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* ═══ PROJETS ═══ */
+
+/* ══════════════════
+   PROJETS
+══════════════════ */
+
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 1.5rem;
 }
+
 .project-card {
   background: var(--bg2);
   border: 1px solid var(--border);
   padding: 2.5rem 2rem;
   position: relative;
   overflow: hidden;
-  transition:
-    border-color 0.3s,
-    transform 0.3s,
-    box-shadow 0.3s;
-  cursor: none;
+  transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
 }
 .project-card:hover {
   border-color: var(--violet);
   transform: translateY(-4px);
   box-shadow: var(--glow);
 }
+
+/* Ligne en haut de la carte qui s'étire au survol */
 .project-card::before {
   content: "";
   position: absolute;
@@ -742,9 +729,8 @@ footer {
   transform-origin: left;
   transition: transform 0.4s ease;
 }
-.project-card:hover::before {
-  transform: scaleX(1);
-}
+.project-card:hover::before { transform: scaleX(1); }
+
 .project-num {
   font-family: "JetBrains Mono", monospace;
   font-size: 0.65rem;
@@ -779,6 +765,8 @@ footer {
   line-height: 1.75;
   margin-bottom: 1.5rem;
 }
+
+/* Numéro décoratif en fond */
 .project-bg-num {
   position: absolute;
   bottom: -20px;
@@ -791,24 +779,31 @@ footer {
   line-height: 1;
 }
 
-/* ═══ CONTACT ═══ */
+
+/* ══════════════════
+   CONTACT
+══════════════════ */
+
 .contact-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 5rem;
   align-items: start;
 }
+
 .contact-desc {
   font-size: 1rem;
   color: var(--muted);
   line-height: 1.8;
   margin-bottom: 2rem;
 }
+
 .contact-links {
   display: flex;
   flex-direction: column;
   gap: 0.8rem;
 }
+
 .contact-link {
   display: flex;
   align-items: center;
@@ -817,14 +812,12 @@ footer {
   background: var(--bg2);
   border: 1px solid var(--border);
   text-decoration: none;
-  cursor: none;
-  transition:
-    border-color 0.25s,
-    box-shadow 0.25s,
-    transform 0.25s;
+  transition: border-color 0.25s, box-shadow 0.25s, transform 0.25s;
   position: relative;
   overflow: hidden;
 }
+
+/* Barre verticale à gauche qui descend au survol */
 .contact-link::before {
   content: "";
   position: absolute;
@@ -837,14 +830,13 @@ footer {
   transform-origin: top;
   transition: transform 0.3s ease;
 }
-.contact-link:hover::before {
-  transform: scaleY(1);
-}
+.contact-link:hover::before { transform: scaleY(1); }
 .contact-link:hover {
   border-color: var(--violet);
   box-shadow: var(--glow);
   transform: translateX(4px);
 }
+
 .link-icon {
   font-size: 1.3rem;
   filter: drop-shadow(0 0 6px var(--violet2));
@@ -865,14 +857,15 @@ footer {
   color: var(--muted);
   transition: color 0.25s;
 }
-.contact-link:hover .link-arrow {
-  color: var(--neon);
-}
+.contact-link:hover .link-arrow { color: var(--neon); }
+
+/* Terminal (fausse console) */
 .contact-terminal {
   background: var(--bg2);
   border: 1px solid var(--border);
   overflow: hidden;
 }
+
 .terminal-bar {
   background: var(--bg3);
   padding: 0.7rem 1rem;
@@ -881,20 +874,17 @@ footer {
   gap: 8px;
   border-bottom: 1px solid var(--border);
 }
+
+/* 3 points rouge/jaune/vert style macOS */
 .term-dot {
   width: 10px;
   height: 10px;
   border-radius: 50%;
 }
-.term-dot:nth-child(1) {
-  background: #ff5f57;
-}
-.term-dot:nth-child(2) {
-  background: #febc2e;
-}
-.term-dot:nth-child(3) {
-  background: #28c840;
-}
+.term-dot:nth-child(1) { background: #ff5f57; }
+.term-dot:nth-child(2) { background: #febc2e; }
+.term-dot:nth-child(3) { background: #28c840; }
+
 .terminal-title {
   font-family: "JetBrains Mono", monospace;
   font-size: 0.65rem;
@@ -902,6 +892,7 @@ footer {
   margin-left: auto;
   letter-spacing: 0.1em;
 }
+
 .terminal-body {
   padding: 1.5rem;
   font-family: "JetBrains Mono", monospace;
@@ -909,67 +900,53 @@ footer {
   line-height: 2;
   color: rgba(226, 217, 243, 0.7);
 }
-.term-line {
-  display: flex;
-  gap: 8px;
-}
-.term-prompt {
-  color: var(--violet2);
-}
-.term-cmd {
-  color: var(--neon);
-}
+.term-line   { display: flex; gap: 8px; }
+.term-prompt { color: var(--violet2); }
+.term-cmd    { color: var(--neon); }
 .term-out {
   color: rgba(226, 217, 243, 0.5);
   padding-left: 16px;
 }
+
+/* Curseur clignotant dans le terminal */
 .term-cursor {
   display: inline-block;
   width: 8px;
   height: 14px;
   background: var(--neon);
   vertical-align: middle;
-  animation: blink 0.8s steps(2) infinite;
+  animation: clignoter 0.8s steps(2) infinite;
   margin-left: 2px;
 }
-@keyframes blink {
-  to {
-    opacity: 0;
-  }
+@keyframes clignoter {
+  to { opacity: 0; }
 }
 
-/* ─── RESPONSIVE ─── */
+
+/* ══════════════════
+   RESPONSIVE — mobile (écran < 900px)
+══════════════════ */
 @media (max-width: 900px) {
-  nav {
-    padding: 1rem 1.5rem;
-  }
-  .nav-links {
-    gap: 1.5rem;
-  }
-  .hero-inner {
-    padding: 0 1.5rem;
-  }
-  .section {
-    padding: 4rem 1.5rem;
-  }
+  nav        { padding: 1rem 1.5rem; }
+  .nav-links { gap: 1.5rem; }
+  .hero-inner { padding: 0 1.5rem; }
+  .section   { padding: 4rem 1.5rem; }
+
+  /* Toutes les grilles passent en 1 colonne sur mobile */
   .apercu-grid,
   .arsenal-grid,
-  .projects-grid {
-    grid-template-columns: 1fr;
-  }
+  .projects-grid,
   .contact-grid {
     grid-template-columns: 1fr;
   }
-  .hero-kanji {
-    display: none;
-  }
+
+  .hero-kanji { display: none; }
+
   footer {
     flex-direction: column;
     gap: 1rem;
     text-align: center;
     padding: 2rem 1.5rem;
   }
-  .footer-right {
-    align-items: center;
-  }
+  .footer-right { align-items: center; }
 }
