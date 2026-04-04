@@ -908,6 +908,12 @@ footer {
   padding-left: 16px;
 }
 
+/* Texte tapé par la machine à écrire — pre garde les sauts de ligne */
+#typewriter {
+  white-space: pre;
+  color: var(--neon);
+}
+
 /* Curseur clignotant dans le terminal */
 .term-cursor {
   display: inline-block;

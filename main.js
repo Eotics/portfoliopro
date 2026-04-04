@@ -141,6 +141,43 @@ document.querySelectorAll(".arsenal-block").forEach(function (el) {
 });
 
 
+/* ─── MACHINE À ÉCRIRE (contact.html uniquement) ─── */
+
+const zoneTypewriter = document.getElementById("typewriter");
+
+if (zoneTypewriter) {
+  const texte =
+`> Connexion établie... [OK]
+> Chargement du profil : Philippe Viman
+
+> whoami
+  Développeur Web — BTS SIO 2026
+
+> cat skills.txt
+  → HTML / CSS / JavaScript
+  → Cybersécurité
+  → Linux / Windows
+
+> ping contact
+  PING réussi — Je suis disponible ✓
+
+> En attente d'une connexion...`;
+
+  let position = 0;
+
+  function ecrire() {
+    if (position < texte.length) {
+      zoneTypewriter.textContent += texte[position];
+      position++;
+      setTimeout(ecrire, 28); // vitesse : 28ms entre chaque lettre
+    }
+  }
+
+  // On démarre la frappe une fois la page chargée
+  window.addEventListener("load", ecrire);
+}
+
+
 /* ─── LIEN ACTIF DANS LA NAV ─── */
 
 // On compare l'URL actuelle avec le href de chaque lien
