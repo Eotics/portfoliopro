@@ -218,6 +218,11 @@ main {
   box-shadow: var(--glow);
 }
 
+.btn span {
+  position: relative;
+  z-index: 1;
+}
+
 /* Couche cachée qui inverse le dégradé au survol */
 .btn-primary::before {
   content: "";
