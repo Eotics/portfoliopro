@@ -667,29 +667,6 @@ footer {
   margin-bottom: 1.5rem;
 }
 
-/* Barres de compétences — la largeur est animée via JS */
-.skill-bar-item { margin-bottom: 1.2rem; }
-.skill-bar-head {
-  display: flex;
-  justify-content: space-between;
-  font-family: "JetBrains Mono", monospace;
-  font-size: 0.7rem;
-  color: var(--text);
-  margin-bottom: 6px;
-}
-.skill-bar-track {
-  height: 3px;
-  background: rgba(124, 58, 237, 0.15);
-  position: relative;
-  overflow: hidden;
-}
-.skill-bar-fill {
-  height: 100%;
-  background: linear-gradient(90deg, var(--violet), var(--neon));
-  box-shadow: 0 0 8px var(--violet2);
-  width: 0; /* JS met à jour avec data-w */
-  transition: width 1.2s cubic-bezier(0.4, 0, 0.2, 1);
-}
 
 
 /* ══════════════════

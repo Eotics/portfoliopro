@@ -122,23 +122,7 @@ document.querySelectorAll(".reveal").forEach(function (el) {
 
 /* ─── BARRES DE COMPÉTENCES (arsenal.html) ─── */
 
-// Quand un bloc arsenal est visible, on anime les barres avec data-w
-const barreObserver = new IntersectionObserver(
-  function (entries) {
-    entries.forEach(function (entry) {
-      if (entry.isIntersecting) {
-        document.querySelectorAll(".skill-bar-fill").forEach(function (barre) {
-          barre.style.width = barre.dataset.w + "%";
-        });
-      }
-    });
-  },
-  { threshold: 0.3 }
-);
 
-document.querySelectorAll(".arsenal-block").forEach(function (el) {
-  barreObserver.observe(el);
-});
 
 
 /* ─── MACHINE À ÉCRIRE (contact.html uniquement) ─── */
