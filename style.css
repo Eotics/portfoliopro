@@ -213,10 +213,9 @@ main {
 }
 
 .btn-primary {
-  background: transparent;
-  border: 1px solid var(--violet2);
-  color: #fff;
-  -webkit-text-fill-color: #fff;
+  border-color: var(--neon);
+  color: var(--neon);
+  -webkit-text-fill-color: var(--neon);
 }
 
 .btn-primary:hover {
