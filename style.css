@@ -213,15 +213,16 @@ main {
 }
 
 .btn-primary {
-  background: linear-gradient(135deg, var(--violet), var(--neon));
+  background: transparent;
+  border: 1px solid var(--violet2);
   color: #fff;
   -webkit-text-fill-color: #fff;
-  box-shadow: var(--glow);
 }
 
 .btn-primary:hover {
-  filter: brightness(1.15);
-  box-shadow: var(--glow2);
+  border-color: var(--neon);
+  color: var(--neon);
+  -webkit-text-fill-color: var(--neon);
 }
 
 .btn-outline {
