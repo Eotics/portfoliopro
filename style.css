@@ -39,6 +39,9 @@ body {
   background: var(--bg);
   color: var(--text);
   overflow-x: hidden;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 
