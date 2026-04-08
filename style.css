@@ -371,17 +371,15 @@ footer {
 .hero-wrap {
   min-height: calc(100vh - 80px);
   display: flex;
-  align-items: flex-start;
-  justify-content: center;
   flex-direction: column;
+  justify-content: center;
   position: relative;
   z-index: 10;
+  padding: 0 3rem;
 }
 
 .hero-inner {
-  max-width: 900px;
-  width: 100%;
-  padding: 0 3rem;
+  max-width: 680px;
   position: relative;
 }
 
@@ -405,9 +403,9 @@ footer {
 }
 
 .hero-title {
-  font-size: clamp(3.5rem, 8vw, 7rem);
+  font-size: clamp(2.8rem, 5.5vw, 5rem);
   font-weight: 800;
-  line-height: 0.95;
+  line-height: 1.05;
   margin-bottom: 2rem;
 }
 .hero-title .line1 {
