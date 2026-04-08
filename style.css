@@ -338,6 +338,8 @@ footer {
   font-size: 0.9rem;
   font-weight: 500;
   color: #fff;
+  text-decoration: none;
+  cursor: pointer;
 }
 .footer-logo span {
   color: var(--violet2);
@@ -536,6 +538,10 @@ footer {
   position: relative;
   overflow: hidden;
   transition: background 0.3s;
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  cursor: pointer;
 }
 
 /* Teinte au survol via ::before (opacity 0 → 1) */
@@ -634,6 +640,10 @@ footer {
   position: relative;
   overflow: hidden;
   transition: border-color 0.3s, box-shadow 0.3s;
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  cursor: pointer;
 }
 .arsenal-block:hover {
   border-color: var(--violet);
@@ -686,6 +696,10 @@ footer {
   position: relative;
   overflow: hidden;
   transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  cursor: pointer;
 }
 .project-card:hover {
   border-color: var(--violet);
