@@ -371,8 +371,8 @@ footer {
 .hero-wrap {
   min-height: calc(100vh - 80px);
   display: flex;
-  align-items: center;
-  justify-content: flex-start;
+  align-items: flex-start;
+  justify-content: center;
   flex-direction: column;
   position: relative;
   z-index: 10;
@@ -387,9 +387,6 @@ footer {
   width: 100%;
   padding: 0;
   position: relative;
-  align-self: flex-start;
-  margin-top: auto;
-  margin-bottom: auto;
 }
 
 .hero-jp {
