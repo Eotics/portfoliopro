@@ -6,20 +6,14 @@
     <meta name="description" content="Portfolio de Philippe Viman — Développeur Web & étudiant BTS SIO, passionné par le web, la cybersécurité et la création de projets modernes." />
     <meta name="theme-color" content="#07050f" />
     <title>Exotic未来 — Philippe Viman</title>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Noto+Sans+JP:wght@300;400;500&family=JetBrains+Mono:wght@300;400;500&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Noto+Sans+JP:wght@300;400;500&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <canvas id="particles"></canvas>
 
-
     <nav>
-      <a class="nav-logo" href="index.html"
-        >Exotic<span class="kanji">未来</span></a
-      >
+      <a class="nav-logo" href="index.html">Exotic<span class="kanji">未来</span></a>
       <ul class="nav-links">
         <li><a href="index.html">Accueil</a></li>
         <li><a href="arsenal.html">Arsenal</a></li>
@@ -28,41 +22,127 @@
       </ul>
     </nav>
 
+    <!-- ── HERO ── -->
     <div class="hero-wrap">
-      <div class="hero-inner">
-        <div class="hero-jp">未来を創造する — 2026</div>
-        <h1 class="hero-title">
-          <span class="line1">Développeur</span>
-          <span class="amp">&</span>
-          <span class="line2 glitch" data-text="Créateur">Créateur</span>
-        </h1>
-        <p class="hero-sub">Portfolio — Philippe Viman</p>
-        <p class="hero-desc">
-          Étudiant en BTS SIO, passionné par le développement web, la
-          cybersécurité et la création de projets modernes. Mon objectif :
-          construire, apprendre, évoluer.
-        </p>
-        <div class="hero-btns">
-          <a href="projects.html" class="btn btn-primary"
-            ><span>Voir mes projets</span><span>→</span></a
-          >
-          <a href="contact.html" class="btn btn-outline">Me contacter</a>
+      <div class="hero-grid">
+
+        <div class="hero-left reveal">
+          <div class="hero-name-tag">
+            <span class="tag-dot"></span>
+            Philippe Viman
+          </div>
+          <h1 class="hero-title">
+            <span class="line1">Développeur</span>
+            <span class="amp">&</span>
+            <span class="line2 glitch" data-text="Créateur">Créateur</span>
+          </h1>
+          <p class="hero-desc">
+            Étudiant en BTS SIO, passionné par le développement web, la
+            cybersécurité et la création de projets modernes. Mon objectif :
+            construire, apprendre, évoluer.
+          </p>
+          <div class="hero-btns">
+            <a href="projects.html" class="btn btn-primary"><span>Voir mes projets</span><span>→</span></a>
+            <a href="contact.html" class="btn btn-outline">Me contacter</a>
+          </div>
+          <div class="hero-social">
+            <a href="https://github.com/Eotics" target="_blank" rel="noopener noreferrer" class="social-link">
+              <span class="social-icon">⌥</span> GitHub
+            </a>
+            <a href="https://www.linkedin.com/in/philippe-viman/" target="_blank" rel="noopener noreferrer" class="social-link">
+              <span class="social-icon">in</span> LinkedIn
+            </a>
+            <a href="https://www.instagram.com/sla_exotic/" target="_blank" rel="noopener noreferrer" class="social-link">
+              <span class="social-icon">◎</span> Instagram
+            </a>
+          </div>
         </div>
-        <div class="hero-kanji">未来</div>
+
+        <div class="hero-right reveal">
+          <div class="hero-deco">
+            <div class="deco-ring"></div>
+            <div class="deco-kanji">未来</div>
+            <div class="deco-badge deco-b1">HTML5</div>
+            <div class="deco-badge deco-b2">CSS3</div>
+            <div class="deco-badge deco-b3">JavaScript</div>
+            <div class="deco-badge deco-b4">Linux</div>
+            <div class="deco-badge deco-b5">Git</div>
+          </div>
+        </div>
+
       </div>
+
       <div class="hero-scroll">
         <div class="scroll-line"></div>
         <span>Scroll</span>
       </div>
     </div>
 
-    <div class="section" style="padding-top: 3rem">
+    <!-- ── STATS ── -->
+    <div class="stats-section reveal">
+      <div class="stat-item">
+        <span class="stat-num">BTS</span>
+        <span class="stat-label">SIO en cours</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item">
+        <span class="stat-num">4+</span>
+        <span class="stat-label">Projets réalisés</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item">
+        <span class="stat-num">9+</span>
+        <span class="stat-label">Technologies</span>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item">
+        <span class="stat-num">2026</span>
+        <span class="stat-label">Diplôme visé</span>
+      </div>
+    </div>
+
+    <!-- ── SERVICES ── -->
+    <div class="section" style="padding-top:4rem;">
+      <div class="section-head reveal">
+        <div class="section-tag">Services</div>
+        <div class="section-jp">できること</div>
+        <h2 class="section-title">Ce que je <span>— sais faire</span></h2>
+      </div>
+
+      <div class="services-list">
+        <a class="service-row reveal" href="arsenal.html">
+          <span class="service-num">01</span>
+          <span class="service-name">Développement Web</span>
+          <span class="service-tech">HTML / CSS / JavaScript</span>
+          <span class="service-arrow">↗</span>
+        </a>
+        <a class="service-row reveal" href="arsenal.html">
+          <span class="service-num">02</span>
+          <span class="service-name">Systèmes &amp; Réseaux</span>
+          <span class="service-tech">Linux / Windows / VirtualBox</span>
+          <span class="service-arrow">↗</span>
+        </a>
+        <a class="service-row reveal" href="arsenal.html">
+          <span class="service-num">03</span>
+          <span class="service-name">Cybersécurité</span>
+          <span class="service-tech">Sécurité informatique / BTS SIO</span>
+          <span class="service-arrow">↗</span>
+        </a>
+        <a class="service-row reveal" href="https://github.com/Eotics" target="_blank" rel="noopener noreferrer">
+          <span class="service-num">04</span>
+          <span class="service-name">Outils &amp; Workflow</span>
+          <span class="service-tech">Git / GitHub / VSCode</span>
+          <span class="service-arrow">↗</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- ── APERÇU COMPÉTENCES ── -->
+    <div class="section" style="padding-top:2rem;">
       <div class="section-head reveal">
         <div class="section-tag">Aperçu</div>
         <div class="section-jp">スキルと世界観</div>
-        <h2 class="section-title">
-          Mes compétences <span>— Mon univers</span>
-        </h2>
+        <h2 class="section-title">Mes compétences <span>— Mon univers</span></h2>
       </div>
       <div class="apercu-grid">
         <a class="skill-card reveal" href="arsenal.html">
@@ -71,10 +151,7 @@
           <span class="card-icon">⌨</span>
           <h3>Développement Web</h3>
           <p class="card-sub">HTML / CSS / JS</p>
-          <p>
-            Création de sites modernes, animations, responsive design et
-            interfaces propres.
-          </p>
+          <p>Création de sites modernes, animations, responsive design et interfaces propres.</p>
           <div class="card-kanji-bg">W</div>
         </a>
         <a class="skill-card reveal" href="arsenal.html">
@@ -83,10 +160,7 @@
           <span class="card-icon">🖥</span>
           <h3>Systèmes &amp; Réseaux</h3>
           <p class="card-sub">Linux / Windows</p>
-          <p>
-            Administration, virtualisation, configuration et gestion
-            d'environnements techniques.
-          </p>
+          <p>Administration, virtualisation, configuration et gestion d'environnements techniques.</p>
           <div class="card-kanji-bg">S</div>
         </a>
         <a class="skill-card reveal" href="projects.html">
@@ -95,18 +169,13 @@
           <span class="card-icon">◈</span>
           <h3>Projets &amp; Création</h3>
           <p class="card-sub">Exotic.IA / Portfolio</p>
-          <p>
-            Conception de projets personnels, IA, outils web et expériences
-            interactives.
-          </p>
+          <p>Conception de projets personnels, IA, outils web et expériences interactives.</p>
           <div class="card-kanji-bg">P</div>
         </a>
       </div>
     </div>
 
-    <div class="marquee-wrap">
-      <div class="marquee-track" id="mtrack"></div>
-    </div>
+    <div class="marquee-wrap"><div class="marquee-track" id="mtrack"></div></div>
     <footer>
       <a class="footer-logo" href="index.html">Exotic<span>未来</span></a>
       <div class="footer-right">
