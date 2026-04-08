@@ -212,25 +212,18 @@ main {
   overflow: hidden;
 }
 
-.btn-primary {
+.btn-primary,
+.btn-outline {
   border: 1px solid var(--border);
   color: var(--text);
   -webkit-text-fill-color: var(--text);
 }
 
-.btn-primary:hover {
-  border-color: var(--violet2);
-  color: #fff;
-  -webkit-text-fill-color: #fff;
-}
-
-.btn-outline {
-  border: 1px solid var(--border);
-  color: var(--text);
-}
+.btn-primary:hover,
 .btn-outline:hover {
   border-color: var(--violet2);
   color: #fff;
+  -webkit-text-fill-color: #fff;
   box-shadow: var(--glow);
 }
 
