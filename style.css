@@ -213,15 +213,15 @@ main {
 }
 
 .btn-primary {
-  border-color: var(--neon);
-  color: var(--neon);
-  -webkit-text-fill-color: var(--neon);
+  border: 1px solid var(--border);
+  color: var(--text);
+  -webkit-text-fill-color: var(--text);
 }
 
 .btn-primary:hover {
-  border-color: var(--neon);
-  color: var(--neon);
-  -webkit-text-fill-color: var(--neon);
+  border-color: var(--violet2);
+  color: #fff;
+  -webkit-text-fill-color: #fff;
 }
 
 .btn-outline {
