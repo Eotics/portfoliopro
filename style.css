@@ -215,6 +215,7 @@ main {
 .btn-primary {
   background: linear-gradient(135deg, var(--violet), var(--neon));
   color: #fff;
+  -webkit-text-fill-color: #fff;
   box-shadow: var(--glow);
 }
 
