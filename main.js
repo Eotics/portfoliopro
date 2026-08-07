@@ -82,7 +82,10 @@ function animer() {
 
   requestAnimationFrame(animer);
 }
-animer();
+
+if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+  animer();
+}
 
 
 /* ─── MARQUEE ─── */
@@ -159,6 +162,44 @@ if (zoneTypewriter) {
 
   // On démarre la frappe une fois la page chargée
   window.addEventListener("load", ecrire);
+}
+
+
+/* ─── FORMULAIRE DE CONTACT (EmailJS, contact.html uniquement) ─── */
+
+// 🔧 À remplacer par tes identifiants du dashboard EmailJS (dashboard.emailjs.com)
+const EMAILJS_PUBLIC_KEY = "SAEORvTedlnc9LlZg";
+const EMAILJS_SERVICE_ID = "service_l6w7oxl";
+const EMAILJS_TEMPLATE_ID = "template_bb8gvsn";
+
+const formulaireContact = document.getElementById("contact-form");
+
+if (formulaireContact && window.emailjs) {
+  emailjs.init(EMAILJS_PUBLIC_KEY);
+
+  const statutForm = document.getElementById("cf-status");
+  const boutonEnvoyer = formulaireContact.querySelector("button[type='submit']");
+
+  formulaireContact.addEventListener("submit", function (e) {
+    e.preventDefault();
+    boutonEnvoyer.disabled = true;
+    statutForm.textContent = "Envoi en cours...";
+    statutForm.className = "form-status";
+
+    emailjs.sendForm(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, formulaireContact)
+      .then(function () {
+        statutForm.textContent = "Message envoyé ! Je te réponds vite.";
+        statutForm.className = "form-status success";
+        formulaireContact.reset();
+      })
+      .catch(function () {
+        statutForm.textContent = "Erreur lors de l'envoi. Réessaie ou écris-moi par email.";
+        statutForm.className = "form-status error";
+      })
+      .finally(function () {
+        boutonEnvoyer.disabled = false;
+      });
+  });
 }
 
 
