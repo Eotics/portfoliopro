@@ -252,6 +252,29 @@ if (formulaireContact && window.emailjs) {
 }
 
 
+/* ─── MENU MOBILE (bouton hamburger) ─── */
+
+const boutonMenu = document.getElementById("nav-toggle");
+const listeNavMobile = document.getElementById("nav-links");
+
+if (boutonMenu && listeNavMobile) {
+  boutonMenu.addEventListener("click", function () {
+    const ouvert = listeNavMobile.classList.toggle("open");
+    boutonMenu.classList.toggle("open", ouvert);
+    boutonMenu.setAttribute("aria-expanded", ouvert ? "true" : "false");
+  });
+
+  // Ferme le menu quand on clique un lien
+  listeNavMobile.querySelectorAll("a").forEach(function (lien) {
+    lien.addEventListener("click", function () {
+      listeNavMobile.classList.remove("open");
+      boutonMenu.classList.remove("open");
+      boutonMenu.setAttribute("aria-expanded", "false");
+    });
+  });
+}
+
+
 /* ─── LIEN ACTIF DANS LA NAV ─── */
 
 // On compare l'URL actuelle avec le href de chaque lien
