@@ -467,8 +467,8 @@ footer {
 
 .hero-deco {
   position: relative;
-  width: clamp(340px, 30vw, 520px);
-  height: clamp(340px, 30vw, 520px);
+  width: clamp(380px, 34vw, 580px);
+  height: clamp(380px, 34vw, 580px);
 }
 
 /* Anneaux rotatifs (extérieur + intérieur, sens opposés) */
@@ -482,7 +482,7 @@ footer {
   animation: tourner 22s linear infinite;
 }
 .deco-ring-inner {
-  inset: 22%;
+  inset: 17%;
   animation: tourner 16s linear infinite reverse;
 }
 .deco-ring::before {
@@ -510,7 +510,7 @@ footer {
   align-items: center;
   justify-content: center;
   font-family: "Noto Sans JP", sans-serif;
-  font-size: clamp(5.5rem, 17vw, 9rem);
+  font-size: clamp(4rem, 13vw, 7rem);
   font-weight: 300;
   background: linear-gradient(135deg, var(--violet2), var(--neon));
   -webkit-background-clip: text;
@@ -530,9 +530,9 @@ footer {
 .deco-badge {
   position: absolute;
   font-family: "JetBrains Mono", monospace;
-  font-size: 0.6rem;
-  letter-spacing: 0.06em;
-  padding: 4px 10px;
+  font-size: 0.56rem;
+  letter-spacing: 0.02em;
+  padding: 4px 8px;
   border: 1px solid var(--border);
   background: var(--bg2);
   color: var(--violet2);

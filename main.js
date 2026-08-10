@@ -99,7 +99,7 @@ if (conteneurBadges) {
     "MySQL", "MariaDB", "JSON",
   ];
   const competencesSys = [
-    "Cisco", "Admin réseau", "VLAN", "DNS", "Pare-feu", "Windows Server",
+    "Cisco", "Réseau", "VLAN", "DNS", "Pare-feu", "Windows",
     "Linux", "VirtualBox", "VMware", "Support IT", "Montage PC",
   ];
 
@@ -122,7 +122,7 @@ if (conteneurBadges) {
   }
 
   placerSurCercle(competencesDev, 47, 0);
-  placerSurCercle(competencesSys, 24, 0.4);
+  placerSurCercle(competencesSys, 32, 0.4);
 }
 
 
