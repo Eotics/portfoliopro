@@ -88,6 +88,44 @@ if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
 }
 
 
+/* ─── BADGES DE COMPÉTENCES EN ORBITE (index.html uniquement) ─── */
+
+const conteneurBadges = document.getElementById("deco-badges");
+
+if (conteneurBadges) {
+  const competencesDev = [
+    "HTML/CSS", "JavaScript", "Node.js", "Python", "Java", "C++",
+    "Git/GitHub", "PHP", "Tailwind", "API REST", "AJAX", "SQL",
+    "MySQL", "MariaDB", "JSON",
+  ];
+  const competencesSys = [
+    "Cisco", "Admin réseau", "VLAN", "DNS", "Pare-feu", "Windows Server",
+    "Linux", "VirtualBox", "VMware", "Support IT", "Montage PC",
+  ];
+
+  // Place une liste de badges à égale distance les uns des autres sur un cercle
+  function placerSurCercle(liste, rayonPourcent, delaiDepart) {
+    const total = liste.length;
+    liste.forEach(function (nom, i) {
+      const angle = (i / total) * 2 * Math.PI - Math.PI / 2;
+      const x = 50 + rayonPourcent * Math.cos(angle);
+      const y = 50 + rayonPourcent * Math.sin(angle);
+
+      const badge = document.createElement("div");
+      badge.className = "deco-badge";
+      badge.textContent = nom;
+      badge.style.left = x + "%";
+      badge.style.top = y + "%";
+      badge.style.animationDelay = delaiDepart + i * 0.12 + "s";
+      conteneurBadges.appendChild(badge);
+    });
+  }
+
+  placerSurCercle(competencesDev, 47, 0);
+  placerSurCercle(competencesSys, 24, 0.4);
+}
+
+
 /* ─── MARQUEE ─── */
 
 const mots = [
@@ -192,7 +230,8 @@ if (formulaireContact && window.emailjs) {
         statutForm.className = "form-status success";
         formulaireContact.reset();
       })
-      .catch(function () {
+      .catch(function (erreur) {
+        console.error("Erreur EmailJS :", erreur);
         statutForm.textContent = "Erreur lors de l'envoi. Réessaie ou écris-moi par email.";
         statutForm.className = "form-status error";
       })

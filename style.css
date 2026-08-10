@@ -467,17 +467,23 @@ footer {
 
 .hero-deco {
   position: relative;
-  width: 320px;
-  height: 320px;
+  width: clamp(340px, 30vw, 520px);
+  height: clamp(340px, 30vw, 520px);
 }
 
-/* Anneau rotatif */
+/* Anneaux rotatifs (extérieur + intérieur, sens opposés) */
 .deco-ring {
   position: absolute;
-  inset: 0;
   border-radius: 50%;
   border: 1px solid var(--border);
-  animation: tourner 18s linear infinite;
+}
+.deco-ring-outer {
+  inset: 0;
+  animation: tourner 22s linear infinite;
+}
+.deco-ring-inner {
+  inset: 22%;
+  animation: tourner 16s linear infinite reverse;
 }
 .deco-ring::before {
   content: "";
@@ -504,7 +510,7 @@ footer {
   align-items: center;
   justify-content: center;
   font-family: "Noto Sans JP", sans-serif;
-  font-size: 9rem;
+  font-size: clamp(5.5rem, 17vw, 9rem);
   font-weight: 300;
   background: linear-gradient(135deg, var(--violet2), var(--neon));
   -webkit-background-clip: text;
@@ -514,27 +520,28 @@ footer {
   user-select: none;
 }
 
-/* Badges flottants autour du kanji */
+/* Conteneur des badges de compétences, généré en JS (main.js) */
+.deco-badges {
+  position: absolute;
+  inset: 0;
+}
+
+/* Badges flottants autour du kanji — position (left/top) posée en JS */
 .deco-badge {
   position: absolute;
   font-family: "JetBrains Mono", monospace;
-  font-size: 0.62rem;
-  letter-spacing: 0.1em;
-  padding: 5px 12px;
+  font-size: 0.6rem;
+  letter-spacing: 0.06em;
+  padding: 4px 10px;
   border: 1px solid var(--border);
   background: var(--bg2);
   color: var(--violet2);
   white-space: nowrap;
   animation: flotterbadge 3s ease-in-out infinite;
 }
-.deco-b1 { top: 8%;  left: 50%; transform: translateX(-50%); animation-delay: 0s; }
-.deco-b2 { top: 30%; right: -10%; animation-delay: 0.5s; }
-.deco-b3 { bottom: 8%; left: 50%; transform: translateX(-50%); animation-delay: 1s; }
-.deco-b4 { top: 30%; left: -10%; animation-delay: 1.5s; }
-.deco-b5 { bottom: 30%; right: -8%; animation-delay: 2s; }
 @keyframes flotterbadge {
-  0%, 100% { transform: translateY(0) translateX(var(--tx, 0)); }
-  50%       { transform: translateY(-6px) translateX(var(--tx, 0)); }
+  0%, 100% { transform: translate(-50%, -50%) translateY(0); }
+  50%       { transform: translate(-50%, -50%) translateY(-6px); }
 }
 
 /* Indicateur scroll */
