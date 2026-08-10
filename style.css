@@ -211,6 +211,7 @@ main {
   font-weight: 800;
   line-height: 1.1;
   color: #fff;
+  overflow-wrap: break-word;
 }
 
 /* Dégradé sur le texte — technique un peu avancée mais très utilisée */
@@ -432,6 +433,7 @@ footer {
   font-weight: 800;
   line-height: 1.05;
   margin-bottom: 1.5rem;
+  overflow-wrap: break-word;
 }
 .hero-title .line1 { display: block; color: #fff; }
 .hero-title .amp {
@@ -1360,6 +1362,10 @@ footer {
   .hero-btns { flex-direction: column; align-items: stretch; }
   .hero-btns .btn { justify-content: center; }
   .hero-social { flex-wrap: wrap; gap: 1rem; }
+
+  /* Titres : taille minimale plus basse pour éviter de couper les mots longs */
+  .section-title { font-size: clamp(1.7rem, 8vw, 2.4rem); }
+  .hero-title     { font-size: clamp(2.2rem, 9vw, 3rem); }
 }
 
 
