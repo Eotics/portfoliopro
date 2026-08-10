@@ -88,52 +88,51 @@ if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
 }
 
 
-/* ─── BADGES DE COMPÉTENCES EN ORBITE (index.html uniquement) ─── */
+/* ─── TECHNOS PHARES EN ORBITE (index.html uniquement) ─── */
 
-const orbiteExterieure = document.getElementById("orbit-outer");
-const orbiteInterieure = document.getElementById("orbit-inner");
+const orbiteCompetences = document.getElementById("orbit-outer");
 
-if (orbiteExterieure && orbiteInterieure) {
-  const competencesDev = [
-    "HTML/CSS", "JavaScript", "Node.js", "Python", "Java", "C++",
-    "Git/GitHub", "PHP", "Tailwind", "API REST", "AJAX", "SQL",
-    "MySQL", "MariaDB", "JSON",
+if (orbiteCompetences) {
+  // Sélection volontairement limitée aux technos les plus représentatives,
+  // avec leur logo — la liste complète des 26 compétences est sur Arsenal
+  const CDN_ICONES = "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/";
+  const technosPhares = [
+    { nom: "HTML5",   icone: CDN_ICONES + "html5/html5-original.svg" },
+    { nom: "CSS3",    icone: CDN_ICONES + "css3/css3-original.svg" },
+    { nom: "JavaScript", icone: CDN_ICONES + "javascript/javascript-original.svg" },
+    { nom: "Node.js", icone: CDN_ICONES + "nodejs/nodejs-original.svg" },
+    { nom: "Python",  icone: CDN_ICONES + "python/python-original.svg" },
+    { nom: "Git",     icone: CDN_ICONES + "git/git-original.svg" },
+    { nom: "Linux",   icone: CDN_ICONES + "linux/linux-original.svg" },
+    { nom: "MySQL",   icone: CDN_ICONES + "mysql/mysql-original.svg" },
   ];
-  const competencesSys = [
-    "Cisco", "Réseau", "VLAN", "DNS", "Pare-feu", "Windows",
-    "Linux", "VirtualBox", "VMware", "Support IT", "Montage PC",
-  ];
 
-  // Répartit une liste de badges à égale distance sur un cercle, dans un
-  // anneau qui tourne — chaque badge se contre-tourne pour rester lisible
-  function placerEnOrbite(liste, rayonPourcent, delaiDepart, conteneur, classeContreRotation) {
-    const total = liste.length;
-    liste.forEach(function (nom, i) {
-      const angle = (i / total) * 2 * Math.PI - Math.PI / 2;
-      const x = 50 + rayonPourcent * Math.cos(angle);
-      const y = 50 + rayonPourcent * Math.sin(angle);
+  const total = technosPhares.length;
+  const rayonPourcent = 46;
 
-      const wrap = document.createElement("div");
-      wrap.className = "deco-badge-wrap";
-      wrap.style.left = x + "%";
-      wrap.style.top = y + "%";
+  technosPhares.forEach(function (techno, i) {
+    const angle = (i / total) * 2 * Math.PI - Math.PI / 2;
+    const x = 50 + rayonPourcent * Math.cos(angle);
+    const y = 50 + rayonPourcent * Math.sin(angle);
 
-      const contreRotation = document.createElement("div");
-      contreRotation.className = "deco-badge-counter " + classeContreRotation;
+    const wrap = document.createElement("div");
+    wrap.className = "deco-badge-wrap";
+    wrap.style.left = x + "%";
+    wrap.style.top = y + "%";
 
-      const badge = document.createElement("div");
-      badge.className = "deco-badge";
-      badge.textContent = nom;
-      badge.style.animationDelay = delaiDepart + i * 0.12 + "s";
+    const contreRotation = document.createElement("div");
+    contreRotation.className = "deco-badge-counter";
 
-      contreRotation.appendChild(badge);
-      wrap.appendChild(contreRotation);
-      conteneur.appendChild(wrap);
-    });
-  }
+    const badge = document.createElement("div");
+    badge.className = "deco-badge";
+    badge.style.animationDelay = i * 0.15 + "s";
+    badge.innerHTML =
+      '<img src="' + techno.icone + '" alt="" loading="lazy"><span>' + techno.nom + "</span>";
 
-  placerEnOrbite(competencesDev, 47, 0, orbiteExterieure, "counter-outer");
-  placerEnOrbite(competencesSys, 32, 0.4, orbiteInterieure, "counter-inner");
+    contreRotation.appendChild(badge);
+    wrap.appendChild(contreRotation);
+    orbiteCompetences.appendChild(wrap);
+  });
 }
 
 
