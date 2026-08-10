@@ -90,9 +90,10 @@ if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
 
 /* ─── BADGES DE COMPÉTENCES EN ORBITE (index.html uniquement) ─── */
 
-const conteneurBadges = document.getElementById("deco-badges");
+const orbiteExterieure = document.getElementById("orbit-outer");
+const orbiteInterieure = document.getElementById("orbit-inner");
 
-if (conteneurBadges) {
+if (orbiteExterieure && orbiteInterieure) {
   const competencesDev = [
     "HTML/CSS", "JavaScript", "Node.js", "Python", "Java", "C++",
     "Git/GitHub", "PHP", "Tailwind", "API REST", "AJAX", "SQL",
@@ -103,26 +104,36 @@ if (conteneurBadges) {
     "Linux", "VirtualBox", "VMware", "Support IT", "Montage PC",
   ];
 
-  // Place une liste de badges à égale distance les uns des autres sur un cercle
-  function placerSurCercle(liste, rayonPourcent, delaiDepart) {
+  // Répartit une liste de badges à égale distance sur un cercle, dans un
+  // anneau qui tourne — chaque badge se contre-tourne pour rester lisible
+  function placerEnOrbite(liste, rayonPourcent, delaiDepart, conteneur, classeContreRotation) {
     const total = liste.length;
     liste.forEach(function (nom, i) {
       const angle = (i / total) * 2 * Math.PI - Math.PI / 2;
       const x = 50 + rayonPourcent * Math.cos(angle);
       const y = 50 + rayonPourcent * Math.sin(angle);
 
+      const wrap = document.createElement("div");
+      wrap.className = "deco-badge-wrap";
+      wrap.style.left = x + "%";
+      wrap.style.top = y + "%";
+
+      const contreRotation = document.createElement("div");
+      contreRotation.className = "deco-badge-counter " + classeContreRotation;
+
       const badge = document.createElement("div");
       badge.className = "deco-badge";
       badge.textContent = nom;
-      badge.style.left = x + "%";
-      badge.style.top = y + "%";
       badge.style.animationDelay = delaiDepart + i * 0.12 + "s";
-      conteneurBadges.appendChild(badge);
+
+      contreRotation.appendChild(badge);
+      wrap.appendChild(contreRotation);
+      conteneur.appendChild(wrap);
     });
   }
 
-  placerSurCercle(competencesDev, 47, 0);
-  placerSurCercle(competencesSys, 32, 0.4);
+  placerEnOrbite(competencesDev, 47, 0, orbiteExterieure, "counter-outer");
+  placerEnOrbite(competencesSys, 32, 0.4, orbiteInterieure, "counter-inner");
 }
 
 
