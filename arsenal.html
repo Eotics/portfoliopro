@@ -1,112 +1,159 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Compétences et technologies maîtrisées par Philippe Viman — HTML, CSS, JavaScript, Linux, Windows, Git, GitHub, VSCode." />
-<meta name="theme-color" content="#07050f" />
-<link rel="icon" type="image/svg+xml" href="favicon.svg" />
-<title>Arsenal — Exotic未来</title>
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Noto+Sans+JP:wght@300;400;500&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Compétences et technologies maîtrisées par Philippe Viman — HTML, CSS, JavaScript, Linux, Windows, Git, GitHub, VSCode."
+    />
+    <meta name="theme-color" content="#07050f" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <title>Arsenal — Exotic未来</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Noto+Sans+JP:wght@300;400;500&family=JetBrains+Mono:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <canvas id="particles"></canvas>
 
-<canvas id="particles"></canvas>
+    <nav>
+      <a class="nav-logo" href="index.html"
+        >Exotic<span class="kanji">未来</span></a
+      >
+      <button
+        class="nav-toggle"
+        id="nav-toggle"
+        aria-label="Ouvrir le menu"
+        aria-expanded="false"
+      >
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="arsenal.html">Arsenal</a></li>
+        <li><a href="projects.html">Projets</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
 
-
-<nav>
-  <a class="nav-logo" href="index.html">Exotic<span class="kanji">未来</span></a>
-  <button class="nav-toggle" id="nav-toggle" aria-label="Ouvrir le menu" aria-expanded="false">
-    <span></span><span></span><span></span>
-  </button>
-  <ul class="nav-links" id="nav-links">
-    <li><a href="index.html">Accueil</a></li>
-    <li><a href="arsenal.html">Arsenal</a></li>
-    <li><a href="projects.html">Projets</a></li>
-    <li><a href="contact.html">Contact</a></li>
-  </ul>
-</nav>
-
-<div class="section" style="padding-top:8rem; flex:1; display:flex; flex-direction:column; justify-content:center;">
-  <div class="section-head reveal">
-    <div class="section-tag">Arsenal</div>
-    <div class="section-jp">武器庫</div>
-    <h2 class="section-title">Compétences <span>— Technologies — Outils</span></h2>
-  </div>
-
-  <div class="arsenal-grid">
-
-    <a class="arsenal-block reveal" href="projects.html">
-      <div class="arsenal-block-jp">ウェブ開発</div>
-      <h3>Développement Web</h3>
-      <div class="arsenal-block-sub">HTML / CSS / JavaScript</div>
-      <p>Création d'interfaces modernes, responsive design, animations, composants dynamiques.</p>
-      <div class="tags">
-        <span class="tag">HTML5</span><span class="tag">CSS3</span><span class="tag">JavaScript</span>
+    <div
+      class="section"
+      style="
+        padding-top: 8rem;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      "
+    >
+      <div class="section-head reveal">
+        <div class="section-tag">Arsenal</div>
+        <div class="section-jp">武器庫</div>
+        <h2 class="section-title">
+          Compétences <span>— Technologies — Outils</span>
+        </h2>
       </div>
-    </a>
 
-    <a class="arsenal-block reveal" href="projects.html">
-      <div class="arsenal-block-jp">システム管理</div>
-      <h3>Systèmes</h3>
-      <div class="arsenal-block-sub">Linux / Windows</div>
-      <p>Administration, virtualisation, gestion de services, configuration réseau.</p>
-      <div class="tags">
-        <span class="tag">Linux</span><span class="tag">Windows</span><span class="tag">VirtualBox</span>
+      <div class="arsenal-grid">
+        <a class="arsenal-block reveal" href="projects.html">
+          <div class="arsenal-block-jp">ウェブ開発</div>
+          <h3>Développement Web</h3>
+          <div class="arsenal-block-sub">HTML / CSS / JavaScript</div>
+          <p>
+            Création d'interfaces modernes, responsive design, animations,
+            composants dynamiques.
+          </p>
+          <div class="tags">
+            <span class="tag">HTML5</span><span class="tag">CSS3</span
+            ><span class="tag">JavaScript</span>
+          </div>
+        </a>
+
+        <a class="arsenal-block reveal" href="projects.html">
+          <div class="arsenal-block-jp">システム管理</div>
+          <h3>Systèmes</h3>
+          <div class="arsenal-block-sub">Linux / Windows</div>
+          <p>
+            Administration, virtualisation, gestion de services, configuration
+            réseau.
+          </p>
+          <div class="tags">
+            <span class="tag">Linux</span><span class="tag">Windows</span
+            ><span class="tag">VirtualBox</span>
+          </div>
+        </a>
+
+        <a
+          class="arsenal-block reveal"
+          href="https://github.com/Eotics"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <div class="arsenal-block-jp">ツール</div>
+          <h3>Outils &amp; Workflow</h3>
+          <div class="arsenal-block-sub">Git / GitHub / VSCode</div>
+          <p>
+            Gestion de versions, collaboration, documentation, optimisation du
+            workflow.
+          </p>
+          <div class="tags">
+            <span class="tag">Git</span><span class="tag">GitHub</span
+            ><span class="tag">VSCode</span>
+          </div>
+        </a>
       </div>
-    </a>
 
-    <a class="arsenal-block reveal" href="https://github.com/Eotics" target="_blank" rel="noopener noreferrer">
-      <div class="arsenal-block-jp">ツール</div>
-      <h3>Outils &amp; Workflow</h3>
-      <div class="arsenal-block-sub">Git / GitHub / VSCode</div>
-      <p>Gestion de versions, collaboration, documentation, optimisation du workflow.</p>
-      <div class="tags">
-        <span class="tag">Git</span><span class="tag">GitHub</span><span class="tag">VSCode</span>
+      <div class="section-head reveal" style="margin-top: 5rem">
+        <div class="section-tag">Vue complète</div>
+        <div class="section-jp">全スキル</div>
+        <h2 class="section-title">Toutes mes <span>compétences</span></h2>
       </div>
-    </a>
 
-  </div>
-
-  <div class="section-head reveal" style="margin-top:5rem;">
-    <div class="section-tag">Vue complète</div>
-    <div class="section-jp">全スキル</div>
-    <h2 class="section-title">Toutes mes <span>compétences</span></h2>
-  </div>
-
-  <div class="skills-full reveal">
-    <div class="skills-full-group">
-      <div class="skills-full-label">Développement</div>
-      <div class="tags">
-        <span class="tag">HTML/CSS</span><span class="tag">JavaScript</span><span class="tag">Node.js</span>
-        <span class="tag">Python</span><span class="tag">Java</span><span class="tag">C++</span>
-        <span class="tag">Git/GitHub</span><span class="tag">PHP</span><span class="tag">Tailwind</span>
-        <span class="tag">API REST</span><span class="tag">AJAX</span><span class="tag">SQL</span>
-        <span class="tag">MySQL</span><span class="tag">MariaDB</span><span class="tag">JSON</span>
+      <div class="skills-full reveal">
+        <div class="skills-full-group">
+          <div class="skills-full-label">Développement</div>
+          <div class="tags">
+            <span class="tag">HTML/CSS</span><span class="tag">JavaScript</span
+            ><span class="tag">Node.js</span> <span class="tag">Python</span
+            ><span class="tag">Java</span><span class="tag">C++</span>
+            <span class="tag">Git/GitHub</span><span class="tag">PHP</span
+            ><span class="tag">Tailwind</span> <span class="tag">API REST</span
+            ><span class="tag">AJAX</span><span class="tag">SQL</span>
+            <span class="tag">MySQL</span><span class="tag">MariaDB</span
+            ><span class="tag">JSON</span>
+          </div>
+        </div>
+        <div class="skills-full-group">
+          <div class="skills-full-label">Systèmes &amp; Réseau</div>
+          <div class="tags">
+            <span class="tag">Cisco</span
+            ><span class="tag">Administration réseau</span
+            ><span class="tag">VLAN</span> <span class="tag">DNS</span
+            ><span class="tag">Pare-feu</span
+            ><span class="tag">Windows Server</span>
+            <span class="tag">Linux (Debian/Ubuntu/Kali)</span
+            ><span class="tag">VirtualBox</span><span class="tag">VMware</span>
+            <span class="tag">Support IT</span
+            ><span class="tag">Montage PC</span>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="skills-full-group">
-      <div class="skills-full-label">Systèmes &amp; Réseau</div>
-      <div class="tags">
-        <span class="tag">Cisco</span><span class="tag">Administration réseau</span><span class="tag">VLAN</span>
-        <span class="tag">DNS</span><span class="tag">Pare-feu</span><span class="tag">Windows Server</span>
-        <span class="tag">Linux (Debian/Ubuntu/Kali)</span><span class="tag">VirtualBox</span><span class="tag">VMware</span>
-        <span class="tag">Support IT</span><span class="tag">Montage PC</span>
-      </div>
+
+    <div class="marquee-wrap">
+      <div class="marquee-track" id="mtrack"></div>
     </div>
-  </div>
-</div>
+    <footer>
+      <a class="footer-logo" href="index.html">Exotic<span>未来</span></a>
+      <div class="footer-right">
+        <div>© 2026 — Philippe Viman</div>
+        <div class="footer-jp">繋がりから始まるプロジェクト</div>
+      </div>
+    </footer>
 
-<div class="marquee-wrap"><div class="marquee-track" id="mtrack"></div></div>
-<footer>
-  <a class="footer-logo" href="index.html">Exotic<span>未来</span></a>
-  <div class="footer-right">
-    <div>© 2026 — Philippe Viman</div>
-    <div class="footer-jp">繋がりから始まるプロジェクト</div>
-  </div>
-</footer>
-
-<script src="main.js"></script>
-</body>
+    <script src="main.js"></script>
+  </body>
 </html>
