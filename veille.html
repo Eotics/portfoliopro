@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Veille informatique de Philippe Viman — évolution des capacités de Claude (IA d'Anthropic), cybersécurité, passkeys et cloud souverain."
+      content="Veille informatique de Philippe Viman — évolution des Skills de Claude IA, cybersécurité, passkeys et cloud souverain."
     />
     <meta name="theme-color" content="#07050f" />
     <link rel="icon" type="image/svg+xml" href="favicon.svg" />
@@ -40,257 +40,108 @@
       </ul>
     </nav>
 
-    <div class="section" style="padding-top: 8rem; flex: 1">
+    <div class="section" style="padding-top: 8rem">
       <div class="section-head reveal">
-        <div class="section-tag">Veille informatique</div>
+        <div class="section-tag">Veille</div>
         <div class="section-jp">技術監視</div>
         <h2 class="section-title">
-          Veille <span>— Technologique</span>
+          Veille <span>— Informatique — Actualités</span>
         </h2>
-        <p class="veille-intro">
-          Je suis l'actualité de plusieurs sujets qui transforment les métiers
-          de l'informatique. Mon sujet principal est l'évolution des capacités
-          de <strong>Claude</strong>, l'IA d'Anthropic, et en particulier
-          l'arrivée des <strong>Skills</strong> et des agents. Je suis aussi
-          trois sujets liés à la sécurité et aux données.
-        </p>
       </div>
 
-      <!-- ── SUJET PRINCIPAL : CLAUDE ── -->
-      <div class="section-head reveal">
-        <div class="section-tag">Sujet principal</div>
-        <div class="section-jp">人工知能</div>
-        <h2 class="section-title">
-          L'évolution de <span>Claude IA</span>
-        </h2>
-        <p class="veille-intro">
-          En trois ans, Claude est passé d'un simple chatbot à un agent capable
-          d'utiliser des outils, de coder en autonomie et de charger des
-          compétences (Skills) à la demande. Voici les grandes étapes.
-        </p>
-      </div>
-
-      <ol class="timeline">
-        <li class="timeline-item reveal">
-          <div class="timeline-date">Mars 2023</div>
-          <h3>Claude 1 — le premier assistant</h3>
+      <div class="projects-grid">
+        <a
+          class="project-card reveal"
+          href="https://www.anthropic.com/news"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <div class="project-num">01</div>
+          <div class="project-cat">IA — Agents — Skills</div>
+          <div class="project-jp">人工知能</div>
+          <h3>L'évolution de Claude IA</h3>
           <p>
-            Lancement du premier modèle d'Anthropic : un assistant
-            conversationnel centré sur la rédaction, le résumé et la réponse
-            aux questions.
-          </p>
-        </li>
-        <li class="timeline-item reveal">
-          <div class="timeline-date">Juillet 2023</div>
-          <h3>Claude 2 — les longs documents</h3>
-          <p>
-            Fenêtre de contexte de 100 000 tokens : Claude peut lire un livre
-            entier ou une grosse documentation en une seule fois.
-          </p>
-        </li>
-        <li class="timeline-item reveal">
-          <div class="timeline-date">Mars 2024</div>
-          <h3>Claude 3 — Haiku, Sonnet, Opus</h3>
-          <p>
-            Trois tailles de modèles selon le besoin (rapidité ou puissance)
-            et arrivée de la <strong>vision</strong> : Claude comprend les
-            images, schémas et captures d'écran.
-          </p>
-        </li>
-        <li class="timeline-item reveal">
-          <div class="timeline-date">Juin 2024</div>
-          <h3>Claude 3.5 Sonnet &amp; Artifacts</h3>
-          <p>
-            Un grand bond en programmation. Les <strong>Artifacts</strong>
-            affichent du code, des pages web ou des schémas dans une fenêtre à
-            côté de la conversation.
-          </p>
-        </li>
-        <li class="timeline-item reveal">
-          <div class="timeline-date">Octobre 2024</div>
-          <h3>Computer Use — Claude utilise un ordinateur</h3>
-          <p>
-            Claude peut voir un écran, bouger la souris et taper au clavier
-            pour réaliser une tâche dans un logiciel comme le ferait un humain.
-          </p>
-        </li>
-        <li class="timeline-item reveal">
-          <div class="timeline-date">Novembre 2024</div>
-          <h3>MCP — Model Context Protocol</h3>
-          <p>
-            Un protocole ouvert pour connecter une IA à des outils et des
-            données (GitHub, bases de données, Google Drive…). Il est
-            aujourd'hui adopté bien au-delà d'Anthropic.
-          </p>
-        </li>
-        <li class="timeline-item reveal">
-          <div class="timeline-date">Février 2025</div>
-          <h3>Claude 3.7 Sonnet &amp; Claude Code</h3>
-          <p>
-            Le <strong>raisonnement étendu</strong> : Claude peut « réfléchir »
-            avant de répondre. Sortie de <strong>Claude Code</strong>, un agent
-            de développement qui travaille directement dans le terminal.
-          </p>
-        </li>
-        <li class="timeline-item reveal">
-          <div class="timeline-date">Mai 2025</div>
-          <h3>Claude 4 — l'ère des agents</h3>
-          <p>
-            Opus 4 et Sonnet 4 tiennent des tâches longues de plusieurs heures.
-            Claude Code s'intègre à VS Code, JetBrains et GitHub.
-          </p>
-        </li>
-        <li class="timeline-item timeline-item--focus reveal">
-          <div class="timeline-date">Octobre 2025</div>
-          <h3>Agent Skills — des compétences à la demande</h3>
-          <p>
-            Une <strong>Skill</strong> est un dossier qui contient des
-            instructions, des scripts et des ressources. Claude ne la charge
-            que quand la tâche le demande : créer un PowerPoint, remplir un
-            PDF, suivre la charte graphique d'une entreprise… On peut écrire
-            ses propres Skills et les partager avec son équipe.
+            En trois ans, Claude est passé d'un simple chatbot à un agent
+            capable de coder en autonomie (Claude Code), de se connecter à des
+            outils (MCP) et de charger des Skills à la demande. Une Skill est un
+            dossier d'instructions et de scripts qui apprend à l'IA une tâche
+            précise.
           </p>
           <div class="tags">
-            <span class="tag">Instructions</span><span class="tag">Scripts</span
-            ><span class="tag">Chargement à la demande</span>
+            <span class="tag">Claude Code</span><span class="tag">MCP</span
+            ><span class="tag">Agent Skills</span>
           </div>
-        </li>
-        <li class="timeline-item reveal">
-          <div class="timeline-date">Fin 2025 — 2026</div>
-          <h3>Claude 4.5 puis Claude 5</h3>
-          <p>
-            Sonnet 4.5, Haiku 4.5 et Opus 4.5, puis la famille Claude 5. Les
-            agents enchaînent des tâches de plus en plus longues et
-            s'organisent entre eux (un agent principal qui délègue à des
-            sous-agents).
-          </p>
-        </li>
-      </ol>
+          <div class="project-bg-num">01</div>
+        </a>
 
-      <div class="veille-analyse reveal">
-        <div class="skills-full-label">Mon analyse</div>
-        <p>
-          L'IA passe de <em>« répondre à une question »</em> à
-          <em>« réaliser une tâche »</em>. Pour un développeur, le travail
-          change : on écrit moins de code à la main, mais il faut savoir
-          découper un problème, donner le bon contexte à l'IA et
-          <strong>relire et tester</strong> ce qu'elle produit. Les Skills
-          vont dans ce sens : on transmet un savoir-faire à l'IA une seule
-          fois, puis elle le réutilise. Les points de vigilance restent la
-          sécurité des données envoyées, les erreurs possibles (les
-          « hallucinations ») et le cadre légal, comme l'AI Act européen.
-        </p>
-        <div class="tags">
-          <a class="tag" href="https://www.anthropic.com/news" target="_blank" rel="noopener noreferrer">Anthropic News</a>
-          <a class="tag" href="https://docs.claude.com" target="_blank" rel="noopener noreferrer">Documentation Claude</a>
-          <a class="tag" href="https://modelcontextprotocol.io" target="_blank" rel="noopener noreferrer">modelcontextprotocol.io</a>
-          <a class="tag" href="https://www.lemondeinformatique.fr" target="_blank" rel="noopener noreferrer">Le Monde Informatique</a>
-        </div>
-      </div>
-
-      <!-- ── AUTRES SUJETS ── -->
-      <div class="section-head reveal" style="margin-top: 6rem">
-        <div class="section-tag">Autres sujets</div>
-        <div class="section-jp">その他のテーマ</div>
-        <h2 class="section-title">Sécurité <span>&amp; données</span></h2>
-      </div>
-
-      <div class="veille-grid">
-        <article class="veille-card reveal">
-          <div class="arsenal-block-jp">サイバー攻撃</div>
+        <a
+          class="project-card reveal"
+          href="https://www.cert.ssi.gouv.fr"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <div class="project-num">02</div>
+          <div class="project-cat">Sécurité — Menaces — NIS2</div>
+          <div class="project-jp">サイバー攻撃</div>
           <h3>Cybersécurité &amp; ransomwares</h3>
-          <div class="arsenal-block-sub">Menaces / NIS2</div>
           <p>
             Les rançongiciels chiffrent les données d'une organisation et
             exigent une rançon. Hôpitaux, collectivités et PME sont des cibles
-            fréquentes. La directive européenne <strong>NIS2</strong> impose
-            à beaucoup plus d'entreprises de se protéger et de déclarer leurs
-            incidents.
+            fréquentes. La directive européenne NIS2 oblige beaucoup plus
+            d'entreprises à se protéger et à déclarer leurs incidents.
           </p>
-          <ul class="veille-points">
-            <li>Sauvegardes hors ligne et plan de reprise</li>
-            <li>Mises à jour et suivi des failles (CVE)</li>
-            <li>Sensibilisation des utilisateurs au phishing</li>
-          </ul>
           <div class="tags">
-            <a class="tag" href="https://www.cert.ssi.gouv.fr" target="_blank" rel="noopener noreferrer">CERT-FR</a>
-            <a class="tag" href="https://cyber.gouv.fr" target="_blank" rel="noopener noreferrer">ANSSI</a>
-            <a class="tag" href="https://www.cybermalveillance.gouv.fr" target="_blank" rel="noopener noreferrer">Cybermalveillance</a>
+            <span class="tag">Ransomware</span><span class="tag">NIS2</span
+            ><span class="tag">ANSSI</span>
           </div>
-        </article>
+          <div class="project-bg-num">02</div>
+        </a>
 
-        <article class="veille-card reveal">
-          <div class="arsenal-block-jp">認証</div>
+        <a
+          class="project-card reveal"
+          href="https://fidoalliance.org"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <div class="project-num">03</div>
+          <div class="project-cat">Authentification — Passkeys</div>
+          <div class="project-jp">認証</div>
           <h3>La fin des mots de passe</h3>
-          <div class="arsenal-block-sub">Passkeys / FIDO2 / MFA</div>
           <p>
-            Les <strong>passkeys</strong> remplacent le mot de passe par une
-            clé cryptographique stockée sur l'appareil et débloquée par
-            empreinte, visage ou code PIN. Elles résistent au phishing
-            puisqu'il n'y a plus de secret à taper ou à voler.
+            Les passkeys remplacent le mot de passe par une clé cryptographique
+            stockée sur l'appareil et débloquée par empreinte, visage ou code
+            PIN. Il n'y a plus de secret à taper, donc plus rien à voler par
+            phishing.
           </p>
-          <ul class="veille-points">
-            <li>Soutenues par Apple, Google et Microsoft</li>
-            <li>Standards FIDO2 / WebAuthn</li>
-            <li>Approche Zero Trust en entreprise</li>
-          </ul>
           <div class="tags">
-            <a class="tag" href="https://fidoalliance.org" target="_blank" rel="noopener noreferrer">FIDO Alliance</a>
-            <a class="tag" href="https://passkeys.dev" target="_blank" rel="noopener noreferrer">passkeys.dev</a>
+            <span class="tag">Passkeys</span><span class="tag">FIDO2</span
+            ><span class="tag">MFA</span>
           </div>
-        </article>
+          <div class="project-bg-num">03</div>
+        </a>
 
-        <article class="veille-card reveal">
-          <div class="arsenal-block-jp">主権クラウド</div>
+        <a
+          class="project-card reveal"
+          href="https://www.cnil.fr"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <div class="project-num">04</div>
+          <div class="project-cat">Cloud — Données — RGPD</div>
+          <div class="project-jp">主権クラウド</div>
           <h3>Cloud souverain</h3>
-          <div class="arsenal-block-sub">SecNumCloud / RGPD</div>
           <p>
-            Avec le <strong>Cloud Act</strong> américain, les États-Unis
-            peuvent demander l'accès à des données hébergées par leurs
-            entreprises, même en Europe. La France pousse donc des offres
-            qualifiées <strong>SecNumCloud</strong> par l'ANSSI pour les
-            données sensibles.
+            Avec le Cloud Act américain, les États-Unis peuvent demander accès
+            aux données hébergées par leurs entreprises, même en Europe. La
+            France pousse donc des offres qualifiées SecNumCloud pour protéger
+            les données sensibles.
           </p>
-          <ul class="veille-points">
-            <li>Acteurs : OVHcloud, Outscale, Bleu, S3NS</li>
-            <li>RGPD et contrôles de la CNIL</li>
-            <li>Choix d'hébergement pour les données publiques</li>
-          </ul>
           <div class="tags">
-            <a class="tag" href="https://www.cnil.fr" target="_blank" rel="noopener noreferrer">CNIL</a>
-            <a class="tag" href="https://cyber.gouv.fr" target="_blank" rel="noopener noreferrer">ANSSI</a>
-            <a class="tag" href="https://www.lemagit.fr" target="_blank" rel="noopener noreferrer">LeMagIT</a>
+            <span class="tag">SecNumCloud</span><span class="tag">RGPD</span
+            ><span class="tag">Cloud Act</span>
           </div>
-        </article>
-      </div>
-
-      <!-- ── MÉTHODE ── -->
-      <div class="section-head reveal" style="margin-top: 6rem">
-        <div class="section-tag">Méthode</div>
-        <div class="section-jp">方法</div>
-        <h2 class="section-title">Comment je fais <span>ma veille</span></h2>
-      </div>
-
-      <div class="skills-full reveal">
-        <div class="skills-full-group">
-          <div class="skills-full-label">Outils</div>
-          <div class="tags">
-            <span class="tag">Flux RSS (Feedly)</span
-            ><span class="tag">Google Alertes</span
-            ><span class="tag">Newsletters</span>
-            <span class="tag">LinkedIn</span><span class="tag">YouTube</span
-            ><span class="tag">GitHub</span>
-          </div>
-        </div>
-        <div class="skills-full-group">
-          <div class="skills-full-label">Démarche</div>
-          <div class="tags">
-            <span class="tag">Collecter</span><span class="tag">Trier</span
-            ><span class="tag">Vérifier les sources</span>
-            <span class="tag">Synthétiser</span
-            ><span class="tag">Partager</span>
-          </div>
-        </div>
+          <div class="project-bg-num">04</div>
+        </a>
       </div>
     </div>
 
