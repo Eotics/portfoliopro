@@ -1384,6 +1384,171 @@ footer {
 }
 
 /* ══════════════════
+   VEILLE
+══════════════════ */
+
+.veille-intro {
+  margin-top: 1.5rem;
+  max-width: 720px;
+  font-size: 0.95rem;
+  line-height: 1.8;
+  color: rgba(226, 217, 243, 0.65);
+}
+.veille-intro strong {
+  color: #fff;
+}
+
+/* Frise chronologique — ligne verticale + point néon par étape */
+.timeline {
+  list-style: none;
+  position: relative;
+  padding-left: 2.5rem;
+  margin-bottom: 3rem;
+}
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 6px;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: linear-gradient(to bottom, var(--violet), var(--neon), transparent);
+}
+
+.timeline-item {
+  position: relative;
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  padding: 1.5rem 1.8rem;
+  margin-bottom: 1.2rem;
+  transition:
+    border-color 0.3s,
+    box-shadow 0.3s;
+}
+.timeline-item:hover {
+  border-color: var(--violet);
+  box-shadow: var(--glow);
+}
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  left: calc(-2.5rem + 2px);
+  top: 1.9rem;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--neon);
+  box-shadow: 0 0 10px var(--neon);
+}
+
+/* Étape mise en avant (Agent Skills) */
+.timeline-item--focus {
+  border-color: var(--neon);
+  background: linear-gradient(135deg, rgba(124, 58, 237, 0.15), var(--bg2));
+}
+.timeline-item--focus p {
+  margin-bottom: 1rem;
+}
+
+.timeline-date {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--violet2);
+  margin-bottom: 0.5rem;
+}
+.timeline-item h3 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 0.5rem;
+}
+.timeline-item p {
+  font-size: 0.87rem;
+  color: var(--muted);
+  line-height: 1.75;
+}
+.timeline-item strong,
+.veille-card strong,
+.veille-analyse strong {
+  color: var(--text);
+}
+
+.veille-analyse {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--neon);
+  padding: 2rem;
+}
+.veille-analyse p {
+  font-size: 0.92rem;
+  color: rgba(226, 217, 243, 0.7);
+  line-height: 1.85;
+  margin-bottom: 1.5rem;
+}
+.veille-analyse em {
+  color: var(--neon2);
+}
+
+.veille-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.veille-card {
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  transition:
+    border-color 0.3s,
+    box-shadow 0.3s;
+}
+.veille-card:hover {
+  border-color: var(--violet);
+  box-shadow: var(--glow);
+}
+.veille-card h3 {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 0.3rem;
+}
+.veille-card p {
+  font-size: 0.85rem;
+  color: var(--muted);
+  line-height: 1.7;
+  margin-bottom: 1rem;
+}
+
+.veille-points {
+  list-style: none;
+  margin-bottom: 1.5rem;
+  flex: 1;
+}
+.veille-points li {
+  font-size: 0.8rem;
+  color: rgba(226, 217, 243, 0.7);
+  padding: 0.3rem 0 0.3rem 1.2rem;
+  position: relative;
+}
+.veille-points li::before {
+  content: "→";
+  position: absolute;
+  left: 0;
+  color: var(--neon);
+  font-family: "JetBrains Mono", monospace;
+}
+
+/* Les sources sont des liens : on enlève le soulignement */
+a.tag {
+  text-decoration: none;
+}
+
+/* ══════════════════
    RESPONSIVE — mobile (écran < 900px)
 ══════════════════ */
 @media (max-width: 900px) {
@@ -1435,6 +1600,7 @@ footer {
   .apercu-grid,
   .arsenal-grid,
   .projects-grid,
+  .veille-grid,
   .contact-grid,
   .form-row,
   .skills-full {
