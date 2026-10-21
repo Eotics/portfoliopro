@@ -1,0 +1,1557 @@
+{
+ "id": "builtin",
+ "name": "NEXUS Base Pack",
+ "version": "1.2.0",
+ "slots": [
+  {
+   "id": "aura",
+   "name": "Aura",
+   "multiple": true,
+   "zDefault": -20
+  },
+  {
+   "id": "back",
+   "name": "Back",
+   "multiple": true,
+   "zDefault": -12
+  },
+  {
+   "id": "wings",
+   "name": "Wings",
+   "multiple": true,
+   "zDefault": -10
+  },
+  {
+   "id": "tail",
+   "name": "Tail",
+   "multiple": true,
+   "zDefault": -5
+  },
+  {
+   "id": "ears",
+   "name": "Ears",
+   "multiple": true,
+   "zDefault": -2
+  },
+  {
+   "id": "body",
+   "name": "Body",
+   "multiple": false,
+   "required": true,
+   "zDefault": 0,
+   "expressive": true
+  },
+  {
+   "id": "legs",
+   "name": "Legs",
+   "multiple": true,
+   "zDefault": 5
+  },
+  {
+   "id": "shoes",
+   "name": "Shoes",
+   "multiple": true,
+   "zDefault": 6
+  },
+  {
+   "id": "body_accessories",
+   "name": "Body accessories",
+   "multiple": true,
+   "zDefault": 30
+  },
+  {
+   "id": "neck",
+   "name": "Neck",
+   "multiple": true,
+   "zDefault": 35
+  },
+  {
+   "id": "arms",
+   "name": "Arms",
+   "multiple": true,
+   "zDefault": 38
+  },
+  {
+   "id": "face",
+   "name": "Face",
+   "multiple": true,
+   "zDefault": 55
+  },
+  {
+   "id": "eyes",
+   "name": "Eyes",
+   "multiple": false,
+   "expressive": true,
+   "zDefault": 60
+  },
+  {
+   "id": "mouth",
+   "name": "Mouth",
+   "multiple": false,
+   "expressive": true,
+   "zDefault": 62
+  },
+  {
+   "id": "glasses",
+   "name": "Glasses",
+   "multiple": true,
+   "zDefault": 70
+  },
+  {
+   "id": "horns",
+   "name": "Horns",
+   "multiple": true,
+   "zDefault": 75
+  },
+  {
+   "id": "headwear",
+   "name": "Headwear",
+   "multiple": true,
+   "zDefault": 80
+  },
+  {
+   "id": "pet",
+   "name": "Pet",
+   "multiple": true,
+   "zDefault": 85
+  },
+  {
+   "id": "effects",
+   "name": "Effects",
+   "multiple": true,
+   "zDefault": 90
+  },
+  {
+   "id": "particles",
+   "name": "Particles",
+   "multiple": true,
+   "zDefault": 100
+  },
+  {
+   "id": "lighting",
+   "name": "Lighting",
+   "multiple": true,
+   "zDefault": 110
+  },
+  {
+   "id": "custom",
+   "name": "Custom",
+   "multiple": true,
+   "zDefault": 50
+  },
+  {
+   "id": "status",
+   "name": "Status badges",
+   "multiple": false,
+   "expressive": true,
+   "zDefault": 120
+  }
+ ],
+ "assets": [
+  {
+   "id": "nexus_bot",
+   "name": "NEXUS Bot",
+   "category": "body",
+   "assetType": "svg",
+   "source": "nexus_bot.svg",
+   "zIndex": 0,
+   "tintable": true,
+   "colors": {
+    "primary": "#eef2f8",
+    "secondary": "#0b0e14",
+    "accent": "#8fd3ff"
+   },
+   "duplicable": true,
+   "tags": [
+    "robot",
+    "default"
+   ]
+  },
+  {
+   "id": "white_blob",
+   "name": "White Blob",
+   "category": "body",
+   "assetType": "svg",
+   "source": "white_blob.svg",
+   "zIndex": 0,
+   "tintable": true,
+   "colors": {
+    "primary": "#f7f8fb"
+   },
+   "duplicable": true,
+   "tags": [
+    "blob",
+    "cute"
+   ]
+  },
+  {
+   "id": "ghost",
+   "name": "Ghost",
+   "category": "body",
+   "assetType": "svg",
+   "source": "ghost.svg",
+   "zIndex": 0,
+   "tintable": true,
+   "colors": {
+    "primary": "#f2f4ff"
+   },
+   "duplicable": true,
+   "tags": [
+    "ghost",
+    "spooky"
+   ]
+  },
+  {
+   "id": "cube",
+   "name": "Cube",
+   "category": "body",
+   "assetType": "svg",
+   "source": "cube.svg",
+   "zIndex": 0,
+   "tintable": true,
+   "colors": {
+    "primary": "#e9f6ff"
+   },
+   "duplicable": true,
+   "tags": [
+    "cube"
+   ]
+  },
+  {
+   "id": "nexus_eyes",
+   "name": "NEXUS Eyes",
+   "category": "eyes",
+   "assetType": "svg",
+   "source": "nexus_eyes.svg",
+   "zIndex": 60,
+   "tintable": true,
+   "colors": {
+    "primary": "#8fd3ff"
+   },
+   "duplicable": true,
+   "tags": [
+    "default",
+    "glow"
+   ],
+   "variants": {
+    "happy": "nexus_eyes__happy.svg",
+    "focused": "nexus_eyes__focused.svg",
+    "concerned": "nexus_eyes__concerned.svg",
+    "curious": "nexus_eyes__curious.svg",
+    "thinking": "nexus_eyes__thinking.svg",
+    "surprised": "nexus_eyes__surprised.svg",
+    "sleepy": "nexus_eyes__sleepy.svg",
+    "neutral": "nexus_eyes__neutral.svg",
+    "proud": "nexus_eyes__proud.svg"
+   },
+   "offset": {
+    "x": 0,
+    "y": 5
+   }
+  },
+  {
+   "id": "round_eyes",
+   "name": "Round Eyes",
+   "category": "eyes",
+   "assetType": "svg",
+   "source": "round_eyes.svg",
+   "zIndex": 60,
+   "tintable": true,
+   "colors": {
+    "primary": "#1b1f2a"
+   },
+   "duplicable": true,
+   "tags": [
+    "cute"
+   ],
+   "variants": {
+    "happy": "round_eyes__happy.svg",
+    "focused": "round_eyes__focused.svg",
+    "concerned": "round_eyes__concerned.svg",
+    "curious": "round_eyes__curious.svg",
+    "thinking": "round_eyes__thinking.svg",
+    "surprised": "round_eyes__surprised.svg",
+    "sleepy": "round_eyes__sleepy.svg",
+    "neutral": "round_eyes__neutral.svg",
+    "proud": "round_eyes__proud.svg"
+   },
+   "offset": {
+    "x": 0,
+    "y": 5
+   }
+  },
+  {
+   "id": "star_eyes",
+   "name": "Star Eyes",
+   "category": "eyes",
+   "assetType": "svg",
+   "source": "star_eyes.svg",
+   "zIndex": 60,
+   "tintable": true,
+   "colors": {
+    "primary": "#ffd34d"
+   },
+   "duplicable": true,
+   "tags": [
+    "fun"
+   ],
+   "variants": {
+    "happy": "star_eyes__happy.svg",
+    "proud": "star_eyes__proud.svg",
+    "surprised": "star_eyes__surprised.svg",
+    "sleepy": "star_eyes__sleepy.svg",
+    "neutral": "star_eyes__neutral.svg"
+   },
+   "offset": {
+    "x": 0,
+    "y": 5
+   }
+  },
+  {
+   "id": "smile_mouth",
+   "name": "Smile",
+   "category": "mouth",
+   "assetType": "svg",
+   "source": "smile_mouth.svg",
+   "zIndex": 62,
+   "tintable": true,
+   "colors": {
+    "primary": "#1b1f2a"
+   },
+   "duplicable": true,
+   "variants": {
+    "happy": "smile_mouth__happy.svg",
+    "focused": "smile_mouth__focused.svg",
+    "concerned": "smile_mouth__concerned.svg",
+    "curious": "smile_mouth__curious.svg",
+    "thinking": "smile_mouth__thinking.svg",
+    "surprised": "smile_mouth__surprised.svg",
+    "sleepy": "smile_mouth__sleepy.svg",
+    "neutral": "smile_mouth__neutral.svg",
+    "proud": "smile_mouth__proud.svg"
+   },
+   "offset": {
+    "x": 0,
+    "y": 5
+   }
+  },
+  {
+   "id": "cat_mouth",
+   "name": "Cat Mouth",
+   "category": "mouth",
+   "assetType": "svg",
+   "source": "cat_mouth.svg",
+   "zIndex": 62,
+   "tintable": true,
+   "colors": {
+    "primary": "#1b1f2a"
+   },
+   "duplicable": true,
+   "variants": {
+    "happy": "cat_mouth__happy.svg",
+    "concerned": "cat_mouth__concerned.svg"
+   },
+   "offset": {
+    "x": 0,
+    "y": 5
+   }
+  },
+  {
+   "id": "fangs",
+   "name": "Little Fangs",
+   "category": "mouth",
+   "assetType": "svg",
+   "source": "fangs.svg",
+   "zIndex": 62,
+   "tintable": true,
+   "colors": {
+    "primary": "#1b1f2a"
+   },
+   "duplicable": true,
+   "tags": [
+    "vampire"
+   ],
+   "offset": {
+    "x": 0,
+    "y": 5
+   }
+  },
+  {
+   "id": "cat_ears",
+   "name": "Cat Ears",
+   "category": "ears",
+   "assetType": "svg",
+   "source": "cat_ears.svg",
+   "zIndex": -2,
+   "tintable": true,
+   "colors": {
+    "primary": "#f7f8fb",
+    "secondary": "#ffb3c7"
+   },
+   "mirrorable": true,
+   "duplicable": true,
+   "tags": [
+    "cat"
+   ],
+   "offset": {
+    "x": 0,
+    "y": 13
+   }
+  },
+  {
+   "id": "bunny_ears",
+   "name": "Bunny Ears",
+   "category": "ears",
+   "assetType": "svg",
+   "source": "bunny_ears.svg",
+   "zIndex": -2,
+   "tintable": true,
+   "colors": {
+    "primary": "#f7f8fb",
+    "secondary": "#ffc2d1"
+   },
+   "duplicable": true,
+   "tags": [
+    "bunny"
+   ],
+   "offset": {
+    "x": 0,
+    "y": 13
+   }
+  },
+  {
+   "id": "bear_ears",
+   "name": "Bear Ears",
+   "category": "ears",
+   "assetType": "svg",
+   "source": "bear_ears.svg",
+   "zIndex": -2,
+   "tintable": true,
+   "colors": {
+    "primary": "#c98d5a",
+    "secondary": "#8a5a36"
+   },
+   "duplicable": true,
+   "tags": [
+    "bear"
+   ],
+   "offset": {
+    "x": 0,
+    "y": 13
+   }
+  },
+  {
+   "id": "devil_horns",
+   "name": "Devil Horns",
+   "category": "horns",
+   "assetType": "svg",
+   "source": "devil_horns.svg",
+   "zIndex": 75,
+   "tintable": true,
+   "colors": {
+    "primary": "#e0384c"
+   },
+   "mirrorable": true,
+   "duplicable": true,
+   "tags": [
+    "demon"
+   ],
+   "offset": {
+    "x": 0,
+    "y": 13
+   }
+  },
+  {
+   "id": "unicorn_horn",
+   "name": "Unicorn Horn",
+   "category": "horns",
+   "assetType": "svg",
+   "source": "unicorn_horn.svg",
+   "zIndex": 75,
+   "tintable": true,
+   "colors": {
+    "primary": "#ffe9a8",
+    "secondary": "#f0b8ff"
+   },
+   "duplicable": true,
+   "tags": [
+    "unicorn"
+   ],
+   "offset": {
+    "x": 0,
+    "y": 13
+   }
+  },
+  {
+   "id": "dragon_wings",
+   "name": "Dragon Wings",
+   "category": "wings",
+   "assetType": "svg",
+   "source": "dragon_wings.svg",
+   "zIndex": -10,
+   "tintable": true,
+   "colors": {
+    "primary": "#d6304a",
+    "secondary": "#7a0f22"
+   },
+   "mirrorable": true,
+   "duplicable": true,
+   "tags": [
+    "dragon"
+   ]
+  },
+  {
+   "id": "dragon_wing_single",
+   "name": "Dragon Wing (single)",
+   "category": "wings",
+   "assetType": "svg",
+   "source": "dragon_wing_single.svg",
+   "zIndex": -10,
+   "tintable": true,
+   "colors": {
+    "primary": "#d6304a",
+    "secondary": "#7a0f22"
+   },
+   "mirrorable": true,
+   "duplicable": true,
+   "tags": [
+    "dragon",
+    "single"
+   ]
+  },
+  {
+   "id": "angel_wings",
+   "name": "Angel Wings",
+   "category": "wings",
+   "assetType": "svg",
+   "source": "angel_wings.svg",
+   "zIndex": -10,
+   "tintable": true,
+   "colors": {
+    "primary": "#ffffff",
+    "secondary": "#cfe3ff"
+   },
+   "mirrorable": true,
+   "duplicable": true,
+   "tags": [
+    "angel"
+   ]
+  },
+  {
+   "id": "demon_tail",
+   "name": "Demon Tail",
+   "category": "tail",
+   "assetType": "svg",
+   "source": "demon_tail.svg",
+   "zIndex": -5,
+   "tintable": true,
+   "colors": {
+    "primary": "#e0384c"
+   },
+   "mirrorable": true,
+   "duplicable": true,
+   "tags": [
+    "demon"
+   ]
+  },
+  {
+   "id": "cat_tail",
+   "name": "Cat Tail",
+   "category": "tail",
+   "assetType": "svg",
+   "source": "cat_tail.svg",
+   "zIndex": -5,
+   "tintable": true,
+   "colors": {
+    "primary": "#f7f8fb"
+   },
+   "mirrorable": true,
+   "duplicable": true,
+   "tags": [
+    "cat"
+   ]
+  },
+  {
+   "id": "fox_tail",
+   "name": "Fox Tail",
+   "category": "tail",
+   "assetType": "svg",
+   "source": "fox_tail.svg",
+   "zIndex": -5,
+   "tintable": true,
+   "colors": {
+    "primary": "#f08a3c",
+    "secondary": "#ffffff"
+   },
+   "mirrorable": true,
+   "duplicable": true,
+   "tags": [
+    "fox"
+   ]
+  },
+  {
+   "id": "crown",
+   "name": "Royal Crown",
+   "category": "headwear",
+   "assetType": "svg",
+   "source": "crown.svg",
+   "zIndex": 80,
+   "tintable": true,
+   "colors": {
+    "primary": "#ffcc33",
+    "secondary": "#b8860b",
+    "accent": "#e0384c"
+   },
+   "duplicable": true,
+   "tags": [
+    "royal"
+   ],
+   "offset": {
+    "x": 0,
+    "y": 13
+   }
+  },
+  {
+   "id": "wizard_hat",
+   "name": "Wizard Hat",
+   "category": "headwear",
+   "assetType": "svg",
+   "source": "wizard_hat.svg",
+   "zIndex": 80,
+   "tintable": true,
+   "colors": {
+    "primary": "#4b3ab8",
+    "secondary": "#ffd34d"
+   },
+   "duplicable": true,
+   "tags": [
+    "magic"
+   ],
+   "offset": {
+    "x": 0,
+    "y": 13
+   }
+  },
+  {
+   "id": "cap",
+   "name": "Cap",
+   "category": "headwear",
+   "assetType": "svg",
+   "source": "cap.svg",
+   "zIndex": 80,
+   "tintable": true,
+   "colors": {
+    "primary": "#2f6fe0",
+    "secondary": "#1d4fae"
+   },
+   "mirrorable": true,
+   "duplicable": true,
+   "offset": {
+    "x": 0,
+    "y": 13
+   }
+  },
+  {
+   "id": "halo",
+   "name": "Halo",
+   "category": "headwear",
+   "assetType": "svg",
+   "source": "halo.svg",
+   "zIndex": 80,
+   "tintable": true,
+   "colors": {
+    "primary": "#ffe680"
+   },
+   "duplicable": true,
+   "tags": [
+    "angel"
+   ],
+   "offset": {
+    "x": 0,
+    "y": 13
+   }
+  },
+  {
+   "id": "round_glasses",
+   "name": "Round Glasses",
+   "category": "glasses",
+   "assetType": "svg",
+   "source": "round_glasses.svg",
+   "zIndex": 70,
+   "tintable": true,
+   "colors": {
+    "primary": "#2b2b36",
+    "secondary": "#9fd8ff"
+   },
+   "duplicable": true,
+   "offset": {
+    "x": 0,
+    "y": 5
+   }
+  },
+  {
+   "id": "sunglasses",
+   "name": "Sunglasses",
+   "category": "glasses",
+   "assetType": "svg",
+   "source": "sunglasses.svg",
+   "zIndex": 70,
+   "tintable": true,
+   "colors": {
+    "primary": "#14161c"
+   },
+   "duplicable": true,
+   "tags": [
+    "cool"
+   ],
+   "offset": {
+    "x": 0,
+    "y": 5
+   }
+  },
+  {
+   "id": "monocle",
+   "name": "Monocle",
+   "category": "glasses",
+   "assetType": "svg",
+   "source": "monocle.svg",
+   "zIndex": 70,
+   "tintable": true,
+   "colors": {
+    "primary": "#c9a227"
+   },
+   "mirrorable": true,
+   "duplicable": true,
+   "tags": [
+    "fancy"
+   ],
+   "offset": {
+    "x": 0,
+    "y": 5
+   }
+  },
+  {
+   "id": "blush",
+   "name": "Blush",
+   "category": "face",
+   "assetType": "svg",
+   "source": "blush.svg",
+   "zIndex": 55,
+   "tintable": true,
+   "colors": {
+    "primary": "#ff8fa8"
+   },
+   "duplicable": true,
+   "tags": [
+    "cute"
+   ],
+   "offset": {
+    "x": 0,
+    "y": 6
+   }
+  },
+  {
+   "id": "mustache",
+   "name": "Mustache",
+   "category": "face",
+   "assetType": "svg",
+   "source": "mustache.svg",
+   "zIndex": 64,
+   "tintable": true,
+   "colors": {
+    "primary": "#4a3426"
+   },
+   "duplicable": true,
+   "tags": [
+    "funny"
+   ],
+   "offset": {
+    "x": 0,
+    "y": 6
+   }
+  },
+  {
+   "id": "scarf",
+   "name": "Scarf",
+   "category": "neck",
+   "assetType": "svg",
+   "source": "scarf.svg",
+   "zIndex": 35,
+   "tintable": true,
+   "colors": {
+    "primary": "#e0384c",
+    "secondary": "#ffffff"
+   },
+   "mirrorable": true,
+   "duplicable": true,
+   "offset": {
+    "x": 0,
+    "y": 4
+   }
+  },
+  {
+   "id": "bowtie",
+   "name": "Bow Tie",
+   "category": "neck",
+   "assetType": "svg",
+   "source": "bowtie.svg",
+   "zIndex": 35,
+   "tintable": true,
+   "colors": {
+    "primary": "#7c3aed",
+    "secondary": "#5b21b6"
+   },
+   "duplicable": true,
+   "tags": [
+    "fancy"
+   ],
+   "offset": {
+    "x": 0,
+    "y": 4
+   }
+  },
+  {
+   "id": "backpack",
+   "name": "Backpack",
+   "category": "back",
+   "assetType": "svg",
+   "source": "backpack.svg",
+   "zIndex": -8,
+   "tintable": true,
+   "colors": {
+    "primary": "#f08a3c",
+    "secondary": "#c25e18"
+   },
+   "mirrorable": true,
+   "duplicable": true
+  },
+  {
+   "id": "cape",
+   "name": "Cape",
+   "category": "back",
+   "assetType": "svg",
+   "source": "cape.svg",
+   "zIndex": -12,
+   "tintable": true,
+   "colors": {
+    "primary": "#b3123a",
+    "secondary": "#ffcc33"
+   },
+   "duplicable": true,
+   "tags": [
+    "hero"
+   ]
+  },
+  {
+   "id": "little_arms",
+   "name": "Little Arms",
+   "category": "arms",
+   "assetType": "svg",
+   "source": "little_arms.svg",
+   "zIndex": 38,
+   "tintable": true,
+   "colors": {
+    "primary": "#eef2f8"
+   },
+   "mirrorable": true,
+   "duplicable": true
+  },
+  {
+   "id": "little_feet",
+   "name": "Little Feet",
+   "category": "legs",
+   "assetType": "svg",
+   "source": "little_feet.svg",
+   "zIndex": 5,
+   "tintable": true,
+   "colors": {
+    "primary": "#dfe5ee"
+   },
+   "duplicable": true
+  },
+  {
+   "id": "tiny_ghost",
+   "name": "Tiny Ghost Pet",
+   "category": "pet",
+   "assetType": "svg",
+   "source": "tiny_ghost.svg",
+   "zIndex": 85,
+   "tintable": true,
+   "colors": {
+    "primary": "#ffffff"
+   },
+   "duplicable": true,
+   "tags": [
+    "pet"
+   ]
+  },
+  {
+   "id": "purple_aura",
+   "name": "Purple Aura",
+   "category": "aura",
+   "assetType": "svg",
+   "source": "purple_aura.svg",
+   "zIndex": -20,
+   "tintable": true,
+   "colors": {
+    "primary": "#8b5cf6",
+    "secondary": "#c084fc"
+   },
+   "duplicable": true,
+   "tags": [
+    "aura"
+   ]
+  },
+  {
+   "id": "blue_aura",
+   "name": "Blue Aura",
+   "category": "aura",
+   "assetType": "svg",
+   "source": "blue_aura.svg",
+   "zIndex": -20,
+   "tintable": true,
+   "colors": {
+    "primary": "#3b82f6",
+    "secondary": "#22d3ee"
+   },
+   "duplicable": true,
+   "tags": [
+    "aura"
+   ]
+  },
+  {
+   "id": "golden_aura",
+   "name": "Golden Aura",
+   "category": "aura",
+   "assetType": "svg",
+   "source": "golden_aura.svg",
+   "zIndex": -20,
+   "tintable": true,
+   "colors": {
+    "primary": "#fbbf24",
+    "secondary": "#fde68a"
+   },
+   "duplicable": true,
+   "tags": [
+    "aura"
+   ]
+  },
+  {
+   "id": "rim_light",
+   "name": "Rim Light",
+   "category": "lighting",
+   "assetType": "svg",
+   "source": "rim_light.svg",
+   "zIndex": 110,
+   "tintable": true,
+   "colors": {
+    "primary": "#8fd3ff"
+   },
+   "duplicable": true
+  },
+  {
+   "id": "stars",
+   "name": "Stars",
+   "category": "effects",
+   "assetType": "svg",
+   "source": "stars.svg",
+   "zIndex": 90,
+   "tintable": true,
+   "colors": {
+    "primary": "#ffd34d"
+   },
+   "duplicable": true,
+   "tags": [
+    "sparkle"
+   ]
+  },
+  {
+   "id": "sparkles",
+   "name": "Sparkles",
+   "category": "effects",
+   "assetType": "svg",
+   "source": "sparkles.svg",
+   "zIndex": 100,
+   "tintable": true,
+   "colors": {
+    "primary": "#ffffff"
+   },
+   "duplicable": true
+  },
+  {
+   "id": "fire",
+   "name": "Fire",
+   "category": "effects",
+   "assetType": "svg",
+   "source": "fire.svg",
+   "zIndex": 90,
+   "tintable": true,
+   "colors": {
+    "primary": "#ff5a1f",
+    "secondary": "#ffd34d"
+   },
+   "duplicable": true,
+   "tags": [
+    "fire"
+   ]
+  },
+  {
+   "id": "hearts",
+   "name": "Hearts",
+   "category": "effects",
+   "assetType": "svg",
+   "source": "hearts.svg",
+   "zIndex": 90,
+   "tintable": true,
+   "colors": {
+    "primary": "#ff4d79"
+   },
+   "duplicable": true,
+   "tags": [
+    "love"
+   ]
+  },
+  {
+   "id": "lightning",
+   "name": "Lightning",
+   "category": "effects",
+   "assetType": "svg",
+   "source": "lightning.svg",
+   "zIndex": 90,
+   "tintable": true,
+   "colors": {
+    "primary": "#ffe14d"
+   },
+   "duplicable": true,
+   "tags": [
+    "storm"
+   ]
+  },
+  {
+   "id": "snow",
+   "name": "Snow",
+   "category": "particles",
+   "assetType": "svg",
+   "source": "snow.svg",
+   "zIndex": 100,
+   "tintable": true,
+   "colors": {
+    "primary": "#ffffff"
+   },
+   "duplicable": true,
+   "tags": [
+    "winter"
+   ]
+  },
+  {
+   "id": "nexus_blob",
+   "name": "NEXUS Blob",
+   "category": "body",
+   "assetType": "svg",
+   "source": "nexus_blob.svg",
+   "zIndex": 0,
+   "tintable": true,
+   "colors": {
+    "primary": "#f4f2ff",
+    "secondary": "#c7c3ff",
+    "accent": "#9cc0ff",
+    "glow": "#6f9bff"
+   },
+   "duplicable": true,
+   "tags": [
+    "blob",
+    "glow",
+    "default"
+   ],
+   "variants": {
+    "concerned": "nexus_blob__concerned.svg"
+   }
+  },
+  {
+   "id": "galaxy_blob",
+   "name": "Galaxy Blob",
+   "category": "body",
+   "assetType": "svg",
+   "source": "galaxy_blob.svg",
+   "zIndex": 0,
+   "tintable": true,
+   "colors": {
+    "primary": "#241a66",
+    "secondary": "#0b0b2a",
+    "accent": "#6a4cff",
+    "glow": "#5b6cff"
+   },
+   "duplicable": true,
+   "tags": [
+    "blob",
+    "space"
+   ]
+  },
+  {
+   "id": "slime_blob",
+   "name": "Slime Blob",
+   "category": "body",
+   "assetType": "svg",
+   "source": "slime_blob.svg",
+   "zIndex": 0,
+   "tintable": true,
+   "colors": {
+    "primary": "#7be36b",
+    "secondary": "#2f9a4a",
+    "accent": "#d6ffb8",
+    "glow": "#5be08a"
+   },
+   "duplicable": true,
+   "tags": [
+    "blob",
+    "slime"
+   ]
+  },
+  {
+   "id": "glow_ghost",
+   "name": "Glow Ghost",
+   "category": "body",
+   "assetType": "svg",
+   "source": "glow_ghost.svg",
+   "zIndex": 0,
+   "tintable": true,
+   "colors": {
+    "primary": "#b8c6ff",
+    "secondary": "#5a6fd6",
+    "accent": "#ffffff",
+    "glow": "#6f8cff"
+   },
+   "duplicable": true,
+   "tags": [
+    "ghost",
+    "spooky",
+    "glow"
+   ]
+  },
+  {
+   "id": "pumpkin_blob",
+   "name": "Pumpkin Blob",
+   "category": "body",
+   "assetType": "svg",
+   "source": "pumpkin_blob.svg",
+   "zIndex": 0,
+   "tintable": true,
+   "colors": {
+    "primary": "#ff9a3c",
+    "secondary": "#d0601a",
+    "accent": "#ffd29a",
+    "glow": "#ff8a3c"
+   },
+   "duplicable": true,
+   "tags": [
+    "blob",
+    "halloween"
+   ]
+  },
+  {
+   "id": "floaty_fins",
+   "name": "Floaty Fins",
+   "category": "arms",
+   "assetType": "svg",
+   "source": "floaty_fins.svg",
+   "zIndex": -3,
+   "tintable": true,
+   "colors": {
+    "primary": "#dcd8ff",
+    "secondary": "#9fe3ff",
+    "glow": "#7aa2ff"
+   },
+   "duplicable": true,
+   "mirrorable": true,
+   "tags": [
+    "blob",
+    "default"
+   ]
+  },
+  {
+   "id": "angel_fins",
+   "name": "Angel Fins",
+   "category": "wings",
+   "assetType": "svg",
+   "source": "angel_fins.svg",
+   "zIndex": -10,
+   "tintable": true,
+   "colors": {
+    "primary": "#e9f0ff",
+    "secondary": "#b9cdf5"
+   },
+   "duplicable": true,
+   "mirrorable": true,
+   "tags": [
+    "angel"
+   ]
+  },
+  {
+   "id": "mini_bat_wings",
+   "name": "Mini Bat Wings",
+   "category": "wings",
+   "assetType": "svg",
+   "source": "mini_bat_wings.svg",
+   "zIndex": -10,
+   "tintable": true,
+   "colors": {
+    "primary": "#2fb5b0",
+    "secondary": "#1a6f7a"
+   },
+   "duplicable": true,
+   "mirrorable": true,
+   "tags": [
+    "dragon",
+    "bat"
+   ]
+  },
+  {
+   "id": "blob_eyes",
+   "name": "Blob Eyes",
+   "category": "eyes",
+   "assetType": "svg",
+   "source": "blob_eyes.svg",
+   "zIndex": 60,
+   "tintable": true,
+   "colors": {
+    "primary": "#12131c"
+   },
+   "duplicable": true,
+   "tags": [
+    "cute",
+    "default"
+   ],
+   "variants": {
+    "happy": "blob_eyes__happy.svg",
+    "proud": "blob_eyes__proud.svg",
+    "focused": "blob_eyes__focused.svg",
+    "concerned": "blob_eyes__concerned.svg",
+    "curious": "blob_eyes__curious.svg",
+    "thinking": "blob_eyes__thinking.svg",
+    "surprised": "blob_eyes__surprised.svg",
+    "sleepy": "blob_eyes__sleepy.svg",
+    "neutral": "blob_eyes__neutral.svg",
+    "dizzy": "blob_eyes__dizzy.svg",
+    "confused": "blob_eyes__confused.svg"
+   },
+   "offset": {
+    "x": 0,
+    "y": 5
+   }
+  },
+  {
+   "id": "tiny_mouth",
+   "name": "Tiny Mouth (expressive)",
+   "category": "mouth",
+   "assetType": "svg",
+   "source": "tiny_mouth.svg",
+   "zIndex": 62,
+   "tintable": true,
+   "colors": {
+    "primary": "#12131c"
+   },
+   "duplicable": true,
+   "tags": [
+    "cute"
+   ],
+   "variants": {
+    "happy": "tiny_mouth__happy.svg",
+    "proud": "tiny_mouth__proud.svg",
+    "surprised": "tiny_mouth__surprised.svg",
+    "curious": "tiny_mouth__curious.svg",
+    "concerned": "tiny_mouth__concerned.svg",
+    "sleepy": "tiny_mouth__sleepy.svg",
+    "talking": "tiny_mouth__talking.svg"
+   },
+   "offset": {
+    "x": 0,
+    "y": 5
+   }
+  },
+  {
+   "id": "status_badges",
+   "name": "Status Badges",
+   "category": "status",
+   "assetType": "svg",
+   "source": "status_badges.svg",
+   "zIndex": 120,
+   "tintable": true,
+   "colors": {
+    "primary": "#a9d4ff",
+    "secondary": "#6fa8ff",
+    "accent": "#ffe27a"
+   },
+   "duplicable": true,
+   "tags": [
+    "status",
+    "default"
+   ],
+   "variants": {
+    "thinking": "status_badges__thinking.svg",
+    "curious": "status_badges__curious.svg",
+    "happy": "status_badges__happy.svg",
+    "proud": "status_badges__proud.svg",
+    "focused": "status_badges__focused.svg",
+    "surprised": "status_badges__surprised.svg",
+    "concerned": "status_badges__concerned.svg",
+    "sleepy": "status_badges__sleepy.svg"
+   },
+   "offset": {
+    "x": 0,
+    "y": 10
+   }
+  },
+  {
+   "id": "soft_cat_ears",
+   "name": "Soft Cat Ears",
+   "category": "ears",
+   "assetType": "svg",
+   "source": "soft_cat_ears.svg",
+   "zIndex": -2,
+   "tintable": true,
+   "colors": {
+    "primary": "#e9e6ff",
+    "secondary": "#ffb6cf"
+   },
+   "duplicable": true,
+   "mirrorable": true,
+   "tags": [
+    "cat",
+    "blob"
+   ],
+   "offset": {
+    "x": 0,
+    "y": 13
+   }
+  },
+  {
+   "id": "cat_whiskers",
+   "name": "Whiskers",
+   "category": "face",
+   "assetType": "svg",
+   "source": "cat_whiskers.svg",
+   "zIndex": 56,
+   "tintable": true,
+   "colors": {
+    "primary": "#8a8fb5"
+   },
+   "duplicable": true,
+   "tags": [
+    "cat"
+   ],
+   "offset": {
+    "x": 0,
+    "y": 6
+   }
+  },
+  {
+   "id": "dragon_horns",
+   "name": "Dragon Horns",
+   "category": "horns",
+   "assetType": "svg",
+   "source": "dragon_horns.svg",
+   "zIndex": 75,
+   "tintable": true,
+   "colors": {
+    "primary": "#f3e6ff",
+    "secondary": "#ffffff"
+   },
+   "duplicable": true,
+   "tags": [
+    "dragon"
+   ],
+   "offset": {
+    "x": 0,
+    "y": 13
+   }
+  },
+  {
+   "id": "glow_crown",
+   "name": "Glow Crown",
+   "category": "headwear",
+   "assetType": "svg",
+   "source": "glow_crown.svg",
+   "zIndex": 80,
+   "tintable": true,
+   "colors": {
+    "primary": "#ffd54a",
+    "secondary": "#c98a12",
+    "accent": "#ff5577"
+   },
+   "duplicable": true,
+   "tags": [
+    "royal",
+    "glow"
+   ],
+   "offset": {
+    "x": 0,
+    "y": 13
+   }
+  },
+  {
+   "id": "glow_halo",
+   "name": "Glow Halo",
+   "category": "headwear",
+   "assetType": "svg",
+   "source": "glow_halo.svg",
+   "zIndex": 80,
+   "tintable": true,
+   "colors": {
+    "primary": "#ffe680"
+   },
+   "duplicable": true,
+   "tags": [
+    "angel",
+    "glow"
+   ],
+   "offset": {
+    "x": 0,
+    "y": 13
+   }
+  },
+  {
+   "id": "beanie",
+   "name": "Beanie",
+   "category": "headwear",
+   "assetType": "svg",
+   "source": "beanie.svg",
+   "zIndex": 80,
+   "tintable": true,
+   "colors": {
+    "primary": "#3d7be0",
+    "secondary": "#2a5cb0",
+    "accent": "#ffffff"
+   },
+   "duplicable": true,
+   "tags": [
+    "winter"
+   ],
+   "offset": {
+    "x": 0,
+    "y": 13
+   }
+  },
+  {
+   "id": "party_hat",
+   "name": "Party Hat",
+   "category": "headwear",
+   "assetType": "svg",
+   "source": "party_hat.svg",
+   "zIndex": 80,
+   "tintable": true,
+   "colors": {
+    "primary": "#8fb8ff",
+    "secondary": "#ffffff",
+    "accent": "#ff8fd0"
+   },
+   "duplicable": true,
+   "tags": [
+    "party",
+    "fun"
+   ],
+   "offset": {
+    "x": 0,
+    "y": 13
+   }
+  },
+  {
+   "id": "witch_hat",
+   "name": "Witch Hat",
+   "category": "headwear",
+   "assetType": "svg",
+   "source": "witch_hat.svg",
+   "zIndex": 80,
+   "tintable": true,
+   "colors": {
+    "primary": "#6b4ad6",
+    "secondary": "#2a1a66",
+    "accent": "#ffd34d"
+   },
+   "duplicable": true,
+   "tags": [
+    "magic"
+   ],
+   "offset": {
+    "x": 0,
+    "y": 13
+   }
+  },
+  {
+   "id": "astronaut_helmet",
+   "name": "Astronaut Helmet",
+   "category": "headwear",
+   "assetType": "svg",
+   "source": "astronaut_helmet.svg",
+   "zIndex": 95,
+   "tintable": true,
+   "colors": {
+    "primary": "#e8ecf5",
+    "secondary": "#9aa6c4",
+    "accent": "#6fd3ff"
+   },
+   "duplicable": true,
+   "tags": [
+    "space"
+   ],
+   "offset": {
+    "x": 0,
+    "y": 13
+   }
+  },
+  {
+   "id": "gaming_headset",
+   "name": "Gaming Headset",
+   "category": "headwear",
+   "assetType": "svg",
+   "source": "gaming_headset.svg",
+   "zIndex": 82,
+   "tintable": true,
+   "colors": {
+    "primary": "#1c1f2e",
+    "secondary": "#ff4fd8",
+    "accent": "#39e6ff"
+   },
+   "duplicable": true,
+   "tags": [
+    "gaming"
+   ],
+   "offset": {
+    "x": 0,
+    "y": 13
+   }
+  },
+  {
+   "id": "anger_mark",
+   "name": "Anger Mark",
+   "category": "effects",
+   "assetType": "svg",
+   "source": "anger_mark.svg",
+   "zIndex": 90,
+   "tintable": true,
+   "colors": {
+    "primary": "#ff4d5e"
+   },
+   "duplicable": true,
+   "tags": [
+    "emotion"
+   ]
+  },
+  {
+   "id": "orbit_rings",
+   "name": "Orbit Rings",
+   "category": "effects",
+   "assetType": "svg",
+   "source": "orbit_rings.svg",
+   "zIndex": 90,
+   "tintable": true,
+   "colors": {
+    "primary": "#9ecbff"
+   },
+   "duplicable": true,
+   "tags": [
+    "space",
+    "glow"
+   ]
+  }
+ ]
+}

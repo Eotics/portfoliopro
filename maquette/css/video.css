@@ -1,0 +1,933 @@
+/* ==========================================
+   video.css — Plateau 1920×1080 de la vidéo "Exo présente le portfolio"
+   Même thème que maquette.css : katana & sakura, violet en vedette, cadres en verre.
+   Tout est en px : le plateau est mis à l'échelle de la fenêtre par js/video.js
+   Aucune animation CSS : tout est piloté par la timeline GSAP (rendu image par image)
+========================================== */
+
+:root {
+  /* Même palette que le site : nuit sombre, violet en vedette, rose sakura, une pointe de vert */
+  --ink: #09090d;
+  --ink-2: #111116;
+  --ink-3: #19191f;
+  --paper: #f4f4f6;
+  --violet: #8b5cf6;
+  --violet-clair: #c4b5fd;
+  --violet-fonce: #7c3aed;
+  --sakura: #f9c6da;
+  --lime: #bef264; /* uniquement la pastille "disponible" */
+  --text: #dcdce3;
+  --muted: #9a9aa6;
+  --hairline: rgba(255, 255, 255, 0.08);
+  --hairline-strong: rgba(255, 255, 255, 0.18);
+  --glass: rgba(255, 255, 255, 0.05);
+  --glass-border: rgba(255, 255, 255, 0.1);
+
+  --f-display: "Geist", system-ui, sans-serif;
+  --f-body: "Geist", system-ui, sans-serif;
+  --f-mono: "Geist Mono", ui-monospace, monospace;
+  --f-mincho: "Shippori Mincho", "Noto Serif JP", serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #000;
+}
+
+body {
+  font-family: var(--f-body);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+[lang="ja"] {
+  font-family: var(--f-mincho);
+}
+
+/* ─── COUCHES : fond (0) < canvas 3D (1) < pétales (1) < premier plan (2) ─── */
+.plateau {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 1920px;
+  height: 1080px;
+  overflow: hidden;
+  transform-origin: 0 0;
+}
+
+.plateau--fond {
+  z-index: 0;
+  background:
+    radial-gradient(900px 900px at 88% 6%, rgba(139, 92, 246, 0.26), transparent 65%),
+    radial-gradient(760px 760px at 4% 96%, rgba(249, 198, 218, 0.08), transparent 65%),
+    var(--ink);
+}
+
+.plateau--avant {
+  z-index: 2;
+}
+
+#scene3d,
+#sakura {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* ─── FOND ─── */
+.fond__sakura {
+  position: absolute;
+  top: -30px;
+  right: -40px;
+  width: 980px;
+  opacity: 0.85;
+}
+
+.fond__rameau {
+  position: absolute;
+  left: -60px;
+  bottom: -110px;
+  width: 600px;
+  opacity: 0.4;
+  transform: scale(-1, -1);
+}
+
+.fond__kanji {
+  position: absolute;
+  right: -40px;
+  bottom: -120px;
+  font-family: var(--f-mincho) !important;
+  font-size: 560px;
+  font-weight: 800;
+  line-height: 1;
+  color: rgba(139, 92, 246, 0.05);
+  -webkit-text-stroke: 2px rgba(196, 181, 253, 0.1);
+  opacity: 0;
+  white-space: nowrap;
+}
+
+/* ─── ZONES MASCOTTE (invisibles : la 3D se cale dessus) ─── */
+.ecran {
+  position: absolute;
+  inset: 0;
+}
+
+.zone {
+  position: absolute;
+  pointer-events: none;
+}
+
+/* ─── HUD ─── */
+/* Le nom en clair, le pseudo Exotic未来 en petit dessous (discret) */
+.hud-logo {
+  position: absolute;
+  left: 72px;
+  top: 46px;
+  display: grid;
+  line-height: 1.15;
+  font-family: var(--f-display);
+  font-size: 34px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--paper);
+}
+
+.hud-alias {
+  font-family: var(--f-mono);
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.hud-alias [lang="ja"] {
+  margin-left: 4px;
+  letter-spacing: 0.1em;
+  color: var(--violet-clair);
+}
+
+.hud-points {
+  position: absolute;
+  right: 72px;
+  bottom: 54px;
+  display: flex;
+  gap: 12px;
+}
+
+.hud-points li {
+  width: 34px;
+  height: 8px;
+  border-radius: 999px;
+  background: var(--hairline-strong);
+  transform-origin: left center;
+}
+
+.hud-points li.actif {
+  background: var(--violet);
+  box-shadow: 0 0 14px rgba(139, 92, 246, 0.7);
+}
+
+/* ─── SCÈNES ─── */
+.scene {
+  position: absolute;
+  inset: 0;
+  visibility: hidden;
+}
+
+.chap {
+  position: absolute;
+  left: 72px;
+  bottom: 40px;
+  display: flex;
+  align-items: baseline;
+  gap: 18px;
+  font-family: var(--f-display);
+  font-size: 34px;
+  font-weight: 700;
+  color: var(--paper);
+}
+
+.chap b {
+  font-family: var(--f-mono);
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--violet-clair);
+}
+
+.chap span {
+  font-size: 30px;
+  font-weight: 800;
+  color: var(--violet);
+}
+
+.label {
+  font-family: var(--f-mono);
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--violet-clair);
+}
+
+.panneau {
+  position: relative;
+  background: var(--glass);
+  backdrop-filter: blur(20px) saturate(160%);
+  border: 1px solid var(--glass-border);
+  border-radius: 28px;
+  box-shadow: 0 40px 80px -40px rgba(0, 0, 0, 0.85), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.tags li {
+  padding: 4px 12px;
+  font-family: var(--f-mono);
+  font-size: 18px;
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--glass-border);
+  border-radius: 999px;
+}
+
+.mot {
+  display: inline-block;
+}
+
+/* ─── BULLES : ce que dit Exo (cadre en verre + petite queue vers la mascotte) ─── */
+.bulle {
+  position: absolute;
+  z-index: 5;
+  display: grid;
+  place-items: center;
+  min-height: 124px;
+  padding: 30px 48px;
+  background: rgba(17, 17, 22, 0.74);
+  backdrop-filter: blur(20px) saturate(160%);
+  border: 1.5px solid rgba(139, 92, 246, 0.6);
+  border-radius: 34px;
+  box-shadow:
+    0 30px 70px -30px rgba(0, 0, 0, 0.9),
+    0 0 46px -12px rgba(139, 92, 246, 0.7),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  opacity: 0;
+}
+
+/* Nom de celui qui parle */
+.bulle::before {
+  content: "EXO";
+  position: absolute;
+  top: -16px;
+  left: 34px;
+  padding: 3px 14px;
+  font-family: var(--f-mono);
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  color: #fff;
+  background: var(--violet-fonce);
+  border-radius: 999px;
+  box-shadow: 0 6px 18px -6px rgba(139, 92, 246, 0.9);
+}
+
+.bulle::after {
+  content: "";
+  position: absolute;
+  bottom: -14px;
+  width: 26px;
+  height: 26px;
+  background: #18151f;
+  border-right: 1.5px solid rgba(139, 92, 246, 0.6);
+  border-bottom: 1.5px solid rgba(139, 92, 246, 0.6);
+  transform: rotate(45deg);
+}
+
+.queue-bd::after {
+  right: 22%;
+}
+
+.queue-bg::after {
+  left: 22%;
+}
+
+.bulle p {
+  font-family: var(--f-body);
+  font-size: 34px;
+  font-weight: 600;
+  line-height: 1.25;
+  text-align: center;
+  color: var(--paper);
+}
+
+.bulle b {
+  font-weight: 700;
+  color: var(--violet-clair);
+}
+
+/* ─── 01 · ACCUEIL ─── */
+.hero {
+  position: absolute;
+  left: 120px;
+  top: 300px;
+  width: 980px;
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  padding: 10px 22px;
+  font-family: var(--f-mono);
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--paper);
+  border: 1.5px solid var(--hairline-strong);
+  border-radius: 999px;
+  background: rgba(9, 9, 13, 0.6);
+}
+
+.pill__dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--lime);
+  box-shadow: 0 0 0 6px rgba(190, 242, 100, 0.18);
+}
+
+.hero__nom {
+  margin-top: 34px;
+  font-family: var(--f-display);
+  font-size: 128px;
+  font-weight: 700;
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+  color: var(--paper);
+}
+
+.hero__role {
+  margin-top: 18px;
+  font-family: var(--f-display);
+  font-size: 76px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: var(--paper);
+}
+
+.hero__role .amp {
+  color: var(--violet-clair);
+}
+
+.hero__role .neon {
+  font-family: var(--f-mincho);
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  color: var(--violet);
+  text-shadow: 0 0 60px rgba(139, 92, 246, 0.45);
+}
+
+.hero__desc {
+  margin-top: 36px;
+  max-width: 820px;
+  font-size: 28px;
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+/* ─── 02 · PROFIL ─── */
+.fiche {
+  position: absolute;
+  left: 860px;
+  top: 250px;
+  width: 960px;
+  padding: 52px 60px 56px;
+}
+
+.fiche__ruby {
+  font-size: 22px;
+  letter-spacing: 0.3em;
+  color: var(--violet-clair);
+}
+
+.fiche__nom {
+  margin-top: 6px;
+  font-family: var(--f-display);
+  font-size: 84px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: var(--paper);
+}
+
+.fiche__classe {
+  margin-top: 16px;
+  font-family: var(--f-mono);
+  font-size: 22px;
+  color: var(--violet-clair);
+}
+
+.fiche__stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  margin-top: 40px;
+  border-top: 1.5px solid var(--hairline-strong);
+  border-bottom: 1.5px solid var(--hairline-strong);
+}
+
+.fiche__stats > div {
+  padding: 26px 0 24px 24px;
+  border-left: 1.5px solid var(--hairline);
+}
+
+.fiche__stats > div:first-child {
+  padding-left: 0;
+  border-left: 0;
+}
+
+.fiche__stats dt {
+  font-family: var(--f-mono);
+  font-size: 17px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--violet-clair);
+}
+
+.fiche__stats dd {
+  margin-top: 6px;
+  font-family: var(--f-display);
+  font-size: 64px;
+  font-weight: 700;
+  line-height: 1;
+  color: var(--paper);
+}
+
+.fiche__stats small {
+  display: block;
+  margin-top: 8px;
+  font-size: 19px;
+  color: var(--muted);
+}
+
+.fiche__devise {
+  margin-top: 36px;
+  font-family: var(--f-mincho);
+  font-size: 40px;
+  font-weight: 800;
+  color: var(--violet);
+}
+
+/* ─── 03 · ARSENAL ─── */
+.arsenal {
+  position: absolute;
+  left: 110px;
+  top: 220px;
+  width: 1100px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 34px;
+}
+
+.carte {
+  overflow: hidden;
+  min-height: 330px;
+  padding: 38px 40px;
+}
+
+.carte h3 {
+  margin-top: 14px;
+  font-family: var(--f-display);
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: var(--paper);
+}
+
+.carte__tech {
+  margin-top: 10px;
+  font-family: var(--f-mono);
+  font-size: 21px;
+  color: var(--violet-clair);
+}
+
+.carte .tags {
+  margin-top: 26px;
+}
+
+/* Kanji calligraphié en filigrane */
+.carte__kanji {
+  position: absolute;
+  right: 26px;
+  bottom: -18px;
+  font-family: var(--f-mincho) !important;
+  font-size: 120px;
+  font-weight: 800;
+  line-height: 1;
+  color: rgba(139, 92, 246, 0.14);
+  -webkit-text-stroke: 1.5px rgba(196, 181, 253, 0.45);
+}
+
+/* ─── 04 · PROJETS ─── */
+.quetes {
+  position: absolute;
+  left: 110px;
+  top: 340px;
+  display: flex;
+  gap: 30px;
+}
+
+.couv {
+  width: 300px;
+  overflow: hidden;
+  background: var(--glass);
+  backdrop-filter: blur(20px) saturate(160%);
+  border: 1px solid var(--glass-border);
+  border-radius: 26px;
+  /* Même structure d'ombre au repos et en avant (animée par js/video.js) */
+  box-shadow: 0 0 0 0px rgba(139, 92, 246, 0), 0 30px 60px -30px rgba(0, 0, 0, 0.85);
+  transform-origin: 50% 100%;
+}
+
+.couv__art {
+  position: relative;
+  isolation: isolate;
+  height: 240px;
+  margin: 8px 8px 0;
+  overflow: hidden;
+  border-radius: 19px;
+  background-color: var(--ink-3);
+}
+
+/* Illustration de chaque estampe (sous les textes) */
+.couv__art::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-repeat: no-repeat;
+}
+
+.couv--lune .couv__art {
+  background:
+    radial-gradient(circle at 66% 44%, #f5f3ff 0 15%, rgba(196, 181, 253, 0.4) 16%, transparent 32%),
+    linear-gradient(180deg, #3b1f7a 0%, #24164a 55%, #120e1c 100%);
+}
+
+.couv--lune .couv__art::after {
+  background-image: url("../img/sakura-rameau.svg");
+  background-size: 92% auto;
+  background-position: right -30px top -16px;
+}
+
+.couv--sakura .couv__art {
+  background:
+    radial-gradient(120% 90% at 85% 10%, rgba(139, 92, 246, 0.6), transparent 60%),
+    #120e1c;
+}
+
+.couv--sakura .couv__art::after {
+  background-image: url("../img/sakura-branche.svg");
+  background-size: 150% auto;
+  background-position: right -20px top -30px;
+}
+
+.couv--katana .couv__art {
+  background:
+    radial-gradient(80% 70% at 50% 50%, rgba(139, 92, 246, 0.42), transparent 70%),
+    linear-gradient(160deg, #1d1b26, #0d0c12);
+}
+
+.couv--katana .couv__art::after {
+  background-image: url("../img/katana.svg");
+  background-size: 118% auto;
+  background-position: center;
+  filter: drop-shadow(0 0 10px rgba(139, 92, 246, 0.7));
+  transform: rotate(-38deg);
+}
+
+.couv--petales .couv__art {
+  background: linear-gradient(200deg, #6d28d9 0%, #3b1f7a 50%, #160f28 100%);
+}
+
+.couv--petales .couv__art::after {
+  background-image: url("../img/petale.svg"), url("../img/petale.svg"), url("../img/petale.svg"), url("../img/petale.svg"), url("../img/petale.svg"), url("../img/petale.svg"), url("../img/petale.svg"), url("../img/petale.svg"), url("../img/petale.svg");
+  background-size: 30px, 18px, 40px, 14px, 24px, 34px, 16px, 22px, 28px;
+  background-position: 18% 22%, 40% 74%, 58% 32%, 80% 14%, 88% 62%, 46% 92%, 70% 80%, 26% 54%, 66% 54%;
+}
+
+.couv__vol {
+  position: absolute;
+  left: 18px;
+  top: 16px;
+  padding: 4px 12px;
+  font-family: var(--f-mono);
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--paper);
+  background: rgba(9, 9, 13, 0.6);
+  border: 1px solid var(--glass-border);
+  border-radius: 999px;
+}
+
+.couv__vol [lang="ja"] {
+  color: var(--violet-clair);
+}
+
+.couv__kanji {
+  position: absolute;
+  left: 18px;
+  bottom: 16px;
+  writing-mode: vertical-rl;
+  font-family: var(--f-mincho) !important;
+  font-size: 46px;
+  font-weight: 800;
+  line-height: 1.05;
+  color: var(--paper);
+  text-shadow: 0 2px 18px rgba(9, 9, 13, 0.8);
+}
+
+.couv__corps {
+  padding: 22px 22px 26px;
+}
+
+.couv__corps .label {
+  font-size: 13px;
+}
+
+.couv__corps h3 {
+  margin-top: 10px;
+  font-family: var(--f-display);
+  font-size: 27px;
+  font-weight: 700;
+  line-height: 1.05;
+  color: var(--paper);
+}
+
+.couv__corps p:not(.label) {
+  margin-top: 10px;
+  font-size: 18px;
+  line-height: 1.4;
+  color: var(--muted);
+}
+
+.quetes__barre {
+  position: absolute;
+  left: 110px;
+  top: 920px;
+  width: 1290px;
+  height: 8px;
+  overflow: hidden;
+  background: var(--hairline);
+  border-radius: 999px;
+}
+
+.quetes__barre span {
+  display: block;
+  height: 100%;
+  background: linear-gradient(90deg, var(--violet-fonce), var(--violet) 70%, var(--sakura));
+  transform-origin: left center;
+  transform: scaleX(0);
+}
+
+/* ─── 05 · VEILLE ─── */
+.radar {
+  position: absolute;
+  left: 830px;
+  top: 220px;
+  width: 990px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+}
+
+.flash {
+  min-height: 330px;
+  padding: 34px 36px;
+}
+
+.flash__tag {
+  display: inline-block;
+  padding: 4px 12px;
+  font-family: var(--f-mono);
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--violet-clair);
+  background: rgba(139, 92, 246, 0.14);
+  border: 1px solid rgba(139, 92, 246, 0.42);
+  border-radius: 999px;
+}
+
+.flash h3 {
+  margin-top: 18px;
+  font-family: var(--f-display);
+  font-size: 31px;
+  font-weight: 700;
+  line-height: 1.1;
+  color: var(--paper);
+}
+
+.flash p:not(.flash__tag) {
+  margin-top: 12px;
+  font-size: 21px;
+  line-height: 1.45;
+  color: var(--muted);
+}
+
+.flash .flash__src {
+  font-family: var(--f-mono);
+  font-size: 16px !important;
+  color: var(--violet-clair) !important;
+}
+
+/* ─── 06 · CONTACT ─── */
+.finale {
+  position: absolute;
+  left: 120px;
+  top: 300px;
+  width: 980px;
+}
+
+.finale__titre {
+  font-family: var(--f-display);
+  font-size: 128px;
+  font-weight: 700;
+  line-height: 0.98;
+  letter-spacing: -0.04em;
+  color: var(--paper);
+}
+
+.finale__titre em {
+  font-family: var(--f-mincho);
+  font-style: normal;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  color: var(--violet);
+  text-shadow: 0 0 60px rgba(139, 92, 246, 0.45);
+}
+
+.finale__desc {
+  margin-top: 34px;
+  max-width: 780px;
+  font-size: 28px;
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+.finale__mail {
+  display: inline-block;
+  margin-top: 40px;
+  padding: 22px 40px;
+  font-family: var(--f-display);
+  font-size: 38px;
+  font-weight: 700;
+  color: #fff;
+  background: linear-gradient(135deg, var(--violet), var(--violet-fonce) 55%);
+  border: 1px solid rgba(196, 181, 253, 0.35);
+  border-radius: 999px;
+  box-shadow: 0 24px 60px -20px rgba(139, 92, 246, 0.85), inset 0 1px 0 rgba(255, 255, 255, 0.25);
+}
+
+.finale__liens {
+  display: flex;
+  gap: 34px;
+  margin-top: 44px;
+  font-family: var(--f-mono);
+  font-size: 22px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--paper);
+}
+
+.finale__liens li::after {
+  content: " ↗";
+  color: var(--violet-clair);
+}
+
+/* ─── TRANSITION : coup de katana (position, angle et tracé posés par GSAP) ─── */
+.tranche {
+  position: absolute;
+  inset: 0;
+  z-index: 20;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.tranche__eclair {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 50%, rgba(196, 181, 253, 0.35), rgba(139, 92, 246, 0.08) 60%, transparent 80%);
+  opacity: 0;
+}
+
+.tranche__trait,
+.rideau__trait {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 2600px;
+  height: 4px;
+  margin: -2px 0 0 -1300px;
+}
+
+.tranche__trait span,
+.rideau__trait span {
+  display: block;
+  height: 100%;
+  background: linear-gradient(90deg, transparent 8%, #fff 30%, var(--violet-clair) 62%, transparent 92%);
+  box-shadow: 0 0 26px 5px rgba(139, 92, 246, 0.75);
+  transform: scaleX(0);
+  transform-origin: left center;
+}
+
+/* ─── OUVERTURE / FIN : l'écran est tranché en diagonale ─── */
+.rideau {
+  position: absolute;
+  inset: 0;
+  z-index: 30;
+  pointer-events: none;
+}
+
+.rideau__moitie {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(700px 500px at 50% 50%, rgba(139, 92, 246, 0.16), transparent 70%),
+    var(--ink);
+}
+
+.rideau__moitie--haut {
+  clip-path: polygon(0 0, 100% 0, 100% 39.2%, 0 61.2%);
+}
+
+.rideau__moitie--bas {
+  clip-path: polygon(0 60.8%, 100% 38.8%, 100% 100%, 0 100%);
+}
+
+/* Même angle que la découpe : de 61 % (gauche) à 39 % (droite) sur 1920×1080 */
+.rideau__trait {
+  transform: rotate(-7.1deg);
+}
+
+.rideau__intro,
+.rideau__fin {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  text-align: center;
+}
+
+.rideau__chap {
+  font-size: 40px;
+  font-weight: 800;
+  letter-spacing: 0.5em;
+  color: var(--violet-clair);
+}
+
+.rideau__matane {
+  font-family: var(--f-mincho) !important;
+  font-weight: 800;
+  font-size: 180px;
+  line-height: 1;
+  color: var(--violet);
+  text-shadow: 0 0 80px rgba(139, 92, 246, 0.6);
+}
+
+.rideau__titre {
+  font-family: var(--f-display);
+  font-size: 120px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: var(--paper);
+}
+
+
+.rideau__sous {
+  font-family: var(--f-mono);
+  font-size: 24px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.rideau__fin {
+  opacity: 0;
+}
+
+.rideau__fin .rideau__titre {
+  font-size: 84px;
+}

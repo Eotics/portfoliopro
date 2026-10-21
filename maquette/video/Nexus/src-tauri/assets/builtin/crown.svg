@@ -1,0 +1,1 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><path d="M68 52 L72 26 L86 40 L100 20 L114 40 L128 26 L132 52 Z" fill="{{primary}}" stroke="{{secondary}}" stroke-width="2.5" stroke-linejoin="round"/><circle cx="100" cy="42" r="4" fill="{{accent}}"/><circle cx="80" cy="46" r="3" fill="{{accent}}"/><circle cx="120" cy="46" r="3" fill="{{accent}}"/></svg>

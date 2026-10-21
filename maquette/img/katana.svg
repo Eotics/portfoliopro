@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 45" width="640" height="45">
+<defs>
+<linearGradient id="lame" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f4f4f8"/><stop offset=".42" stop-color="#c3c3d1"/><stop offset=".5" stop-color="#9b9bb0"/><stop offset=".62" stop-color="#d9d9e4"/><stop offset="1" stop-color="#ffffff"/></linearGradient>
+<linearGradient id="tsuka" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#a78bfa"/><stop offset=".5" stop-color="#8b5cf6"/><stop offset="1" stop-color="#5b3aa8"/></linearGradient>
+<linearGradient id="metal" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#4a4756"/><stop offset="1" stop-color="#1c1a24"/></linearGradient>
+</defs>
+<path d="M188 18C330 18 480 16 622 9L639 11C633 14 628 16 622 17C480 24 330 27 188 27Z" fill="url(#lame)"/>
+<path d="M190 23.8L200.8 24.87L211.6 24.26L222.4 22.9L233.2 22.89L244 24.19L254.8 24.71L265.6 23.56L276.4 22.43L287.2 22.98L298 24.21L308.8 24.05L319.6 22.57L330.4 21.9L341.2 22.86L352 23.73L362.8 22.89L373.6 21.38L384.4 21.26L395.2 22.4L406 22.68L416.8 21.29L427.6 20.03L438.4 20.45L449.2 21.47L460 21.04L470.8 19.36L481.6 18.54L492.4 19.35L503.2 19.96L514 18.86L524.8 17.16L535.6 16.9L546.4 17.84L557.2 17.84L568 16.21L578.8 14.77L589.6 15.03L600.4 15.81L611.2 15.1L622 13.19" fill="none" stroke="#ffffff" stroke-width=".9" stroke-opacity=".85"/>
+<path d="M188 21.6C330 21.6 480 19.6 622 12.6" fill="none" stroke="#6f6f86" stroke-width=".6" stroke-opacity=".7"/>
+<rect x="176" y="15.5" width="13" height="14" rx="1.5" fill="#d8d8e2"/>
+<ellipse cx="169" cy="22.5" rx="6.5" ry="20" fill="url(#metal)" stroke="#5c5968" stroke-width="1.2"/>
+<ellipse cx="169" cy="22.5" rx="2.2" ry="9" fill="none" stroke="#8b5cf6" stroke-width="1"/>
+<rect x="157" y="14.5" width="6" height="16" rx="1" fill="url(#metal)"/>
+<rect x="20" y="15" width="138" height="15" rx="5" fill="url(#tsuka)"/>
+<g fill="#efeaff" fill-opacity=".9"><path d="M26 22.5L32 17L38 22.5L32 28Z"/><path d="M41 22.5L47 17L53 22.5L47 28Z"/><path d="M56 22.5L62 17L68 22.5L62 28Z"/><path d="M71 22.5L77 17L83 22.5L77 28Z"/><path d="M86 22.5L92 17L98 22.5L92 28Z"/><path d="M101 22.5L107 17L113 22.5L107 28Z"/><path d="M116 22.5L122 17L128 22.5L122 28Z"/><path d="M131 22.5L137 17L143 22.5L137 28Z"/><path d="M146 22.5L152 17L158 22.5L152 28Z"/></g>
+<rect x="9" y="14" width="14" height="17" rx="4" fill="url(#metal)" stroke="#5c5968" stroke-width="1"/>
+</svg>

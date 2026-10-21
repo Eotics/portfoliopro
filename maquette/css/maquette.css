@@ -1,0 +1,1759 @@
+/* ==========================================
+   maquette.css — Exotic未来 · thème katana & sakura, 3D, cadres en verre
+   Système : grille 12 colonnes, échelle typographique fluide,
+   espacements sur une base de 8px. Palette : nuit sombre, le violet en
+   couleur principale, le rose sakura dans les illustrations, une pointe
+   de vert citron. Cadres en verre dépoli (transparence + flou + arrondis
+   + ombres douces).
+========================================== */
+
+:root {
+  /* Couleurs : nuit sombre, le violet en vedette (une seule teinte, en 3 intensités),
+     le rose sakura réservé aux pétales, le vert citron en toute petite touche */
+  --ink: #09090d;
+  --ink-2: #111116;
+  --ink-3: #19191f;
+  --paper: #f4f4f6;
+  --violet: #8b5cf6;
+  --violet-clair: #c4b5fd; /* petits textes violets sur fond sombre */
+  --violet-fonce: #7c3aed; /* fond des boutons : texte blanc bien lisible */
+  --sakura: #f9c6da;
+  --lime: #bef264; /* uniquement : pastille "disponible" + voyant de la mascotte */
+  --text: #dcdce3;
+  --muted: #9a9aa6;
+  --hairline: rgba(255, 255, 255, 0.08);
+  --hairline-strong: rgba(255, 255, 255, 0.18);
+
+  /* Verre (glassmorphism) */
+  --glass: rgba(255, 255, 255, 0.045);
+  --glass-hover: rgba(255, 255, 255, 0.075);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --glass-blur: blur(18px) saturate(160%);
+  --glass-shadow: 0 24px 60px -24px rgba(0, 0, 0, 0.75), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  --radius: 24px;
+  --radius-sm: 14px;
+
+  /* Typographie : Geist (moderne) + Shippori Mincho (serif japonais, trait de pinceau) */
+  --f-display: "Geist", system-ui, sans-serif;
+  --f-body: "Geist", system-ui, sans-serif;
+  --f-mono: "Geist Mono", ui-monospace, monospace;
+  --f-mincho: "Shippori Mincho", "Noto Serif JP", serif;
+  --f-jp: var(--f-mincho);
+
+  --t-xs: 0.75rem;
+  --t-sm: 0.875rem;
+  --t-base: 1rem;
+  --t-md: 1.125rem;
+  --t-lg: 1.375rem;
+  --t-xl: clamp(1.75rem, 2.6vw, 2.25rem);
+  --t-2xl: clamp(2.4rem, 4.6vw, 4.25rem);
+  --t-hero: clamp(2.5rem, 5.4vw, 5.25rem);
+
+  /* Espacements (base 8px) */
+  --s-1: 0.25rem;
+  --s-2: 0.5rem;
+  --s-3: 0.75rem;
+  --s-4: 1rem;
+  --s-5: 1.5rem;
+  --s-6: 2rem;
+  --s-7: 3rem;
+  --s-8: 4rem;
+  --s-9: 6rem;
+
+  /* Mise en page */
+  --container: 1320px;
+  --gutter: clamp(1.25rem, 4vw, 3.5rem);
+  --col-gap: clamp(1rem, 2vw, 2rem);
+  --section-y: clamp(6rem, 14vh, 10rem);
+  --nav-h: 72px;
+
+  /* Mouvement */
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --dur: 0.35s;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  overflow-x: clip;
+  background: var(--ink);
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--f-body);
+  font-size: var(--t-base);
+  line-height: 1.65;
+  background: var(--ink);
+  color: var(--text);
+  overflow-x: clip;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Halos violets (et une lueur rose sakura) derrière le contenu : c'est ce que les cadres en verre floutent */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(42vmax 42vmax at 88% 8%, rgba(139, 92, 246, 0.24), transparent 65%),
+    radial-gradient(36vmax 36vmax at 6% 92%, rgba(249, 198, 218, 0.07), transparent 65%),
+    radial-gradient(30vmax 30vmax at 40% 55%, rgba(139, 92, 246, 0.08), transparent 70%);
+}
+
+a {
+  color: inherit;
+}
+ul {
+  list-style: none;
+}
+[lang="ja"] {
+  font-family: var(--f-jp);
+}
+
+svg {
+  width: 1.1em;
+  height: 1.1em;
+  flex-shrink: 0;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+:focus-visible {
+  outline: 2px solid var(--violet-clair);
+  outline-offset: 4px;
+}
+
+::selection {
+  background: var(--violet);
+  color: var(--paper);
+}
+
+.skip {
+  position: fixed;
+  top: -100px;
+  left: var(--s-4);
+  z-index: 1000;
+  padding: var(--s-3) var(--s-4);
+  background: var(--paper);
+  color: var(--ink);
+  font-weight: 700;
+}
+.skip:focus {
+  top: var(--s-4);
+}
+
+/* ─── GRILLE ─── */
+.container {
+  width: 100%;
+  max-width: calc(var(--container) + var(--gutter) * 2);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: var(--col-gap);
+}
+.col-left {
+  grid-column: 1 / span 7;
+}
+.col-right {
+  grid-column: 7 / span 6;
+}
+
+/* ─── COUCHES : canvas 3D (1) < pétales (1, par-dessus) < contenu (2) < bande (3) < nav (50) ─── */
+#scene3d,
+#sakura {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+}
+main,
+.footer {
+  position: relative;
+  z-index: 2;
+}
+
+.grain {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  pointer-events: none;
+  opacity: 0.06;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ─── ZONES MASCOTTE (vides : la 3D se cale dessus) ─── */
+.stage {
+  position: relative;
+  pointer-events: none;
+}
+.stage--hero {
+  grid-column: 8 / span 5;
+  height: min(64vh, 600px);
+  align-self: center;
+}
+.stage--left {
+  grid-column: 2 / span 4;
+  height: min(60vh, 540px);
+  align-self: center;
+}
+.stage--right {
+  grid-column: 9 / span 4;
+  height: min(60vh, 540px);
+  align-self: center;
+}
+.stage--sticky {
+  position: sticky;
+  top: calc(50vh - min(30vh, 270px));
+  align-self: start;
+}
+.stage--quests {
+  grid-column: 9 / span 4;
+  height: clamp(160px, 22vh, 230px);
+  align-self: end;
+}
+
+/* ─── LOADER ─── */
+.loader {
+  display: none;
+}
+.js .loader {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: grid;
+  place-items: center;
+  animation: loader-secours 0.01s 4s forwards;
+}
+/* Deux moitiés découpées en diagonale : elles glissent chacune de leur côté après le coup de sabre */
+.loader__half {
+  position: absolute;
+  inset: 0;
+  background: var(--ink);
+}
+.loader__half--top {
+  clip-path: polygon(0 0, 100% 0, 100% 39.2%, 0 61.2%);
+}
+.loader__half--bottom {
+  clip-path: polygon(0 60.8%, 100% 38.8%, 100% 100%, 0 100%);
+}
+/* Le trait du sabre : centré, incliné comme la découpe (angle calculé par js/main.js),
+   le trait intérieur se trace de gauche à droite */
+.loader__slash {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 130vmax;
+  height: 2px;
+  margin: -1px 0 0 -65vmax;
+  transform: rotate(var(--angle, -12deg));
+}
+.loader__slash span {
+  display: block;
+  height: 100%;
+  background: linear-gradient(90deg, transparent 10%, #fff 30%, var(--violet-clair) 60%, transparent 90%);
+  box-shadow: 0 0 18px 3px rgba(139, 92, 246, 0.7);
+  transform: scaleX(0);
+  transform-origin: left center;
+}
+.loader__content {
+  position: relative;
+  display: grid;
+  justify-items: center;
+  gap: var(--s-3);
+}
+.loader__chapter {
+  font-size: var(--t-md);
+  font-weight: 700;
+  letter-spacing: 0.5em;
+  color: var(--violet-clair);
+}
+.loader__title {
+  font-family: var(--f-display);
+  font-size: clamp(2.25rem, 6vw, 4rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  color: var(--paper);
+}
+.loader__bar {
+  width: 180px;
+  height: 2px;
+  background: var(--hairline);
+}
+.loader__bar span {
+  display: block;
+  height: 100%;
+  background: var(--violet);
+  transform-origin: left;
+  transform: scaleX(0);
+}
+.loader__count {
+  font-family: var(--f-mono);
+  font-size: var(--t-xs);
+  letter-spacing: 0.3em;
+  color: var(--muted);
+}
+@keyframes loader-secours {
+  to {
+    visibility: hidden;
+  }
+}
+
+/* ─── BOUTONS ─── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--s-3);
+  min-height: 52px;
+  padding: 0 var(--s-5);
+  font-family: var(--f-mono);
+  font-size: var(--t-xs);
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: 1px solid var(--paper);
+  border-radius: 999px;
+  cursor: pointer;
+  transition:
+    transform var(--dur) var(--ease),
+    box-shadow var(--dur) var(--ease),
+    background var(--dur) var(--ease),
+    color var(--dur) var(--ease);
+}
+.btn svg {
+  transition: transform var(--dur) var(--ease);
+}
+.btn:hover svg {
+  transform: translate(2px, -2px);
+}
+.btn--primary {
+  background: linear-gradient(135deg, var(--violet), var(--violet-fonce) 55%);
+  border-color: rgba(196, 181, 253, 0.35);
+  color: #fff;
+  box-shadow: 0 12px 34px -12px rgba(139, 92, 246, 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.25);
+}
+.btn--primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 18px 46px -12px rgba(139, 92, 246, 0.95), inset 0 1px 0 rgba(255, 255, 255, 0.25);
+}
+.btn--ghost {
+  background: var(--glass);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  color: var(--paper);
+  border-color: var(--glass-border);
+}
+.btn--ghost:hover {
+  transform: translateY(-2px);
+  background: var(--glass-hover);
+  border-color: var(--hairline-strong);
+}
+.btn:active {
+  transform: translateY(1px);
+}
+.btn--sm {
+  min-height: 44px;
+  padding: 0 var(--s-4);
+}
+.btn--xl {
+  min-height: 64px;
+  padding: 0 var(--s-6);
+  font-size: clamp(0.85rem, 1.6vw, 1.05rem);
+  letter-spacing: 0.02em;
+  text-transform: none;
+}
+.magnet {
+  display: inline-block;
+}
+
+/* ─── VIDÉO (fenêtre par-dessus la page) ─── */
+.video-modal {
+  width: min(1120px, calc(100vw - 2 * var(--gutter)));
+  max-width: none;
+  max-height: none;
+  margin: auto;
+  padding: 0;
+  overflow: visible;
+  background: transparent;
+  border: 0;
+  color: var(--paper);
+}
+.video-modal::backdrop {
+  background: rgba(9, 9, 13, 0.82);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+html:has(.video-modal[open]) {
+  overflow: hidden;
+}
+.video-modal__cadre {
+  position: relative;
+  padding: 8px;
+  background: var(--glass);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius);
+  box-shadow: 0 40px 90px -30px rgba(0, 0, 0, 0.85), 0 0 0 1px rgba(139, 92, 246, 0.15);
+}
+.video-modal__lecteur {
+  display: block;
+  border-radius: calc(var(--radius) - 8px);
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  max-height: calc(100vh - 7rem);
+  background: var(--ink);
+}
+.video-modal__fermer {
+  position: absolute;
+  top: -22px;
+  right: -22px;
+  z-index: 1;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  color: #fff;
+  background: var(--violet-fonce);
+  border: 2px solid var(--ink);
+  border-radius: 50%;
+  box-shadow: 0 10px 24px -8px rgba(139, 92, 246, 0.8);
+  cursor: pointer;
+  transition: transform var(--dur) var(--ease);
+}
+.video-modal__fermer:hover {
+  transform: rotate(90deg);
+}
+.video-modal[open] .video-modal__cadre {
+  animation: video-entree 0.45s var(--ease);
+}
+@keyframes video-entree {
+  from {
+    opacity: 0;
+    transform: translateY(24px) scale(0.96);
+  }
+}
+@media (max-width: 600px) {
+  .video-modal__fermer {
+    top: -54px;
+    right: 0;
+  }
+}
+
+/* ─── NAV ─── */
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  background: rgba(9, 9, 13, 0.55);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border-bottom: 1px solid var(--hairline);
+  transition: transform 0.5s var(--ease);
+}
+.nav.is-hidden {
+  transform: translateY(-100%);
+}
+.nav__inner {
+  height: var(--nav-h);
+  display: flex;
+  align-items: center;
+  gap: var(--s-4);
+}
+/* Logo : le nom en clair, le pseudo Exotic未来 en petit dessous (discret) */
+.nav__logo {
+  display: inline-grid;
+  line-height: 1.15;
+  font-family: var(--f-display);
+  font-weight: 700;
+  font-size: 1.15rem;
+  letter-spacing: -0.02em;
+  color: var(--paper);
+  text-decoration: none;
+}
+.nav__alias {
+  font-family: var(--f-mono);
+  font-size: 0.6rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+.nav__alias [lang="ja"] {
+  margin-left: 0.2em;
+  letter-spacing: 0.1em;
+  color: var(--violet-clair);
+}
+.nav__badge {
+  padding: 0.15rem 0.5rem;
+  font-family: var(--f-mono);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--violet-clair);
+  border: 1px solid rgba(139, 92, 246, 0.5);
+  border-radius: 999px;
+}
+.nav__menu {
+  margin-left: auto;
+}
+.nav__links {
+  display: flex;
+  gap: var(--s-1);
+}
+.nav__links a {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-2);
+  min-height: 44px;
+  padding: 0 var(--s-4);
+  font-family: var(--f-mono);
+  font-size: var(--t-xs);
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--muted);
+  transition: color var(--dur) var(--ease);
+}
+.nav__links a span {
+  color: var(--violet);
+  transition: color var(--dur) var(--ease);
+}
+.nav__links a::after {
+  content: "";
+  position: absolute;
+  left: var(--s-4);
+  right: var(--s-4);
+  bottom: 8px;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--violet);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.45s var(--ease);
+}
+.nav__links a:hover,
+.nav__links a.is-active {
+  color: var(--paper);
+}
+.nav__links a.is-active span {
+  color: var(--violet-clair);
+}
+.nav__links a:hover::after,
+.nav__links a.is-active::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+.nav__cta {
+  margin-left: var(--s-3);
+}
+.nav__progress {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 2px;
+}
+.nav__progress span {
+  display: block;
+  height: 100%;
+  background: linear-gradient(90deg, var(--violet-fonce), var(--violet) 70%, var(--sakura));
+  transform-origin: left;
+  transform: scaleX(0);
+}
+.nav__burger {
+  display: none;
+  margin-left: auto;
+  width: 48px;
+  height: 48px;
+  background: var(--glass);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 7px;
+}
+.nav__burger span {
+  width: 20px;
+  height: 2px;
+  background: var(--paper);
+  transition: transform var(--dur) var(--ease);
+}
+.nav__burger[aria-expanded="true"] span:first-child {
+  transform: translateY(4.5px) rotate(45deg);
+}
+.nav__burger[aria-expanded="true"] span:last-child {
+  transform: translateY(-4.5px) rotate(-45deg);
+}
+
+.menu {
+  position: fixed;
+  inset: 0;
+  z-index: 45;
+  display: grid;
+  align-content: center;
+  padding-top: var(--nav-h);
+  background: rgba(9, 9, 13, 0.8);
+  backdrop-filter: blur(24px) saturate(160%);
+  -webkit-backdrop-filter: blur(24px) saturate(160%);
+}
+.menu[hidden] {
+  display: none;
+}
+.menu ul {
+  display: grid;
+}
+.menu a {
+  display: flex;
+  align-items: baseline;
+  gap: var(--s-4);
+  padding: var(--s-4) 0;
+  font-family: var(--f-display);
+  font-size: clamp(2.25rem, 10vw, 3.5rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  text-decoration: none;
+  color: var(--paper);
+  border-bottom: 1px solid var(--hairline);
+}
+.menu a span {
+  font-family: var(--f-mono);
+  font-size: var(--t-sm);
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  color: var(--violet-clair);
+}
+.menu__jp {
+  position: absolute;
+  right: var(--gutter);
+  bottom: var(--s-6);
+  font-family: var(--f-mincho) !important;
+  font-size: 4.5rem;
+  line-height: 1;
+  color: rgba(139, 92, 246, 0.18);
+  writing-mode: vertical-rl;
+}
+
+/* ─── COMPOSANTS ─── */
+.label {
+  font-family: var(--f-mono);
+  font-size: var(--t-xs);
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--violet);
+}
+.label [lang="ja"] {
+  letter-spacing: 0.1em;
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-3);
+  padding: var(--s-2) var(--s-4);
+  font-family: var(--f-mono);
+  font-size: var(--t-xs);
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--paper);
+  border: 1px solid var(--glass-border);
+  border-radius: 999px;
+  background: var(--glass);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+}
+.pill__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--lime);
+  box-shadow: 0 0 0 0 rgba(190, 242, 100, 0.6);
+  animation: pulse 2s infinite;
+}
+@keyframes pulse {
+  70% {
+    box-shadow: 0 0 0 8px rgba(190, 242, 100, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(190, 242, 100, 0);
+  }
+}
+
+.card {
+  position: relative;
+  overflow: hidden;
+  padding: var(--s-6);
+  background: var(--glass);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius);
+  box-shadow: var(--glass-shadow);
+  transition:
+    transform var(--dur) var(--ease),
+    border-color var(--dur) var(--ease),
+    background var(--dur) var(--ease),
+    box-shadow var(--dur) var(--ease);
+}
+.card:hover {
+  transform: translateY(-4px);
+  background: var(--glass-hover);
+  border-color: rgba(139, 92, 246, 0.45);
+  box-shadow: var(--glass-shadow), 0 30px 70px -30px rgba(139, 92, 246, 0.55);
+}
+.card h3 {
+  font-size: var(--t-lg);
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  line-height: 1.2;
+  color: var(--paper);
+}
+.card p:not(.label) {
+  color: var(--muted);
+}
+.card__tech {
+  font-family: var(--f-mono);
+  font-size: var(--t-sm);
+  color: var(--violet-clair) !important;
+}
+/* Grand kanji calligraphié en filigrane, qui s'allume au survol */
+.card__kanji {
+  position: absolute;
+  right: var(--s-4);
+  bottom: calc(var(--s-3) * -1);
+  font-family: var(--f-mincho) !important;
+  font-weight: 800;
+  font-size: clamp(3.5rem, 5vw, 4.75rem);
+  line-height: 1;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(196, 181, 253, 0.16);
+  pointer-events: none;
+  transition:
+    color var(--dur) var(--ease),
+    -webkit-text-stroke-color var(--dur) var(--ease),
+    transform 0.6s var(--ease);
+}
+.card:hover .card__kanji {
+  color: rgba(139, 92, 246, 0.18);
+  -webkit-text-stroke-color: rgba(196, 181, 253, 0.6);
+  transform: translateY(-6px);
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-2);
+}
+.tags li {
+  padding: 0.25rem 0.75rem;
+  font-family: var(--f-mono);
+  font-size: var(--t-xs);
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--glass-border);
+  border-radius: 999px;
+}
+
+/* Petite étiquette en verre au-dessus de la mascotte */
+.bubble {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-2);
+  padding: var(--s-3) var(--s-5);
+  background: rgba(17, 17, 22, 0.6);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid rgba(139, 92, 246, 0.45);
+  color: var(--paper);
+  font-weight: 600;
+  font-size: var(--t-sm);
+  line-height: 1.3;
+  border-radius: 999px;
+  box-shadow: 0 16px 40px -16px rgba(0, 0, 0, 0.7), 0 0 24px -8px rgba(139, 92, 246, 0.6);
+  white-space: nowrap;
+}
+.bubble [lang="ja"] {
+  font-weight: 700;
+  color: var(--violet-clair);
+}
+
+/* ─── EN-TÊTE DE SECTION ─── */
+.section {
+  position: relative;
+  padding-block: var(--section-y);
+}
+.sec-head {
+  margin-bottom: var(--s-7);
+}
+.sec-head__meta {
+  display: flex;
+  align-items: center;
+  gap: var(--s-4);
+  margin-bottom: var(--s-5);
+  font-family: var(--f-mono);
+  font-size: var(--t-xs);
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  color: var(--violet-clair);
+}
+.sec-head__meta [lang="ja"] {
+  font-size: var(--t-sm);
+  font-weight: 700;
+  letter-spacing: 0.3em;
+  color: var(--muted);
+}
+/* Le trait de l'en-tête est un katana (il se dégaine à l'apparition : js/main.js) */
+.sec-head__rule {
+  flex: 0 0 auto;
+  width: clamp(110px, 11vw, 150px);
+  aspect-ratio: 640 / 45;
+  background: url("../img/katana.svg") left center / contain no-repeat;
+  filter: drop-shadow(0 0 6px rgba(139, 92, 246, 0.5));
+}
+.sec-head__title {
+  font-family: var(--f-display);
+  font-size: var(--t-2xl);
+  font-weight: 700;
+  line-height: 1.02;
+  letter-spacing: -0.045em;
+  color: var(--paper);
+  text-wrap: balance;
+}
+.sec-head__title em {
+  font-family: var(--f-mincho);
+  font-style: normal;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  color: var(--violet);
+  text-shadow: 0 0 40px rgba(139, 92, 246, 0.35);
+}
+.sec-head__lead {
+  max-width: 36rem;
+  margin-top: var(--s-5);
+  font-size: var(--t-md);
+  color: var(--muted);
+}
+
+/* Grand kanji décoratif en fond (parallaxe) */
+.ornament {
+  position: absolute;
+  top: 8%;
+  right: -2vw;
+  z-index: -1;
+  font-family: var(--f-mincho) !important;
+  font-size: clamp(10rem, 26vw, 24rem);
+  font-weight: 800;
+  line-height: 1;
+  color: rgba(255, 255, 255, 0.025);
+  -webkit-text-stroke: 1px rgba(139, 92, 246, 0.18);
+  pointer-events: none;
+  user-select: none;
+  writing-mode: vertical-rl;
+}
+.ornament--left {
+  right: auto;
+  left: -2vw;
+}
+
+/* ─── HERO ─── */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  min-height: 100svh;
+  display: grid;
+  grid-template-rows: 1fr auto;
+  padding-top: var(--nav-h);
+  overflow: hidden;
+}
+/* Branche de sakura qui pend dans le coin du haut de page, bercée par le vent.
+   Placée hors de <main> (couche 0) pour passer derrière la mascotte 3D. */
+.hero__sakura {
+  position: absolute;
+  top: calc(var(--nav-h) - 24px);
+  right: -2vw;
+  z-index: 0;
+  width: min(48vw, 680px);
+  height: auto;
+  opacity: 0.92;
+  pointer-events: none;
+  transform-origin: 100% 0;
+  animation: brise 9s ease-in-out infinite alternate;
+}
+@keyframes brise {
+  from {
+    transform: rotate(-1.2deg);
+  }
+  to {
+    transform: rotate(1.6deg);
+  }
+}
+.hero__grid {
+  align-items: center;
+}
+.hero__content {
+  position: relative;
+  grid-column: 1 / span 7;
+}
+.hero__title {
+  margin: var(--s-5) 0;
+  font-family: var(--f-display);
+  font-size: var(--t-hero);
+  font-weight: 700;
+  line-height: 0.98;
+  letter-spacing: -0.05em;
+  color: var(--paper);
+}
+.hero__line {
+  display: block;
+  white-space: nowrap;
+}
+/* Sous le nom : le métier, plus petit, "& Créateur" en serif japonais violet */
+.hero__line--role {
+  margin-top: 0.14em;
+  font-size: 0.56em;
+  letter-spacing: -0.035em;
+}
+.hero__line--role em {
+  font-family: var(--f-mincho);
+  font-style: normal;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  color: var(--violet);
+  text-shadow: 0 0 48px rgba(139, 92, 246, 0.4);
+}
+.hero__desc {
+  max-width: 33rem;
+  font-size: var(--t-md);
+  color: var(--muted);
+}
+.hero__ctas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-4);
+  margin: var(--s-6) 0 var(--s-5);
+}
+.socials {
+  display: flex;
+  gap: var(--s-2);
+}
+.socials a {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  color: var(--muted);
+  background: var(--glass);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-sm);
+  transition:
+    color var(--dur) var(--ease),
+    border-color var(--dur) var(--ease),
+    background var(--dur) var(--ease);
+}
+.socials a:hover {
+  color: var(--ink);
+  background: var(--paper);
+  border-color: var(--paper);
+}
+.stage--hero .bubble {
+  position: absolute;
+  top: 4%;
+  left: 0;
+}
+.hero__meta {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s-4);
+  padding-block: var(--s-5);
+  font-family: var(--f-mono);
+  font-size: var(--t-xs);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  border-top: 1px solid var(--hairline);
+}
+.hero__meta-jp {
+  letter-spacing: 0.4em;
+  text-transform: none;
+}
+.hero__scroll {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-3);
+  text-decoration: none;
+}
+.hero__scroll-line {
+  position: relative;
+  width: 48px;
+  height: 1px;
+  overflow: hidden;
+  background: var(--hairline-strong);
+}
+.hero__scroll-line::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: var(--violet);
+  animation: scroll-hint 2s var(--ease) infinite;
+}
+@keyframes scroll-hint {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(100%);
+  }
+}
+
+/* ─── BANDE + COUP DE KATANA ─── */
+.coupe {
+  position: relative;
+  z-index: 3;
+  overflow-x: clip;
+  height: 8rem;
+  margin-block: calc(var(--s-6) * -1);
+  pointer-events: none;
+}
+.coupe__bande {
+  position: absolute;
+  left: -5%;
+  right: -5%;
+  top: 50%;
+  overflow: hidden;
+  padding: var(--s-3) 0;
+  font-family: var(--f-display);
+  font-weight: 500;
+  font-size: clamp(0.95rem, 1.6vw, 1.25rem);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: var(--paper);
+  background: rgba(17, 17, 22, 0.72);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border-block: 1px solid rgba(139, 92, 246, 0.35);
+  box-shadow: 0 20px 50px -24px rgba(0, 0, 0, 0.8);
+  transform: translateY(-50%) rotate(-2deg);
+}
+.coupe__piste {
+  display: inline-flex;
+}
+.coupe__piste > span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.85em;
+  padding-right: 0.85em;
+}
+.coupe__piste b {
+  font-family: var(--f-mincho);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--violet-clair);
+}
+/* Séparateur : un pétale de sakura */
+.coupe__piste i {
+  width: 1em;
+  height: 0.6em;
+  background: url("../img/petale.svg") center / contain no-repeat;
+}
+/* Le trait du sabre qui traverse la bande (tracé au scroll : js/main.js) */
+.coupe__trait {
+  position: absolute;
+  left: -5%;
+  right: -5%;
+  top: 50%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #fff 18%, var(--violet-clair) 55%, rgba(139, 92, 246, 0.9) 80%, transparent);
+  box-shadow: 0 0 16px 2px rgba(139, 92, 246, 0.65);
+  transform: translateY(-50%) rotate(5deg);
+  transform-origin: left center;
+}
+
+/* ─── PROFIL ─── */
+.sheet {
+  padding: clamp(var(--s-5), 3vw, var(--s-7));
+}
+.sheet__head {
+  display: flex;
+  align-items: center;
+  gap: clamp(var(--s-4), 2.5vw, var(--s-6));
+}
+/* Photo : maquette/img/photo.jpg (carrée). Sans fichier, les initiales s'affichent. */
+.sheet__photo {
+  position: relative;
+  flex: 0 0 auto;
+  display: grid;
+  place-items: center;
+  width: clamp(88px, 9vw, 124px);
+  aspect-ratio: 1;
+  border-radius: 28px;
+  background: linear-gradient(140deg, rgba(139, 92, 246, 0.7), rgba(249, 198, 218, 0.3));
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 18px 40px -18px rgba(139, 92, 246, 0.8);
+}
+.sheet__photo img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: inherit;
+}
+.sheet__initiales {
+  font-family: var(--f-display);
+  font-size: clamp(1.75rem, 3vw, 2.4rem);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  color: var(--paper);
+}
+.sheet__hanko {
+  position: absolute;
+  right: -10px;
+  bottom: -10px;
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  font-family: var(--f-mincho) !important;
+  font-size: 0.8rem;
+  font-weight: 800;
+  line-height: 1;
+  color: #fff;
+  background: var(--violet-fonce);
+  border: 2px solid var(--ink);
+  border-radius: 12px;
+  box-shadow: 0 6px 16px -6px rgba(139, 92, 246, 0.8);
+  transform: rotate(-8deg);
+}
+/* p.sheet__name : passe devant la règle .card p (texte gris) */
+.sheet p.sheet__name {
+  font-family: var(--f-display);
+  font-size: clamp(1.35rem, 6vw, 2.25rem);
+  white-space: nowrap;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.7;
+  color: var(--paper);
+}
+.sheet__name rt {
+  ruby-align: center;
+  font-size: 0.34em;
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  color: var(--violet-clair);
+}
+.sheet__class {
+  font-family: var(--f-mono);
+  font-size: var(--t-sm);
+  color: var(--muted) !important;
+}
+.sheet__stats {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--s-3);
+  margin: var(--s-6) 0;
+}
+.sheet__stats div {
+  padding: var(--s-5);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius-sm);
+}
+.sheet__stats dt {
+  font-family: var(--f-mono);
+  font-size: var(--t-xs);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--violet);
+}
+.sheet__stats dd {
+  margin-top: var(--s-2);
+  font-family: var(--f-display);
+  font-size: clamp(2rem, 3.4vw, 2.75rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  color: var(--paper);
+}
+.sheet__stats small {
+  display: block;
+  margin-top: var(--s-2);
+  font-family: var(--f-body);
+  font-size: var(--t-sm);
+  font-weight: 500;
+  letter-spacing: 0;
+  color: var(--muted);
+}
+.sheet__quote {
+  font-family: var(--f-mincho);
+  font-size: var(--t-lg);
+  font-weight: 700;
+  color: var(--paper) !important;
+}
+
+/* ─── ARSENAL (bento) ─── */
+.bento {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--s-4);
+}
+.bento .card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-3);
+}
+.bento .tags {
+  margin-top: auto;
+  padding-top: var(--s-3);
+}
+.bento__big {
+  grid-row: span 2;
+}
+.bento__wide {
+  grid-column: 1 / -1;
+}
+/* Grande carte : un rameau de sakura en fond, sous le texte */
+.card--sakura::after {
+  content: "";
+  position: absolute;
+  right: -6%;
+  bottom: 22%;
+  z-index: -1;
+  width: 62%;
+  aspect-ratio: 420 / 300;
+  background: url("../img/sakura-rameau.svg") center / contain no-repeat;
+  opacity: 0.32;
+  transition: opacity 0.6s var(--ease);
+  pointer-events: none;
+}
+.card--sakura:hover::after {
+  opacity: 0.55;
+}
+
+/* ─── PROJETS ─── */
+.quests__pin {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: var(--s-6);
+  padding-block: calc(var(--nav-h) + var(--s-5)) var(--s-6);
+  overflow: hidden;
+}
+.quests__head {
+  align-items: end;
+}
+.quests__head .sec-head {
+  margin-bottom: 0;
+}
+.quests__track {
+  display: flex;
+  gap: var(--s-5);
+  width: max-content;
+  padding-inline: max(var(--gutter), calc((100vw - var(--container)) / 2));
+  padding-block: var(--s-2) var(--s-4);
+}
+.cover {
+  width: clamp(280px, 26vw, 360px);
+  flex-shrink: 0;
+  perspective: 1000px;
+}
+.cover > a {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+  text-decoration: none;
+  background: var(--glass);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius);
+  box-shadow: var(--glass-shadow);
+  transform-style: preserve-3d;
+  transition:
+    border-color var(--dur) var(--ease),
+    box-shadow var(--dur) var(--ease);
+}
+.cover > a:hover {
+  border-color: rgba(139, 92, 246, 0.45);
+  box-shadow: var(--glass-shadow), 0 30px 70px -30px rgba(139, 92, 246, 0.55);
+}
+.cover__art {
+  position: relative;
+  isolation: isolate;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  margin: 8px 8px 0;
+  border-radius: calc(var(--radius) - 8px);
+  background-color: var(--ink-3);
+}
+/* Illustration de chaque estampe (sous les textes) */
+.cover__art::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-repeat: no-repeat;
+  pointer-events: none;
+  transition: transform 0.8s var(--ease);
+}
+.cover > a:hover .cover__art::after {
+  transform: scale(1.06);
+}
+/* 01 · pleine lune violette et rameau en fleurs */
+.cover--lune .cover__art {
+  background:
+    radial-gradient(circle at 68% 46%, #f5f3ff 0 13%, rgba(196, 181, 253, 0.4) 14%, transparent 30%),
+    linear-gradient(180deg, #3b1f7a 0%, #24164a 55%, #120e1c 100%);
+}
+.cover--lune .cover__art::after {
+  background-image: url("../img/sakura-rameau.svg");
+  background-size: 80% auto;
+  background-position: right -14% top -10%;
+}
+/* 02 · grande branche de sakura dans la nuit */
+.cover--sakura .cover__art {
+  background:
+    radial-gradient(120% 90% at 85% 10%, rgba(139, 92, 246, 0.6), transparent 60%),
+    #120e1c;
+}
+.cover--sakura .cover__art::after {
+  background-image: url("../img/sakura-branche.svg");
+  background-size: 125% auto;
+  background-position: right -8% top -14%;
+}
+/* 03 · katana en travers, halo violet */
+.cover--katana .cover__art {
+  background:
+    radial-gradient(80% 70% at 50% 50%, rgba(139, 92, 246, 0.4), transparent 70%),
+    linear-gradient(160deg, #1d1b26, #0d0c12);
+}
+.cover--katana .cover__art::after {
+  background-image: url("../img/katana.svg");
+  background-size: 96% auto;
+  background-position: center;
+  filter: drop-shadow(0 0 10px rgba(139, 92, 246, 0.7));
+  transform: rotate(-24deg);
+}
+.cover--katana > a:hover .cover__art::after {
+  transform: rotate(-24deg) scale(1.06);
+}
+/* 04 · pluie de pétales */
+.cover--petales .cover__art {
+  background: linear-gradient(200deg, #6d28d9 0%, #3b1f7a 50%, #160f28 100%);
+}
+.cover--petales .cover__art::after {
+  background-image: url("../img/petale.svg"), url("../img/petale.svg"), url("../img/petale.svg"), url("../img/petale.svg"), url("../img/petale.svg"), url("../img/petale.svg"), url("../img/petale.svg"), url("../img/petale.svg"), url("../img/petale.svg");
+  background-size: 30px, 18px, 40px, 14px, 24px, 34px, 16px, 22px, 28px;
+  background-position: 12% 18%, 34% 72%, 56% 30%, 76% 12%, 88% 60%, 42% 92%, 66% 78%, 18% 52%, 62% 54%;
+}
+.cover__vol {
+  position: absolute;
+  top: var(--s-4);
+  left: var(--s-4);
+  padding: 0.2rem 0.65rem;
+  font-family: var(--f-mono);
+  font-size: var(--t-xs);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--paper);
+  background: rgba(9, 9, 13, 0.55);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid var(--glass-border);
+  border-radius: 999px;
+}
+.cover__vol [lang="ja"] {
+  color: var(--violet-clair);
+}
+.cover__kanji {
+  position: absolute;
+  bottom: var(--s-4);
+  left: var(--s-4);
+  writing-mode: vertical-rl;
+  font-family: var(--f-mincho) !important;
+  font-weight: 800;
+  font-size: clamp(1.6rem, 2.2vw, 2.1rem);
+  line-height: 1.05;
+  color: var(--paper);
+  text-shadow: 0 2px 18px rgba(9, 9, 13, 0.8);
+}
+.cover__body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-3);
+  padding: var(--s-5);
+}
+.cover__body h3 {
+  font-size: var(--t-lg);
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  line-height: 1.2;
+  color: var(--paper);
+}
+.cover__body p:not(.label) {
+  font-size: var(--t-sm);
+  color: var(--muted);
+}
+.cover__body .tags {
+  margin-top: auto;
+  padding-top: var(--s-2);
+}
+.cover--end {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--s-4);
+  padding: var(--s-6);
+  text-align: center;
+  text-decoration: none;
+  font-family: var(--f-mono);
+  font-size: var(--t-sm);
+  font-weight: 700;
+  color: var(--paper);
+  border: 1px dashed var(--hairline-strong);
+  border-radius: var(--radius);
+  transition:
+    border-color var(--dur) var(--ease),
+    background var(--dur) var(--ease);
+}
+.cover--end:hover {
+  border-color: var(--violet);
+  background: rgba(139, 92, 246, 0.08);
+}
+.cover--end span {
+  font-family: var(--f-mincho) !important;
+  font-weight: 800;
+  font-size: 3.5rem;
+  line-height: 1;
+  color: var(--violet);
+  text-shadow: 0 0 30px rgba(139, 92, 246, 0.5);
+}
+.quests__foot {
+  display: flex;
+  align-items: center;
+  gap: var(--s-5);
+  font-family: var(--f-mono);
+  font-size: var(--t-xs);
+  letter-spacing: 0.14em;
+  color: var(--muted);
+}
+.quests__progress {
+  flex: 1;
+  height: 3px;
+  overflow: hidden;
+  background: var(--hairline);
+  border-radius: 999px;
+}
+.quests__progress span {
+  display: block;
+  height: 100%;
+  background: linear-gradient(90deg, var(--violet-fonce), var(--violet) 70%, var(--sakura));
+  transform-origin: left;
+  transform: scaleX(0);
+}
+
+/* ─── VEILLE ─── */
+.radar__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--s-4);
+}
+.flash {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-3);
+  padding: var(--s-5);
+}
+.flash__tag {
+  align-self: flex-start;
+  padding: 0.2rem 0.7rem;
+  font-family: var(--f-mono);
+  font-size: var(--t-xs);
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  background: rgba(139, 92, 246, 0.14);
+  border: 1px solid rgba(139, 92, 246, 0.42);
+  border-radius: 999px;
+  color: var(--violet-clair) !important;
+}
+.flash h3 {
+  font-size: var(--t-md);
+}
+.flash p:not(.flash__tag) {
+  font-size: var(--t-sm);
+}
+.flash__link {
+  margin-top: auto;
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  font-family: var(--f-mono);
+  font-size: var(--t-xs);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--violet-clair);
+  text-decoration: none;
+}
+.flash__link:hover {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+/* ─── CONTACT ─── */
+.finale {
+  padding-bottom: calc(var(--section-y) + var(--s-6));
+}
+.finale__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-2);
+  margin-top: var(--s-6);
+}
+.finale__links a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0 var(--s-4);
+  font-family: var(--f-mono);
+  font-size: var(--t-xs);
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-decoration: none;
+  color: var(--text);
+  background: var(--glass);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  border-radius: 999px;
+  transition:
+    background var(--dur) var(--ease),
+    color var(--dur) var(--ease),
+    border-color var(--dur) var(--ease);
+}
+.finale__links a:hover {
+  background: var(--violet-fonce);
+  border-color: var(--violet);
+  color: #fff;
+}
+/* Rameau de sakura qui entre par le bas à gauche */
+.finale__sakura {
+  position: absolute;
+  left: -2vw;
+  bottom: -2rem;
+  z-index: -1;
+  width: min(40vw, 520px);
+  height: auto;
+  opacity: 0.75;
+  pointer-events: none;
+  transform: scale(-1, -1);
+}
+
+/* ─── FOOTER ─── */
+.footer {
+  border-top: 1px solid var(--hairline);
+  background: var(--ink);
+}
+.footer__inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s-4);
+  padding-block: var(--s-6);
+  font-family: var(--f-mono);
+  font-size: var(--t-xs);
+  color: var(--muted);
+}
+.footer__inner a:not(.nav__logo) {
+  color: var(--paper);
+  text-underline-offset: 4px;
+}
+.footer__jp {
+  font-family: var(--f-mincho);
+  letter-spacing: 0.2em;
+  color: rgba(139, 92, 246, 0.8);
+}
+
+/* ══════════════════
+   RESPONSIVE
+══════════════════ */
+@media (max-width: 1180px) {
+  .nav__links a span,
+  .nav__badge {
+    display: none;
+  }
+}
+
+@media (max-width: 900px) {
+  :root {
+    --nav-h: 64px;
+  }
+  .nav__menu,
+  .nav__cta {
+    display: none;
+  }
+  .nav__burger {
+    display: flex;
+  }
+
+  .grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .col-left,
+  .col-right,
+  .hero__content {
+    grid-column: 1;
+  }
+
+  /* Mascotte : visible seulement en haut du hero et à la fin */
+  .stage {
+    display: none;
+  }
+  .stage--hero,
+  .stage--contact {
+    display: block;
+    grid-column: 1;
+    position: relative;
+    top: auto;
+  }
+  .stage--hero {
+    order: -1;
+    height: 38vh;
+    height: 38svh;
+    margin-top: var(--s-4);
+  }
+  .stage--contact {
+    height: 34vh;
+    margin-top: var(--s-7);
+  }
+  .stage--hero .bubble {
+    top: 0;
+    left: auto;
+    right: 0;
+    font-size: var(--t-xs);
+  }
+  .hero__sakura {
+    width: 78vw;
+    opacity: 0.7;
+  }
+  .finale__sakura {
+    width: 70vw;
+    opacity: 0.5;
+  }
+  .card--sakura::after {
+    display: none;
+  }
+  .hero__grid {
+    align-content: center;
+  }
+  .hero__meta-jp {
+    display: none;
+  }
+  .ornament {
+    font-size: 9rem;
+    opacity: 0.7;
+  }
+
+  .bento,
+  .radar__grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .bento__big {
+    grid-row: auto;
+  }
+
+  /* Projets : défilement au doigt, sans épinglage */
+  .quests__pin {
+    min-height: 0;
+    padding-block: var(--section-y) var(--s-6);
+  }
+  .quests__viewport {
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+  }
+  .quests__viewport::-webkit-scrollbar {
+    display: none;
+  }
+  .cover {
+    width: min(82vw, 340px);
+    scroll-snap-align: center;
+  }
+  .quests__foot {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero__title {
+    font-size: clamp(1.85rem, 8.9vw, 3rem);
+  }
+  .hero__ctas > * {
+    width: 100%;
+  }
+  .hero__ctas .btn {
+    width: 100%;
+  }
+  .sheet__stats div {
+    padding: var(--s-4);
+  }
+  .btn--xl {
+    width: 100%;
+    padding: 0 var(--s-4);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .js .loader {
+    display: none;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

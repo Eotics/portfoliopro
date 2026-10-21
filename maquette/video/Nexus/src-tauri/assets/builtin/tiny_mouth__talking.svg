@@ -1,0 +1,1 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><ellipse cx="101" cy="131" rx="5" ry="2" fill="{{primary}}"><animate attributeName="ry" values="1.5;4.8;2.2;4;1.5" dur="0.42s" repeatCount="indefinite"/><animate attributeName="rx" values="5;4.2;5;4.5;5" dur="0.42s" repeatCount="indefinite"/></ellipse></svg>

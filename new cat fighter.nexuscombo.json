@@ -1,0 +1,216 @@
+{
+  "customAssets": [],
+  "data": {
+    "animationMap": {
+      "ERROR": "shake",
+      "EXECUTING": "work",
+      "IDLE": "float",
+      "LISTENING": "breathe",
+      "PLANNING": "float",
+      "SEARCHING": "sway",
+      "SLEEPING": "sleep",
+      "STOPPED": "none",
+      "SUCCESS": "dance",
+      "THINKING": "sway",
+      "VERIFYING": "float",
+      "WAITING_PERMISSION": "bounce"
+    },
+    "expressionMap": {
+      "ERROR": "concerned",
+      "EXECUTING": "focused",
+      "IDLE": "normal",
+      "LISTENING": "curious",
+      "PLANNING": "focused",
+      "SEARCHING": "curious",
+      "SLEEPING": "sleepy",
+      "STOPPED": "neutral",
+      "SUCCESS": "happy",
+      "THINKING": "thinking",
+      "VERIFYING": "focused",
+      "WAITING_PERMISSION": "surprised"
+    },
+    "layers": [
+      {
+        "assetId": "builtin/nexus_blob",
+        "colors": {
+          "accent": "#845998",
+          "glow": "#420061",
+          "primary": "#b399c0",
+          "secondary": "#420061"
+        },
+        "flipX": false,
+        "flipY": false,
+        "hidden": false,
+        "locked": false,
+        "opacity": 1,
+        "rotation": 0,
+        "scale": 0.79,
+        "slot": "body",
+        "uid": "lmuy068y8cq3kzo",
+        "x": 0,
+        "y": 7,
+        "z": 0
+      },
+      {
+        "assetId": "builtin/floaty_fins",
+        "colors": {
+          "glow": "#420061",
+          "primary": "#a180b0",
+          "secondary": "#420061"
+        },
+        "flipX": false,
+        "flipY": false,
+        "hidden": false,
+        "locked": false,
+        "opacity": 1,
+        "rotation": 0,
+        "scale": 0.79,
+        "slot": "arms",
+        "uid": "lmuy068y8cr8a0t",
+        "x": 0,
+        "y": -1,
+        "z": -3
+      },
+      {
+        "assetId": "builtin/blob_eyes",
+        "colors": {},
+        "flipX": false,
+        "flipY": false,
+        "hidden": false,
+        "locked": false,
+        "opacity": 1,
+        "rotation": 0,
+        "scale": 0.94,
+        "slot": "eyes",
+        "uid": "lmuy068y8cs5k1h",
+        "x": 0,
+        "y": 2,
+        "z": 60
+      },
+      {
+        "assetId": "builtin/status_badges",
+        "colors": {},
+        "flipX": false,
+        "flipY": false,
+        "hidden": false,
+        "locked": false,
+        "opacity": 1,
+        "rotation": 0,
+        "scale": 1,
+        "slot": "status",
+        "uid": "lmuy068y8cuyf8o",
+        "x": 0,
+        "y": 10,
+        "z": 120
+      },
+      {
+        "assetId": "builtin/cat_whiskers",
+        "colors": {
+          "primary": "#000000"
+        },
+        "flipX": false,
+        "flipY": false,
+        "hidden": false,
+        "locked": false,
+        "opacity": 1,
+        "rotation": 0,
+        "scale": 0.71,
+        "slot": "face",
+        "uid": "lmuy068y8cvwyzd",
+        "x": -1,
+        "y": 13,
+        "z": 56
+      },
+      {
+        "assetId": "builtin/soft_cat_ears",
+        "colors": {
+          "primary": "#6e0070"
+        },
+        "flipX": false,
+        "flipY": false,
+        "hidden": false,
+        "locked": false,
+        "opacity": 1,
+        "rotation": 0,
+        "scale": 0.85,
+        "slot": "ears",
+        "uid": "lmuy068y8cw6s4e",
+        "x": -1,
+        "y": 13,
+        "z": -2
+      },
+      {
+        "assetId": "builtin/mini_bat_wings",
+        "colors": {
+          "primary": "#b79cff"
+        },
+        "flipX": false,
+        "flipY": false,
+        "hidden": false,
+        "locked": false,
+        "opacity": 1,
+        "rotation": 0,
+        "scale": 0.77,
+        "slot": "wings",
+        "uid": "lmuy068y8cx1719",
+        "x": 0,
+        "y": 0,
+        "z": -10
+      },
+      {
+        "assetId": "builtin/glow_halo",
+        "colors": {
+          "primary": "#b79cff"
+        },
+        "flipX": false,
+        "flipY": false,
+        "hidden": false,
+        "locked": false,
+        "opacity": 1,
+        "rotation": 0,
+        "scale": 0.81,
+        "slot": "headwear",
+        "uid": "lmuz7cffhd0z9x6",
+        "x": 0,
+        "y": 13,
+        "z": 80
+      },
+      {
+        "assetId": "builtin/cat_mouth",
+        "colors": {},
+        "flipX": false,
+        "flipY": false,
+        "opacity": 1,
+        "rotation": 0,
+        "scale": 0.8,
+        "slot": "mouth",
+        "uid": "lmuz7fc6wiwzrqq",
+        "x": 0,
+        "y": 12,
+        "z": 62
+      },
+      {
+        "assetId": "builtin/anger_mark",
+        "colors": {
+          "accent": "#241a66",
+          "glow": "#241a66",
+          "primary": "#241a66",
+          "secondary": "#241a66"
+        },
+        "flipX": false,
+        "flipY": false,
+        "opacity": 1,
+        "rotation": 0,
+        "scale": 0.53,
+        "slot": "effects",
+        "uid": "lmuz7gqujixv1du",
+        "x": -6,
+        "y": 24,
+        "z": 90
+      }
+    ]
+  },
+  "format": "nexus-combo",
+  "formatVersion": 1,
+  "name": "new cat fighter"
+}

@@ -1,0 +1,10 @@
+# Keep Rust build artifacts out of OneDrive (large, constantly changing files).
+[build]
+# Short path: whisper.cpp's MSBuild project paths break the 260-character limit otherwise.
+target-dir = "C:/Users/pegas/.nxb"
+
+[env]
+# whisper.cpp is built with the CMake shipped in VS Build Tools; its Rust
+# bindings are generated with libclang from LLVM (bundled ones are Linux-only).
+CMAKE = "C:/Program Files (x86)/Microsoft Visual Studio/2022/BuildTools/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/bin/cmake.exe"
+LIBCLANG_PATH = "C:/Program Files/LLVM/bin"

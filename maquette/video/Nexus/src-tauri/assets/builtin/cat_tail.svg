@@ -1,0 +1,1 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><path d="M144 150 C176 150 184 120 172 98 C166 86 172 76 182 80" stroke="{{primary}}" stroke-width="12" fill="none" stroke-linecap="round"/><animateTransform attributeName="transform" type="rotate" values="0 144 150;-8 144 150;0 144 150" dur="2.2s" repeatCount="indefinite"/></svg>

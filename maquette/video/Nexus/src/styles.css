@@ -1,0 +1,193 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Segoe UI Variable Text", "Segoe UI Variable", "Segoe UI", system-ui, sans-serif;
+  --font-display: "Segoe UI Variable Display", "Segoe UI Variable", "Segoe UI", system-ui, sans-serif;
+  --font-mono: "Cascadia Code", "Cascadia Mono", Consolas, monospace;
+
+  --color-ink: #07090d;
+  --color-ink-2: #0b0e14;
+  --color-panel: rgb(255 255 255 / 0.035);
+  --color-panel-2: rgb(255 255 255 / 0.06);
+  --color-line: rgb(255 255 255 / 0.075);
+  --color-line-2: rgb(255 255 255 / 0.13);
+  --color-fg: #e8ebf1;
+  --color-mute: #8d96a8;
+  --color-dim: #5d6576;
+  --color-sky: #8fd3ff;
+  --color-violet: #8b7dff;
+  --color-ok: #4ade9b;
+  --color-warn: #f5c451;
+  --color-bad: #ff6b7a;
+}
+
+:root {
+  color-scheme: dark;
+  background: var(--color-ink);
+  color: var(--color-fg);
+  font-family: var(--font-sans);
+  font-size: 14px;
+  -webkit-font-smoothing: antialiased;
+}
+
+html, body, #root { height: 100%; margin: 0; }
+body {
+  background:
+    radial-gradient(1200px 700px at 12% -10%, rgb(124 108 255 / 0.10), transparent 60%),
+    radial-gradient(900px 600px at 100% 0%, rgb(143 211 255 / 0.07), transparent 55%),
+    var(--color-ink);
+  overflow: hidden;
+}
+
+::selection { background: rgb(143 211 255 / 0.3); }
+
+* { scrollbar-width: thin; scrollbar-color: rgb(255 255 255 / 0.12) transparent; }
+
+:focus-visible { outline: 2px solid rgb(143 211 255 / 0.7); outline-offset: 2px; border-radius: 6px; }
+
+.glass {
+  background: linear-gradient(180deg, rgb(255 255 255 / 0.045), rgb(255 255 255 / 0.02));
+  border: 1px solid var(--color-line);
+  backdrop-filter: blur(18px) saturate(1.2);
+  border-radius: 14px;
+}
+
+.accent-text {
+  background: linear-gradient(90deg, var(--color-sky), var(--color-violet));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.no-anim *, .no-anim *::before, .no-anim *::after { animation: none !important; transition: none !important; }
+
+@keyframes pulse-ring {
+  0% { box-shadow: 0 0 0 0 var(--ring, rgb(143 211 255 / 0.5)); }
+  100% { box-shadow: 0 0 0 10px transparent; }
+}
+.pulse { animation: pulse-ring 1.6s ease-out infinite; }
+
+@keyframes fade-up { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+.fade-up { animation: fade-up 0.22s ease-out both; }
+
+@keyframes highlight-pulse {
+  0%, 100% { box-shadow: 0 0 0 2px rgb(245 196 81 / 0.95), 0 0 24px 4px rgb(245 196 81 / 0.35); }
+  50% { box-shadow: 0 0 0 3px rgb(245 196 81 / 1), 0 0 36px 10px rgb(245 196 81 / 0.2); }
+}
+.hl-box { animation: highlight-pulse 1.4s ease-in-out infinite; }
+
+.markdown p { margin: 0.35em 0; }
+.markdown code { font-family: var(--font-mono); font-size: 0.9em; background: rgb(255 255 255 / 0.07); padding: 0.1em 0.35em; border-radius: 5px; }
+.markdown pre { font-family: var(--font-mono); background: rgb(0 0 0 / 0.35); padding: 10px 12px; border-radius: 10px; overflow-x: auto; border: 1px solid var(--color-line); }
+.markdown ul, .markdown ol { padding-left: 1.3em; margin: 0.35em 0; }
+.markdown li { margin: 0.15em 0; }
+.markdown strong { color: #fff; }
+.markdown h1, .markdown h2, .markdown h3 { font-family: var(--font-display); margin: 0.6em 0 0.3em; font-size: 1.05em; }
+.markdown a { color: var(--color-sky); }
+
+/* ---------- NEXUS character ---------- */
+@keyframes nx-blink { 0%, 92%, 100% { transform: scaleY(1); } 95% { transform: scaleY(0.1); } }
+@keyframes nx-float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-3px); } }
+@keyframes nx-look { 0%, 100% { transform: translateX(-3px); } 50% { transform: translateX(3px); } }
+@keyframes nx-dots { 0%, 100% { opacity: 0.25; } 50% { opacity: 1; } }
+@keyframes nx-aura { 0%, 100% { opacity: 0.55; } 50% { opacity: 1; } }
+@keyframes nx-bounce { 0%, 100% { transform: translateY(0); } 30% { transform: translateY(-6px); } 60% { transform: translateY(0); } }
+@keyframes nx-pop { 0% { transform: scale(1); } 40% { transform: scale(1.08); } 100% { transform: scale(1); } }
+@keyframes nx-shake { 0%, 100% { transform: translateX(0); } 25% { transform: translateX(-2px); } 75% { transform: translateX(2px); } }
+
+.nx-char .nx-blink { transform-origin: 50% 54px; transform-box: view-box; animation: nx-blink 4.5s infinite; }
+.nx-char .nx-look { animation: nx-look 1.6s ease-in-out infinite; }
+.nx-char .nx-dots circle { animation: nx-dots 1.2s ease-in-out infinite; }
+.nx-char .nx-dots circle:nth-child(2) { animation-delay: 0.2s; }
+.nx-char .nx-dots circle:nth-child(3) { animation-delay: 0.4s; }
+.nx-char .nx-aura { animation: nx-aura 1.8s ease-in-out infinite; }
+.nx-char .nx-antenna { filter: drop-shadow(0 0 3px var(--nx-eye)); }
+.nx-idle .nx-body, .nx-listening .nx-body { animation: nx-float 4s ease-in-out infinite; }
+.nx-executing .nx-body, .nx-thinking .nx-body { animation: nx-float 1.6s ease-in-out infinite; }
+.nx-waiting_permission .nx-body { animation: nx-bounce 1.4s ease-in-out infinite; }
+.nx-success .nx-body { animation: nx-pop 0.6s ease-out 2; }
+.nx-error .nx-body { animation: nx-shake 0.35s ease-in-out 2; }
+.nx-subtle .nx-body { animation-duration: 6s !important; }
+.nx-subtle .nx-look, .nx-subtle .nx-aura { animation-duration: 3s; }
+.nx-still *, .nx-still { animation: none !important; }
+@media (prefers-reduced-motion: reduce) {
+  .nx-char *, .nx-char { animation: none !important; }
+}
+
+/* ---------- Companion window ---------- */
+html.companion, html.companion body, html.companion #root { background: transparent !important; }
+html.companion body { overflow: hidden; }
+.drop-zone { border: 1.5px dashed rgb(255 255 255 / 0.16); transition: border-color .15s, box-shadow .15s, background .15s; }
+.drop-zone.over { border-color: rgb(94 234 212 / 0.85); background: rgb(94 234 212 / 0.06); box-shadow: 0 0 0 4px rgb(94 234 212 / 0.10), 0 0 32px rgb(94 234 212 / 0.18) inset; }
+
+/* ---------- Companion whole-body animations (state-driven) ---------- */
+@keyframes nxa-float { 0%, 100% { transform: translate(0, 0) rotate(0); } 21% { transform: translate(0.6px, -2.2px) rotate(-0.7deg); } 47% { transform: translate(-0.5px, -0.8px) rotate(0.5deg); } 68% { transform: translate(0.3px, -3px) rotate(0.2deg); } 86% { transform: translate(-0.4px, -1.4px) rotate(-0.3deg); } }
+@keyframes nxa-breathe { 0%, 100% { transform: scale(1); } 40% { transform: scale(1.02) translateY(-0.6px); } 70% { transform: scale(1.008); } }
+@keyframes nxa-sway { 0%, 100% { transform: rotate(-4deg); } 50% { transform: rotate(4deg); } }
+@keyframes nxa-bounce { 0%, 100% { transform: translateY(0); } 30% { transform: translateY(-14px); } 55% { transform: translateY(0); } 70% { transform: translateY(-5px); } }
+@keyframes nxa-work { 0%, 100% { transform: translate(0, 0) rotate(0); } 25% { transform: translate(-2px, -3px) rotate(-1.5deg); } 75% { transform: translate(2px, -3px) rotate(1.5deg); } }
+@keyframes nxa-dance { 0%, 100% { transform: rotate(0) translateY(0); } 25% { transform: rotate(-10deg) translateY(-8px); } 50% { transform: rotate(0) translateY(0); } 75% { transform: rotate(10deg) translateY(-8px); } }
+@keyframes nxa-pop { 0%, 100% { transform: scale(1); } 30% { transform: scale(1.12); } 60% { transform: scale(0.97); } }
+@keyframes nxa-shake { 0%, 100% { transform: translateX(0); } 20%, 60% { transform: translateX(-6px); } 40%, 80% { transform: translateX(6px); } }
+@keyframes nxa-dizzy { 0% { transform: rotate(0); } 25% { transform: rotate(8deg) translateX(3px); } 75% { transform: rotate(-8deg) translateX(-3px); } 100% { transform: rotate(0); } }
+@keyframes nxa-sleep { 0%, 100% { transform: translateY(2px) scale(1, 0.98); } 50% { transform: translateY(0) scale(1, 1.02); } }
+@keyframes nxa-spin { from { transform: rotate(0); } to { transform: rotate(360deg); } }
+.nx-anim { transform-origin: 50% 70%; }
+@keyframes nx-heart-up { 0% { opacity: 0; transform: translateY(0) scale(0.6); } 20% { opacity: 1; transform: translateY(-8px) scale(1.1); } 100% { opacity: 0; transform: translateY(-46px) scale(0.9); } }
+.nx-heart { color: #ff7ab8; text-shadow: 0 0 8px rgb(255 122 184 / 0.8); animation: nx-heart-up 1.3s ease-out forwards; }
+.nx-anim-float { animation: nxa-float 9.4s ease-in-out infinite; }
+.nx-anim-breathe { animation: nxa-breathe 3.2s ease-in-out infinite; }
+.nx-anim-sway { animation: nxa-sway 2.4s ease-in-out infinite; }
+.nx-anim-bounce { animation: nxa-bounce 1.3s ease-in-out infinite; }
+.nx-anim-work { animation: nxa-work 0.9s ease-in-out infinite; }
+.nx-anim-dance { animation: nxa-dance 1.2s ease-in-out infinite; }
+.nx-anim-pop { animation: nxa-pop 0.8s ease-out 3; }
+.nx-anim-shake { animation: nxa-shake 0.45s ease-in-out 3; }
+.nx-anim-dizzy { animation: nxa-dizzy 1.4s ease-in-out infinite; }
+.nx-anim-sleep { animation: nxa-sleep 4.5s ease-in-out infinite; }
+.nx-anim-spin { animation: nxa-spin 1.6s linear infinite; }
+.nx-anim-subtle { animation-duration: 12s !important; }
+
+/* ---- Companion layered life (Avatar.tsx). Two wrappers per layer: .nxl-a
+   follows the body's breathing, .nxl-b carries the part's own motion, so the
+   motions combine instead of overriding each other. Durations come from
+   per-instance CSS variables (desynchronised). */
+.nxl-a, .nxl-b { transform-origin: 50% 70%; will-change: transform; }
+@keyframes nxl-breathe { 0%, 100% { transform: scale(1, 1); } 38% { transform: scale(1.016, 0.986); } 62% { transform: scale(0.996, 1.008); } }
+@keyframes nxl-bob { 0%, 100% { transform: translateY(0); } 38% { transform: translateY(1.2px); } 62% { transform: translateY(-0.5px); } }
+@keyframes nxl-tilt { 0%, 100% { transform: rotate(0) translate(0, 0); } 23% { transform: rotate(-1.4deg) translate(-0.5px, 0.3px); } 49% { transform: rotate(0.5deg) translate(0.3px, -0.3px); } 74% { transform: rotate(1.2deg) translate(0.6px, 0.2px); } }
+@keyframes nxl-sway { 0%, 100% { transform: rotate(0); } 30% { transform: rotate(1.6deg); } 55% { transform: rotate(-0.8deg); } 80% { transform: rotate(1deg); } }
+@keyframes nxl-drift { 0%, 100% { transform: translate(0, 0) scale(1); opacity: 1; } 33% { transform: translate(1px, -1.5px) scale(1.02); opacity: 0.85; } 66% { transform: translate(-1px, -0.5px) scale(0.99); opacity: 1; } }
+@keyframes nxl-tailwag { 0%, 100% { transform: rotate(0); } 20% { transform: rotate(4deg); } 45% { transform: rotate(-2deg); } 70% { transform: rotate(3deg); } }
+.nxl-body { animation: nxl-breathe var(--nx-breathe, 3.8s) ease-in-out var(--nx-delay, 0s) infinite; transform-origin: 50% 86%; }
+.nxl-head, .nxl-arms, .nxl-wings, .nxl-tail, .nxl-pet { animation: nxl-bob var(--nx-breathe, 3.8s) ease-in-out var(--nx-delay, 0s) infinite; }
+.nxl-head > .nxl-b { animation: nxl-tilt var(--nx-tilt, 7.3s) ease-in-out var(--nx-delay, 0s) infinite; transform-origin: 50% 75%; }
+.nxl-arms > .nxl-b { animation: nxl-sway var(--nx-sway, 5.4s) ease-in-out infinite; transform-origin: 50% 63%; }
+.nxl-wings > .nxl-b { animation: nxl-sway calc(var(--nx-sway, 5.4s) * 0.8) ease-in-out var(--nx-delay, 0s) infinite; transform-origin: 50% 60%; }
+.nxl-tail > .nxl-b { animation: nxl-tailwag calc(var(--nx-sway, 5.4s) * 0.7) ease-in-out infinite; transform-origin: 50% 80%; }
+.nxl-aura > .nxl-b, .nxl-fx > .nxl-b, .nxl-pet > .nxl-b { animation: nxl-drift var(--nx-fx, 9s) ease-in-out var(--nx-delay, 0s) infinite; }
+/* Blink: the eyes layer closes for ~0.12 s at random moments. */
+.nx-eyelid { transform-origin: 50% 59%; transition: transform 70ms ease-in; }
+[data-blink="1"] .nx-eyelid { transform: scaleY(0.08); }
+@keyframes nxl-blink2 { 0%, 18%, 36%, 100% { transform: scaleY(1); } 8%, 27% { transform: scaleY(0.08); } }
+[data-react="blink2"] .nx-eyelid { animation: nxl-blink2 0.9s ease-in-out; }
+/* Spontaneous idle reactions. */
+@keyframes nxl-bigtilt { 0%, 100% { transform: rotate(0); } 35%, 70% { transform: rotate(-5deg) translateX(-1px); } }
+@keyframes nxl-wiggle { 0%, 100% { transform: rotate(0); } 20% { transform: rotate(-5deg); } 45% { transform: rotate(4deg); } 70% { transform: rotate(-2deg); } }
+@keyframes nxl-hop { 0%, 100% { transform: translateY(0) scale(1, 1); } 18% { transform: translateY(1px) scale(1.04, 0.95); } 45% { transform: translateY(-7px) scale(0.97, 1.04); } 75% { transform: translateY(0) scale(1.03, 0.97); } }
+[data-react="tilt"] .nxl-head > .nxl-b { animation: nxl-bigtilt 1.3s ease-in-out; }
+[data-react="wiggle"] .nxl-arms > .nxl-b { animation: nxl-wiggle 1.1s ease-in-out; }
+[data-react="hop"] .nx-anim { animation: nxl-hop 0.9s ease-out !important; }
+/* State moods (driven by the real NEXUS status). */
+[data-st="THINKING"] .nxl-head > .nxl-b, [data-st="PLANNING"] .nxl-head > .nxl-b { animation: nxl-bigtilt 4.2s ease-in-out infinite; }
+[data-st="THINKING"] .nxl-arms > .nxl-b { animation-duration: 8s; }
+[data-st="EXECUTING"] .nxl-body, [data-st="VERIFYING"] .nxl-body, [data-st="SEARCHING"] .nxl-body { animation-duration: 2.1s; }
+[data-st="EXECUTING"] .nxl-arms > .nxl-b, [data-st="SEARCHING"] .nxl-arms > .nxl-b { animation: nxl-wiggle 1.4s ease-in-out infinite; }
+@keyframes nxl-listen { 0%, 100% { transform: rotate(0) translateY(0); } 50% { transform: rotate(-2.5deg) translateY(-0.8px); } }
+[data-st="LISTENING"] .nxl-head > .nxl-b { animation: nxl-listen 2.6s ease-in-out infinite; }
+[data-st="WAITING_PERMISSION"] .nxl-head > .nxl-b { animation: nxl-bigtilt 2.4s ease-in-out infinite; }
+[data-st="SLEEPING"] .nxl-body { animation-duration: 6.5s; }
+[data-st="SLEEPING"] .nxl-arms > .nxl-b, [data-st="SLEEPING"] .nxl-head > .nxl-b { animation-duration: 12s; }
+[data-st="STOPPED"] .nxl-a, [data-st="STOPPED"] .nxl-b { animation-play-state: paused; }
+.nx-still .nxl-a, .nx-still .nxl-b { animation: none !important; }
+@media (prefers-reduced-motion: reduce) { .nx-anim, .nx-anim * { animation: none !important; } }

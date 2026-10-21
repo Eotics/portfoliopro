@@ -1,0 +1,15 @@
+{
+  "$schema": "../gen/schemas/desktop-schema.json",
+  "identifier": "default",
+  "description": "Main and Companion windows: core IPC/events, window dragging and folder picker. All system access goes through NEXUS commands.",
+  "windows": [
+    "main",
+    "companion"
+  ],
+  "permissions": [
+    "core:default",
+    "dialog:allow-open",
+    "core:window:allow-start-dragging",
+    "dialog:allow-save"
+  ]
+}
