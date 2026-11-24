@@ -17,9 +17,10 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <canvas id="particles"></canvas>
+    <a class="lien-evitement" href="#contenu">Aller au contenu</a>
+    <canvas id="particles" aria-hidden="true"></canvas>
 
-    <nav>
+    <nav aria-label="Navigation principale">
       <a class="nav-logo" href="index.html"
         >Philippe<span class="kanji">Viman</span></a
       >
@@ -33,12 +34,14 @@
       </button>
       <ul class="nav-links" id="nav-links">
         <li><a href="index.html">Accueil</a></li>
-        <li><a href="arsenal.html">Arsenal</a></li>
+        <li><a href="arsenal.html" aria-current="page">Arsenal</a></li>
         <li><a href="projects.html">Projets</a></li>
         <li><a href="veille.html">Veille</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
     </nav>
+
+    <main id="contenu">
 
     <div
       class="section"
@@ -52,15 +55,16 @@
     >
       <div class="section-head reveal">
         <div class="section-tag">Arsenal</div>
-        <div class="section-jp">武器庫</div>
-        <h2 class="section-title">
+        <div class="section-jp" aria-hidden="true">武器庫</div>
+        <h1 class="section-title">
           Compétences <span>— Technologies — Outils</span>
-        </h2>
+        </h1>
       </div>
 
+      <h2 class="visuellement-masque">Mes domaines de compétences</h2>
       <div class="arsenal-grid">
         <a class="arsenal-block reveal" href="projects.html">
-          <div class="arsenal-block-jp">ウェブ開発</div>
+          <div class="arsenal-block-jp" aria-hidden="true">ウェブ開発</div>
           <h3>Développement Web</h3>
           <div class="arsenal-block-sub">HTML / CSS / JavaScript</div>
           <p>
@@ -74,7 +78,7 @@
         </a>
 
         <a class="arsenal-block reveal" href="projects.html">
-          <div class="arsenal-block-jp">システム管理</div>
+          <div class="arsenal-block-jp" aria-hidden="true">システム管理</div>
           <h3>Systèmes</h3>
           <div class="arsenal-block-sub">Linux / Windows</div>
           <p>
@@ -93,7 +97,7 @@
           target="_blank"
           rel="noopener noreferrer"
         >
-          <div class="arsenal-block-jp">ツール</div>
+          <div class="arsenal-block-jp" aria-hidden="true">ツール</div>
           <h3>Outils &amp; Workflow</h3>
           <div class="arsenal-block-sub">Git / GitHub / VSCode</div>
           <p>
@@ -109,7 +113,7 @@
 
       <div class="section-head reveal" style="margin-top: 5rem">
         <div class="section-tag">Vue complète</div>
-        <div class="section-jp">全スキル</div>
+        <div class="section-jp" aria-hidden="true">全スキル</div>
         <h2 class="section-title">Toutes mes <span>compétences</span></h2>
       </div>
 
@@ -144,14 +148,17 @@
       </div>
     </div>
 
-    <div class="marquee-wrap">
+    </main>
+
+    <div class="marquee-wrap" aria-hidden="true">
       <div class="marquee-track" id="mtrack"></div>
     </div>
     <footer>
-      <a class="footer-logo" href="index.html">Exotic<span>未来</span></a>
+      <a class="footer-logo" href="index.html">Exotic<span lang="ja">未来</span></a>
       <div class="footer-right">
+        <a class="footer-legal" href="mentions-legales.html">Mentions légales &amp; confidentialité</a>
         <div>© 2026 — Philippe Viman</div>
-        <div class="footer-jp">繋がりから始まるプロジェクト</div>
+        <div class="footer-jp" aria-hidden="true">繋がりから始まるプロジェクト</div>
       </div>
     </footer>
 
