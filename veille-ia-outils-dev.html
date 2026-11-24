@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Fiche de veille de Philippe Viman : agents de code, protocole MCP, Agent Skills et risques de sécurité des applications d'IA (OWASP)."
+    />
+    <meta name="theme-color" content="#07050f" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <title>Veille — IA et outils de développement — Philippe Viman</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Noto+Sans+JP:wght@300;400;500&family=JetBrains+Mono:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <a class="lien-evitement" href="#contenu">Aller au contenu</a>
+    <canvas id="particles" aria-hidden="true"></canvas>
+
+    <nav aria-label="Navigation principale">
+      <a class="nav-logo" href="index.html"
+        >Philippe<span class="kanji">Viman</span></a
+      >
+      <button
+        class="nav-toggle"
+        id="nav-toggle"
+        aria-label="Ouvrir le menu"
+        aria-expanded="false"
+      >
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="arsenal.html">Arsenal</a></li>
+        <li><a href="projects.html">Projets</a></li>
+        <li><a href="veille.html">Veille</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+
+    <main id="contenu">
+      <div class="section" style="padding-top: 8rem">
+        <div class="section-head">
+          <div class="section-tag"><a href="veille.html" class="veille-lien">← Veille</a></div>
+          <div class="section-jp" aria-hidden="true">人工知能</div>
+          <h1 class="section-title">
+            IA et outils de développement <span>— Fiche de veille</span>
+          </h1>
+        </div>
+
+        <div class="legal">
+          <p class="maj">Fiche ouverte le 24 novembre 2026 · faits vérifiés à cette date</p>
+
+          <section aria-labelledby="pourquoi">
+            <h2 id="pourquoi">Pourquoi ce sujet</h2>
+            <p>
+              Les assistants d'IA ne se contentent plus de répondre à des questions : des
+              <strong>agents de code</strong> lisent un projet, lancent des commandes et se
+              connectent à des outils externes. Pour un développeur, cela change la façon de
+              travailler, et cela crée de nouveaux risques de sécurité à maîtriser.
+            </p>
+          </section>
+
+          <section aria-labelledby="faits">
+            <h2 id="faits">Faits clés</h2>
+            <ul>
+              <li>
+                <strong>MCP (Model Context Protocol)</strong> : standard ouvert lancé par Anthropic
+                en novembre 2024 pour connecter un assistant d'IA à des outils et à des données
+                (fichiers, bases, API). Le 9 décembre 2025, il a été confié à l'<em>Agentic AI
+                Foundation</em>, une fondation de la Linux Foundation cofondée par Anthropic, Block
+                et OpenAI. La Linux Foundation compte plus de 10 000 serveurs MCP publiés ; le
+                protocole est utilisé par Claude, ChatGPT, Gemini, Microsoft Copilot, Cursor et
+                VS Code.
+              </li>
+              <li>
+                <strong>Agent Skills</strong> : format ouvert publié par Anthropic le
+                18 décembre 2025 (spécification sur agentskills.io). Une <em>Skill</em> est un
+                dossier d'instructions et de scripts que l'agent charge seulement quand une tâche
+                s'y prête. Le format a été repris par d'autres plateformes, puis confié à la même
+                fondation que MCP.
+              </li>
+              <li>
+                <strong>Sécurité</strong> : dans le Top 10 de l'OWASP pour les applications
+                d'IA générative (édition 2025), l'<strong>injection de prompt</strong> reste le
+                risque n°1 (LLM01). Des instructions cachées dans un contenu lu par l'assistant
+                (page web, fichier, e-mail) peuvent le détourner. Parades citées : limiter les
+                droits de l'agent, séparer les contenus externes des instructions, faire valider
+                les actions sensibles par un humain.
+              </li>
+            </ul>
+          </section>
+
+          <section aria-labelledby="projets">
+            <h2 id="projets">Lien avec mes projets</h2>
+            <ul>
+              <li>
+                <strong>NEXUS</strong>, mon assistant d'IA de bureau (Tauri) : il appelle des
+                outils sur mon poste, ce qui pose exactement les questions de droits et de contrôle
+                décrites par l'OWASP.
+              </li>
+              <li>
+                <strong>Mon bot Discord de tri</strong> (Python) : il range automatiquement mes
+                liens de veille dans le salon <code>#veille-informatique</code>.
+              </li>
+            </ul>
+          </section>
+
+          <!--
+            ═══ MA SYNTHÈSE — à rédiger par toi, avec tes mots (puis retire ce commentaire) ═══
+            Ajoute ici une section :
+              <section aria-labelledby="synthese">
+                <h2 id="synthese">Ma synthèse</h2>
+                <p>…</p>
+              </section>
+            Pistes (5 à 10 lignes) :
+              - Ce que tu as compris de MCP et des Skills, expliqué simplement.
+              - Ce que ça change pour un développeur au quotidien (et ce que ça ne remplace pas).
+              - Le risque qui te semble le plus important et comment tu t'en protèges (NEXUS, ton API).
+              - Ton avis personnel : opportunité, limites, ce que tu veux approfondir.
+            À vérifier avant l'oral : le site de l'OWASP mentionne une édition 2026 du Top 10 LLM ;
+            regarde si elle est parue et si l'injection de prompt est toujours n°1.
+          -->
+
+          <section aria-labelledby="sources">
+            <h2 id="sources">Sources officielles</h2>
+            <ul>
+              <li>
+                Anthropic —
+                <a href="https://www.anthropic.com/news/donating-the-model-context-protocol-and-establishing-of-the-agentic-ai-foundation" target="_blank" rel="noopener noreferrer">Donating the Model Context Protocol and establishing the Agentic AI Foundation</a>
+              </li>
+              <li>
+                Linux Foundation —
+                <a href="https://www.linuxfoundation.org/press/linux-foundation-announces-the-formation-of-the-agentic-ai-foundation" target="_blank" rel="noopener noreferrer">annonce de l'Agentic AI Foundation</a>
+              </li>
+              <li>
+                Blog du protocole MCP —
+                <a href="https://blog.modelcontextprotocol.io/posts/2025-12-09-mcp-joins-agentic-ai-foundation/" target="_blank" rel="noopener noreferrer">MCP joins the Agentic AI Foundation (9 décembre 2025)</a>
+              </li>
+              <li>
+                Spécification Agent Skills —
+                <a href="https://agentskills.io" target="_blank" rel="noopener noreferrer">agentskills.io</a>
+              </li>
+              <li>
+                OWASP Gen AI Security Project —
+                <a href="https://genai.owasp.org/resource/owasp-top-10-for-llm-applications-2025/" target="_blank" rel="noopener noreferrer">OWASP Top 10 for LLM Applications 2025</a>
+              </li>
+            </ul>
+          </section>
+        </div>
+      </div>
+    </main>
+
+    <div class="marquee-wrap" aria-hidden="true">
+      <div class="marquee-track" id="mtrack"></div>
+    </div>
+    <footer>
+      <a class="footer-logo" href="index.html">Exotic<span lang="ja">未来</span></a>
+      <div class="footer-right">
+        <a class="footer-legal" href="mentions-legales.html">Mentions légales &amp; confidentialité</a>
+        <div>© 2026 — Philippe Viman</div>
+        <div class="footer-jp" aria-hidden="true">繋がりから始まるプロジェクト</div>
+      </div>
+    </footer>
+
+    <script src="main.js"></script>
+  </body>
+</html>

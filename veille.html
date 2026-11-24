@@ -52,13 +52,45 @@
         </h1>
       </div>
 
-      <h2 class="visuellement-masque">Mes sujets de veille</h2>
+      <section class="veille-bloc" aria-labelledby="methode">
+        <h2 id="methode" class="veille-titre">Ma méthode de veille</h2>
+        <ol class="veille-etapes">
+          <li class="veille-etape reveal">
+            <span class="veille-num" aria-hidden="true">01</span>
+            <h3>Collecter</h3>
+            <p>
+              Je suis des chaînes YouTube et des comptes LinkedIn de développeurs
+              et d'éditeurs d'outils : nouveautés, retours d'expérience, alertes
+              de sécurité.
+            </p>
+          </li>
+          <li class="veille-etape reveal">
+            <span class="veille-num" aria-hidden="true">02</span>
+            <h3>Trier</h3>
+            <p>
+              Je partage les liens utiles sur mon serveur Discord. Mon bot NEXUS,
+              développé en Python, les range automatiquement dans le salon
+              <code>#veille-informatique</code>.
+            </p>
+          </li>
+          <li class="veille-etape reveal">
+            <span class="veille-num" aria-hidden="true">03</span>
+            <h3>Vérifier et synthétiser</h3>
+            <p>
+              Avant de retenir une information, je remonte à la source officielle
+              (annonce de l'éditeur, documentation, OWASP, CERT-FR). Je rédige
+              ensuite une fiche datée, reliée à mes projets.
+            </p>
+          </li>
+        </ol>
+      </section>
+
+      <section class="veille-bloc" aria-labelledby="sujet-principal">
+      <h2 id="sujet-principal" class="veille-titre">Sujet principal — IA et outils de développement</h2>
       <div class="projects-grid">
         <a
           class="project-card reveal"
-          href="https://www.anthropic.com/news"
-          target="_blank"
-          rel="noopener noreferrer"
+          href="veille-ia-outils-dev.html"
         >
           <div class="project-num">01</div>
           <div class="project-cat">IA — Agents — Skills</div>
@@ -73,11 +105,17 @@
           </p>
           <div class="tags">
             <span class="tag">Claude Code</span><span class="tag">MCP</span
-            ><span class="tag">Agent Skills</span>
+            ><span class="tag">Agent Skills</span><span class="tag">OWASP LLM</span>
           </div>
-          <div class="project-bg-num">01</div>
+          <p class="veille-lien">Lire la fiche de veille →</p>
+          <div class="project-bg-num" aria-hidden="true">01</div>
         </a>
+      </div>
+      </section>
 
+      <section class="veille-bloc" aria-labelledby="autres-sujets">
+      <h2 id="autres-sujets" class="veille-titre">Autres sujets suivis</h2>
+      <div class="projects-grid">
         <a
           class="project-card reveal"
           href="https://www.cert.ssi.gouv.fr"
@@ -98,7 +136,7 @@
             <span class="tag">Ransomware</span><span class="tag">NIS2</span
             ><span class="tag">ANSSI</span>
           </div>
-          <div class="project-bg-num">02</div>
+          <div class="project-bg-num" aria-hidden="true">02</div>
         </a>
 
         <a
@@ -121,7 +159,7 @@
             <span class="tag">Passkeys</span><span class="tag">FIDO2</span
             ><span class="tag">MFA</span>
           </div>
-          <div class="project-bg-num">03</div>
+          <div class="project-bg-num" aria-hidden="true">03</div>
         </a>
 
         <a
@@ -144,9 +182,10 @@
             <span class="tag">SecNumCloud</span><span class="tag">RGPD</span
             ><span class="tag">Cloud Act</span>
           </div>
-          <div class="project-bg-num">04</div>
+          <div class="project-bg-num" aria-hidden="true">04</div>
         </a>
       </div>
+      </section>
     </div>
 
     </main>
