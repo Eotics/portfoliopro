@@ -17,9 +17,10 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <canvas id="particles"></canvas>
+    <a class="lien-evitement" href="#contenu">Aller au contenu</a>
+    <canvas id="particles" aria-hidden="true"></canvas>
 
-    <nav>
+    <nav aria-label="Navigation principale">
       <a class="nav-logo" href="index.html"
         >Philippe<span class="kanji">Viman</span></a
       >
@@ -34,21 +35,24 @@
       <ul class="nav-links" id="nav-links">
         <li><a href="index.html">Accueil</a></li>
         <li><a href="arsenal.html">Arsenal</a></li>
-        <li><a href="projects.html">Projets</a></li>
+        <li><a href="projects.html" aria-current="page">Projets</a></li>
         <li><a href="veille.html">Veille</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
     </nav>
 
+    <main id="contenu">
+
     <div class="section" style="padding-top: 8rem">
       <div class="section-head reveal">
         <div class="section-tag">Projets</div>
-        <div class="section-jp">プロジェクト一覧</div>
-        <h2 class="section-title">
+        <div class="section-jp" aria-hidden="true">プロジェクト一覧</div>
+        <h1 class="section-title">
           Créations <span>— Développements — Expérimentations</span>
-        </h2>
+        </h1>
       </div>
 
+      <h2 class="visuellement-masque">Liste de mes projets</h2>
       <div class="projects-grid">
         <a
           class="project-card reveal"
@@ -58,7 +62,7 @@
         >
           <div class="project-num">01</div>
           <div class="project-cat">IA — Web — Interaction</div>
-          <div class="project-jp">人工知能</div>
+          <div class="project-jp" aria-hidden="true">人工知能</div>
           <h3>Exotic.IA</h3>
           <p>
             Une intelligence artificielle conversationnelle développée pour
@@ -80,7 +84,7 @@
         >
           <div class="project-num">02</div>
           <div class="project-cat">Design — Identité — Web</div>
-          <div class="project-jp">ポートフォリオ</div>
+          <div class="project-jp" aria-hidden="true">ポートフォリオ</div>
           <h3>Portfolio Pro</h3>
           <p>
             Un portfolio complet, moderne et stylisé, basé sur un thème
@@ -97,7 +101,7 @@
         <a class="project-card reveal" href="arsenal.html">
           <div class="project-num">03</div>
           <div class="project-cat">Linux — Windows — Virtualisation</div>
-          <div class="project-jp">システム管理</div>
+          <div class="project-jp" aria-hidden="true">システム管理</div>
           <h3>Systèmes &amp; Réseaux</h3>
           <p>
             Mise en place d'environnements virtuels, configuration réseau,
@@ -119,7 +123,7 @@
         >
           <div class="project-num">04</div>
           <div class="project-cat">Études — Pratique — Progression</div>
-          <div class="project-jp">学習プロジェクト</div>
+          <div class="project-jp" aria-hidden="true">学習プロジェクト</div>
           <h3>Projets BTS SIO</h3>
           <p>
             Ensemble de projets réalisés durant ma formation : scripts, sites
@@ -134,14 +138,17 @@
       </div>
     </div>
 
-    <div class="marquee-wrap">
+    </main>
+
+    <div class="marquee-wrap" aria-hidden="true">
       <div class="marquee-track" id="mtrack"></div>
     </div>
     <footer>
       <a class="footer-logo" href="index.html">Philippe<span>Viman</span></a>
       <div class="footer-right">
-        <div>© 2026 — Exotic未来</div>
-        <div class="footer-jp">繋がりから始まるプロジェクト</div>
+        <a class="footer-legal" href="mentions-legales.html">Mentions légales &amp; confidentialité</a>
+        <div>© 2026 — Exotic<span lang="ja">未来</span></div>
+        <div class="footer-jp" aria-hidden="true">繋がりから始まるプロジェクト</div>
       </div>
     </footer>
 

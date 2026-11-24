@@ -17,9 +17,10 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <canvas id="particles"></canvas>
+    <a class="lien-evitement" href="#contenu">Aller au contenu</a>
+    <canvas id="particles" aria-hidden="true"></canvas>
 
-    <nav>
+    <nav aria-label="Navigation principale">
       <a class="nav-logo" href="index.html"
         >Philippe<span class="kanji">Viman</span></a
       >
@@ -35,20 +36,23 @@
         <li><a href="index.html">Accueil</a></li>
         <li><a href="arsenal.html">Arsenal</a></li>
         <li><a href="projects.html">Projets</a></li>
-        <li><a href="veille.html">Veille</a></li>
+        <li><a href="veille.html" aria-current="page">Veille</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
     </nav>
 
+    <main id="contenu">
+
     <div class="section" style="padding-top: 8rem">
       <div class="section-head reveal">
         <div class="section-tag">Veille</div>
-        <div class="section-jp">技術監視</div>
-        <h2 class="section-title">
+        <div class="section-jp" aria-hidden="true">技術監視</div>
+        <h1 class="section-title">
           Veille <span>— Informatique — Actualités</span>
-        </h2>
+        </h1>
       </div>
 
+      <h2 class="visuellement-masque">Mes sujets de veille</h2>
       <div class="projects-grid">
         <a
           class="project-card reveal"
@@ -58,7 +62,7 @@
         >
           <div class="project-num">01</div>
           <div class="project-cat">IA — Agents — Skills</div>
-          <div class="project-jp">人工知能</div>
+          <div class="project-jp" aria-hidden="true">人工知能</div>
           <h3>L'évolution de Claude IA</h3>
           <p>
             En trois ans, Claude est passé d'un simple chatbot à un agent
@@ -82,7 +86,7 @@
         >
           <div class="project-num">02</div>
           <div class="project-cat">Sécurité — Menaces — NIS2</div>
-          <div class="project-jp">サイバー攻撃</div>
+          <div class="project-jp" aria-hidden="true">サイバー攻撃</div>
           <h3>Cybersécurité &amp; ransomwares</h3>
           <p>
             Les rançongiciels chiffrent les données d'une organisation et
@@ -105,7 +109,7 @@
         >
           <div class="project-num">03</div>
           <div class="project-cat">Authentification — Passkeys</div>
-          <div class="project-jp">認証</div>
+          <div class="project-jp" aria-hidden="true">認証</div>
           <h3>La fin des mots de passe</h3>
           <p>
             Les passkeys remplacent le mot de passe par une clé cryptographique
@@ -128,7 +132,7 @@
         >
           <div class="project-num">04</div>
           <div class="project-cat">Cloud — Données — RGPD</div>
-          <div class="project-jp">主権クラウド</div>
+          <div class="project-jp" aria-hidden="true">主権クラウド</div>
           <h3>Cloud souverain</h3>
           <p>
             Avec le Cloud Act américain, les États-Unis peuvent demander accès
@@ -145,14 +149,17 @@
       </div>
     </div>
 
-    <div class="marquee-wrap">
+    </main>
+
+    <div class="marquee-wrap" aria-hidden="true">
       <div class="marquee-track" id="mtrack"></div>
     </div>
     <footer>
-      <a class="footer-logo" href="index.html">Exotic<span>未来</span></a>
+      <a class="footer-logo" href="index.html">Exotic<span lang="ja">未来</span></a>
       <div class="footer-right">
+        <a class="footer-legal" href="mentions-legales.html">Mentions légales &amp; confidentialité</a>
         <div>© 2026 — Philippe Viman</div>
-        <div class="footer-jp">繋がりから始まるプロジェクト</div>
+        <div class="footer-jp" aria-hidden="true">繋がりから始まるプロジェクト</div>
       </div>
     </footer>
 

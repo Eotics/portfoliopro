@@ -11,21 +11,24 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <canvas id="particles"></canvas>
+    <a class="lien-evitement" href="#contenu">Aller au contenu</a>
+    <canvas id="particles" aria-hidden="true"></canvas>
 
-    <nav>
+    <nav aria-label="Navigation principale">
       <a class="nav-logo" href="index.html">Philippe<span class="kanji">Viman</span></a>
       <button class="nav-toggle" id="nav-toggle" aria-label="Ouvrir le menu" aria-expanded="false">
         <span></span><span></span><span></span>
       </button>
       <ul class="nav-links" id="nav-links">
-        <li><a href="index.html">Accueil</a></li>
+        <li><a href="index.html" aria-current="page">Accueil</a></li>
         <li><a href="arsenal.html">Arsenal</a></li>
         <li><a href="projects.html">Projets</a></li>
         <li><a href="veille.html">Veille</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
     </nav>
+
+    <main id="contenu">
 
     <!-- ── HERO ── -->
     <div class="hero-wrap">
@@ -34,7 +37,7 @@
         <div class="hero-left reveal">
           <div class="hero-name-tag">
             <span class="tag-dot"></span>
-            Exotic未来
+            Exotic<span lang="ja">未来</span>
           </div>
           <h1 class="hero-title">
             <span class="line1">Développeur</span>
@@ -53,19 +56,19 @@
           </div>
           <div class="hero-social">
             <a href="https://github.com/Eotics" target="_blank" rel="noopener noreferrer" class="social-link">
-              <span class="social-icon">⌥</span> GitHub
+              <span class="social-icon" aria-hidden="true">⌥</span> GitHub
             </a>
             <a href="https://www.linkedin.com/in/philippe-viman/" target="_blank" rel="noopener noreferrer" class="social-link">
-              <span class="social-icon">in</span> LinkedIn
+              <span class="social-icon" aria-hidden="true">in</span> LinkedIn
             </a>
             <a href="https://www.instagram.com/sla_exotic/" target="_blank" rel="noopener noreferrer" class="social-link">
-              <span class="social-icon">◎</span> Instagram
+              <span class="social-icon" aria-hidden="true">◎</span> Instagram
             </a>
           </div>
         </div>
 
         <div class="hero-right reveal">
-          <div class="hero-deco">
+          <div class="hero-deco" aria-hidden="true">
             <div class="deco-ring deco-ring-outer"></div>
             <div class="deco-kanji">未来</div>
             <div class="orbit orbit-outer" id="orbit-outer"></div>
@@ -107,7 +110,7 @@
     <div class="section" style="padding-top:4rem;">
       <div class="section-head reveal">
         <div class="section-tag">Services</div>
-        <div class="section-jp">できること</div>
+        <div class="section-jp" aria-hidden="true">できること</div>
         <h2 class="section-title">Ce que je <span>— sais faire</span></h2>
       </div>
 
@@ -143,46 +146,49 @@
     <div class="section" style="padding-top:2rem;">
       <div class="section-head reveal">
         <div class="section-tag">Aperçu</div>
-        <div class="section-jp">スキルと世界観</div>
+        <div class="section-jp" aria-hidden="true">スキルと世界観</div>
         <h2 class="section-title">Mes compétences <span>— Mon univers</span></h2>
       </div>
       <div class="apercu-grid">
         <a class="skill-card reveal" href="arsenal.html">
           <div class="card-num">01</div>
-          <div class="card-jp">ウェブ開発</div>
-          <span class="card-icon">⌨</span>
+          <div class="card-jp" aria-hidden="true">ウェブ開発</div>
+          <span class="card-icon" aria-hidden="true">⌨</span>
           <h3>Développement Web</h3>
           <p class="card-sub">HTML / CSS / JS</p>
           <p>Création de sites modernes, animations, responsive design et interfaces propres.</p>
-          <div class="card-kanji-bg">W</div>
+          <div class="card-kanji-bg" aria-hidden="true">W</div>
         </a>
         <a class="skill-card reveal" href="arsenal.html">
           <div class="card-num">02</div>
-          <div class="card-jp">システム管理</div>
-          <span class="card-icon">🖥</span>
+          <div class="card-jp" aria-hidden="true">システム管理</div>
+          <span class="card-icon" aria-hidden="true">🖥</span>
           <h3>Systèmes &amp; Réseaux</h3>
           <p class="card-sub">Linux / Windows</p>
           <p>Administration, virtualisation, configuration et gestion d'environnements techniques.</p>
-          <div class="card-kanji-bg">S</div>
+          <div class="card-kanji-bg" aria-hidden="true">S</div>
         </a>
         <a class="skill-card reveal" href="projects.html">
           <div class="card-num">03</div>
-          <div class="card-jp">プロジェクト</div>
-          <span class="card-icon">◈</span>
+          <div class="card-jp" aria-hidden="true">プロジェクト</div>
+          <span class="card-icon" aria-hidden="true">◈</span>
           <h3>Projets &amp; Création</h3>
           <p class="card-sub">Exotic.IA / Portfolio</p>
           <p>Conception de projets personnels, IA, outils web et expériences interactives.</p>
-          <div class="card-kanji-bg">P</div>
+          <div class="card-kanji-bg" aria-hidden="true">P</div>
         </a>
       </div>
     </div>
 
-    <div class="marquee-wrap"><div class="marquee-track" id="mtrack"></div></div>
+    </main>
+
+    <div class="marquee-wrap" aria-hidden="true"><div class="marquee-track" id="mtrack"></div></div>
     <footer>
-      <a class="footer-logo" href="index.html">Exotic<span>未来</span></a>
+      <a class="footer-logo" href="index.html">Exotic<span lang="ja">未来</span></a>
       <div class="footer-right">
+        <a class="footer-legal" href="mentions-legales.html">Mentions légales &amp; confidentialité</a>
         <div>© 2026 — Philippe Viman</div>
-        <div class="footer-jp">繋がりから始まるプロジェクト</div>
+        <div class="footer-jp" aria-hidden="true">繋がりから始まるプロジェクト</div>
       </div>
     </footer>
 
