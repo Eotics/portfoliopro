@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Philippe Viman's tech watch — the evolution of Claude AI Skills, cybersecurity, passkeys and sovereign cloud."
+    />
+    <meta name="theme-color" content="#07050f" />
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
+    <link rel="alternate" hreflang="fr" href="../veille.html" />
+    <title>Tech watch — Philippe Viman</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Noto+Sans+JP:wght@300;400;500&family=JetBrains+Mono:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../style.css" />
+  </head>
+  <body>
+    <a class="lien-evitement" href="#contenu">Skip to content</a>
+    <canvas id="particles" aria-hidden="true"></canvas>
+
+    <nav aria-label="Main navigation">
+      <a class="nav-logo" href="home.html"
+        >Philippe<span class="kanji">Viman</span></a
+      >
+      <button
+        class="nav-toggle"
+        id="nav-toggle"
+        aria-label="Open the menu"
+        aria-expanded="false"
+      >
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="home.html">Home</a></li>
+        <li><a href="arsenal.html">Arsenal</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="tech-watch.html" aria-current="page">Tech watch</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+
+    <main id="contenu">
+
+    <div class="section" style="padding-top: 8rem">
+      <div class="section-head reveal">
+        <div class="section-tag">Tech watch</div>
+        <div class="section-jp" aria-hidden="true">技術監視</div>
+        <h1 class="section-title">
+          Tech watch <span>— IT — News</span>
+        </h1>
+      </div>
+
+      <section class="veille-bloc" aria-labelledby="methode">
+        <h2 id="methode" class="veille-titre">My tech watch method</h2>
+        <ol class="veille-etapes">
+          <li class="veille-etape reveal">
+            <span class="veille-num" aria-hidden="true">01</span>
+            <h3>Collect</h3>
+            <p>
+              I follow YouTube channels and LinkedIn accounts of developers and
+              tool vendors: new releases, real-world feedback and security
+              alerts.
+            </p>
+          </li>
+          <li class="veille-etape reveal">
+            <span class="veille-num" aria-hidden="true">02</span>
+            <h3>Sort</h3>
+            <p>
+              I share useful links on my Discord server. My NEXUS bot, written
+              in Python, automatically files them in the
+              <code>#veille-informatique</code> channel.
+            </p>
+          </li>
+          <li class="veille-etape reveal">
+            <span class="veille-num" aria-hidden="true">03</span>
+            <h3>Check and summarize</h3>
+            <p>
+              Before keeping a piece of information, I trace it back to the
+              official source (vendor announcement, documentation, OWASP,
+              CERT-FR). I then write a dated summary sheet, linked to my
+              projects.
+            </p>
+          </li>
+        </ol>
+      </section>
+
+      <section class="veille-bloc" aria-labelledby="sujet-principal">
+      <h2 id="sujet-principal" class="veille-titre">Main topic — AI and development tools</h2>
+      <div class="projects-grid">
+        <a
+          class="project-card reveal"
+          href="tech-watch-ai-dev-tools.html"
+        >
+          <div class="project-num">01</div>
+          <div class="project-cat">AI — Agents — Skills</div>
+          <div class="project-jp" aria-hidden="true">人工知能</div>
+          <h3>The evolution of Claude AI</h3>
+          <p>
+            In three years, Claude has gone from a simple chatbot to an agent
+            able to code on its own (Claude Code), connect to tools (MCP) and
+            load Skills on demand. A Skill is a folder of instructions and
+            scripts that teaches the AI a specific task.
+          </p>
+          <div class="tags">
+            <span class="tag">Claude Code</span><span class="tag">MCP</span
+            ><span class="tag">Agent Skills</span><span class="tag">OWASP LLM</span>
+          </div>
+          <p class="veille-lien">Read the tech watch sheet →</p>
+          <div class="project-bg-num" aria-hidden="true">01</div>
+        </a>
+      </div>
+      </section>
+
+      <section class="veille-bloc" aria-labelledby="autres-sujets">
+      <h2 id="autres-sujets" class="veille-titre">Other topics I follow</h2>
+      <div class="projects-grid">
+        <a
+          class="project-card reveal"
+          href="https://www.cert.ssi.gouv.fr"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <div class="project-num">02</div>
+          <div class="project-cat">Security — Threats — NIS2</div>
+          <div class="project-jp" aria-hidden="true">サイバー攻撃</div>
+          <h3>Cybersecurity &amp; ransomware</h3>
+          <p>
+            Ransomware encrypts an organization's data and demands a ransom.
+            Hospitals, local authorities and small businesses are frequent
+            targets. The European NIS2 directive requires many more companies
+            to protect themselves and report their incidents.
+          </p>
+          <div class="tags">
+            <span class="tag">Ransomware</span><span class="tag">NIS2</span
+            ><span class="tag">ANSSI</span>
+          </div>
+          <div class="project-bg-num" aria-hidden="true">02</div>
+        </a>
+
+        <a
+          class="project-card reveal"
+          href="https://fidoalliance.org"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <div class="project-num">03</div>
+          <div class="project-cat">Authentication — Passkeys</div>
+          <div class="project-jp" aria-hidden="true">認証</div>
+          <h3>The end of passwords</h3>
+          <p>
+            Passkeys replace the password with a cryptographic key stored on
+            the device and unlocked by fingerprint, face or PIN. There is no
+            secret to type anymore, so nothing left to steal through phishing.
+          </p>
+          <div class="tags">
+            <span class="tag">Passkeys</span><span class="tag">FIDO2</span
+            ><span class="tag">MFA</span>
+          </div>
+          <div class="project-bg-num" aria-hidden="true">03</div>
+        </a>
+
+        <a
+          class="project-card reveal"
+          href="https://www.cnil.fr"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <div class="project-num">04</div>
+          <div class="project-cat">Cloud — Data — GDPR</div>
+          <div class="project-jp" aria-hidden="true">主権クラウド</div>
+          <h3>Sovereign cloud</h3>
+          <p>
+            Under the US Cloud Act, the United States can request access to
+            data hosted by American companies, even in Europe. France is
+            therefore promoting SecNumCloud-certified offerings to protect
+            sensitive data.
+          </p>
+          <div class="tags">
+            <span class="tag">SecNumCloud</span><span class="tag">GDPR</span
+            ><span class="tag">Cloud Act</span>
+          </div>
+          <div class="project-bg-num" aria-hidden="true">04</div>
+        </a>
+      </div>
+      </section>
+    </div>
+
+    </main>
+
+    <div class="marquee-wrap" aria-hidden="true">
+      <div class="marquee-track" id="mtrack"></div>
+    </div>
+    <footer>
+      <a class="footer-logo" href="home.html">Exotic<span lang="ja">未来</span></a>
+      <div class="footer-right">
+        <a class="footer-legal" href="legal-notice.html">Legal notice &amp; privacy</a>
+        <div>© 2026 — Philippe Viman</div>
+        <div class="footer-jp" aria-hidden="true">繋がりから始まるプロジェクト</div>
+      </div>
+    </footer>
+
+    <script src="main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Contact Philippe Viman — Email, LinkedIn, GitHub, Instagram, Discord, Linktree." />
+  <meta name="theme-color" content="#07050f" />
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
+  <link rel="alternate" hreflang="fr" href="../contact.html" />
+  <title>Contact — Philippe Viman</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Noto+Sans+JP:wght@300;400;500&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <a class="lien-evitement" href="#contenu">Skip to content</a>
+
+<canvas id="particles" aria-hidden="true"></canvas>
+
+
+<nav aria-label="Main navigation">
+  <a class="nav-logo" href="home.html">Philippe<span class="kanji">Viman</span></a>
+  <button class="nav-toggle" id="nav-toggle" aria-label="Open the menu" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+  <ul class="nav-links" id="nav-links">
+    <li><a href="home.html">HOME</a></li>
+    <li><a href="arsenal.html">ARSENAL</a></li>
+    <li><a href="projects.html">PROJECTS</a></li>
+    <li><a href="tech-watch.html">TECH WATCH</a></li>
+    <li><a href="contact.html" aria-current="page">CONTACT</a></li>
+  </ul>
+</nav>
+
+<main id="contenu">
+  <div class="section">
+    <div class="section-head reveal">
+      <div class="section-tag">Contact</div>
+      <div class="section-jp" aria-hidden="true">連絡先</div>
+      <h1 class="section-title">Contact me <span>— Connect</span></h1>
+    </div>
+
+    <div class="contact-grid">
+
+      <div>
+        <p class="contact-desc reveal">You can reach me through my professional or personal networks. I'd be happy to talk, collaborate or answer your questions.</p>
+
+        <div class="contact-links">
+          <a href="mailto:philippe.viman@yahoo.com" class="contact-link reveal">
+            <span class="link-icon" aria-hidden="true">✉</span>
+            <div>
+              <div class="link-name">Email</div>
+              <div class="link-handle">philippe.viman@yahoo.com</div>
+            </div>
+            <span class="link-arrow">→</span>
+          </a>
+          <a href="https://www.linkedin.com/in/philippe-viman/" target="_blank" rel="noopener noreferrer" class="contact-link reveal">
+            <span class="link-icon" aria-hidden="true">in</span>
+            <div>
+              <div class="link-name">LinkedIn</div>
+              <div class="link-handle">philippe-viman</div>
+            </div>
+            <span class="link-arrow">→</span>
+          </a>
+          <a href="https://github.com/Eotics" target="_blank" rel="noopener noreferrer" class="contact-link reveal">
+            <span class="link-icon" aria-hidden="true">⌥</span>
+            <div>
+              <div class="link-name">GitHub</div>
+              <div class="link-handle">@Eotics</div>
+            </div>
+            <span class="link-arrow">→</span>
+          </a>
+          <a href="https://www.instagram.com/sla_exotic/" target="_blank" rel="noopener noreferrer" class="contact-link reveal">
+            <span class="link-icon" aria-hidden="true">◎</span>
+            <div>
+              <div class="link-name">Instagram</div>
+              <div class="link-handle">@sla_exotic</div>
+            </div>
+            <span class="link-arrow">→</span>
+          </a>
+          <a href="https://discord.com/users/sla_exotic" target="_blank" rel="noopener noreferrer" class="contact-link reveal">
+            <span class="link-icon" aria-hidden="true">◈</span>
+            <div>
+              <div class="link-name">Discord</div>
+              <div class="link-handle">sla_exotic</div>
+            </div>
+            <span class="link-arrow">→</span>
+          </a>
+          <a href="https://linktr.ee/sla.exotic" target="_blank" rel="noopener noreferrer" class="contact-link reveal">
+            <span class="link-icon" aria-hidden="true">⛶</span>
+            <div>
+              <div class="link-name">Linktree</div>
+              <div class="link-handle">sla.exotic</div>
+            </div>
+            <span class="link-arrow">→</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="contact-terminal reveal">
+        <div class="terminal-bar">
+          <div class="term-dot"></div>
+          <div class="term-dot"></div>
+          <div class="term-dot"></div>
+          <div class="terminal-title">exotic_terminal — bash</div>
+        </div>
+        <div class="terminal-body">
+          <div id="typewriter"></div>
+          <span class="term-cursor"></span>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="contact-form-wrap reveal">
+      <div class="section-head" style="margin-bottom:2rem;">
+        <div class="section-tag">Direct message</div>
+        <div class="section-jp" aria-hidden="true">メッセージを送る</div>
+        <h2 class="section-title">Send a <span>message</span></h2>
+      </div>
+
+      <form id="contact-form" class="contact-form">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="cf-name">Name</label>
+            <input type="text" id="cf-name" name="user_name" required>
+          </div>
+          <div class="form-group">
+            <label for="cf-email">Email</label>
+            <input type="email" id="cf-email" name="user_email" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="cf-message">Message</label>
+          <textarea id="cf-message" name="message" rows="5" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">
+          <span>Send</span><span>→</span>
+        </button>
+        <p id="cf-status" class="form-status" role="status" aria-live="polite"></p>
+        <p class="form-rgpd">Your name, email address and message are used only to reply to you; they are never sold or used for any other purpose. <a href="legal-notice.html#donnees">Your data and your rights</a></p>
+      </form>
+    </div>
+  </div>
+</main>
+
+<div class="marquee-wrap" aria-hidden="true"><div class="marquee-track" id="mtrack"></div></div>
+
+<footer>
+  <a class="footer-logo" href="home.html">Philippe<span>Viman</span></a>
+  <div class="footer-right">
+        <a class="footer-legal" href="legal-notice.html">Legal notice &amp; privacy</a>
+    <div>© 2026 — Exotic<span lang="ja">未来</span></div>
+    <div class="footer-jp" aria-hidden="true">繋がりから始まるプロジェクト</div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script src="main.js"></script>
+</body>
+</html>

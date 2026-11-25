@@ -1,0 +1,234 @@
+/* ==========================================
+   portail.css — Pages d'entrée du portfolio
+   - index.html      : choix de la langue (Français / English)
+   - choix.html      : choix de la version (site pro / maquette), en français
+   - en/choice.html  : même page, en anglais
+   S'appuie sur les couleurs et la base de style.css (chargé avant).
+========================================== */
+
+/* Barre du haut : nom + lien de retour */
+.portail-barre {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.3rem 3rem;
+  border-bottom: 1px solid var(--border);
+  background: rgba(7, 5, 15, 0.75);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+}
+
+.portail-marque {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 1.05rem;
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.portail-marque span {
+  color: var(--violet2);
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 0.95rem;
+  opacity: 0.8;
+}
+
+.portail-retour {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text);
+  text-decoration: none;
+  padding: 0.5rem 0;
+  transition: color 0.2s;
+}
+.portail-retour:hover {
+  color: #fff;
+}
+
+/* Contenu centré */
+.portail-main {
+  position: relative;
+  z-index: 1;
+  flex: 1;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 5rem 3rem 5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.portail-tete {
+  margin-bottom: 3rem;
+}
+
+.portail-lead {
+  margin-top: 1.2rem;
+  max-width: 620px;
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 0.95rem;
+  line-height: 1.75;
+  color: var(--text);
+}
+
+/* Les deux grandes cartes de choix */
+.portail-cartes {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem;
+  list-style: none;
+}
+
+.portail-carte {
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+  min-height: 300px;
+  padding: 2.2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+  border: 1px solid var(--border);
+  background: linear-gradient(160deg, rgba(19, 15, 34, 0.92), rgba(7, 5, 15, 0.88));
+  color: var(--text);
+  text-decoration: none;
+  /* opacity garde l'apparition de .reveal (style.css) */
+  transition:
+    opacity 0.65s ease,
+    transform 0.35s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+/* Trait néon en haut de la carte, qui s'étire au survol */
+.portail-carte::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--violet2), var(--neon), var(--cyan));
+  transition: width 0.45s ease;
+}
+
+.portail-carte:hover,
+.portail-carte:focus-visible {
+  border-color: var(--violet2);
+  box-shadow:
+    var(--glow),
+    inset 0 0 60px rgba(124, 58, 237, 0.12);
+  transform: translateY(-4px);
+}
+.portail-carte:hover::before,
+.portail-carte:focus-visible::before {
+  width: 100%;
+}
+
+.portail-badge {
+  align-self: flex-start;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--cyan);
+  padding: 4px 10px;
+  border: 1px solid rgba(34, 211, 238, 0.35);
+  background: rgba(34, 211, 238, 0.06);
+}
+
+.portail-code {
+  font-size: clamp(3.2rem, 7vw, 5.5rem);
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  background: linear-gradient(90deg, var(--violet2), var(--neon));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.portail-nom {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.portail-desc {
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--text);
+  max-width: 34ch;
+}
+
+.portail-carte .tags {
+  margin-top: 0.2rem;
+}
+
+.portail-action {
+  margin-top: auto;
+  padding-top: 1rem;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #fff;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+.portail-action span {
+  color: var(--neon);
+  transition: transform 0.3s ease;
+}
+.portail-carte:hover .portail-action span,
+.portail-carte:focus-visible .portail-action span {
+  transform: translateX(6px);
+}
+
+/* Grand kanji décoratif en fond de carte */
+.portail-kanji {
+  position: absolute;
+  right: -0.5rem;
+  bottom: -1.5rem;
+  font-family: "Noto Sans JP", sans-serif;
+  font-size: 10rem;
+  font-weight: 500;
+  line-height: 1;
+  color: rgba(168, 85, 247, 0.07);
+  pointer-events: none;
+  transition: color 0.3s ease;
+}
+.portail-carte:hover .portail-kanji,
+.portail-carte:focus-visible .portail-kanji {
+  color: rgba(217, 70, 239, 0.12);
+}
+
+/* ── Mobile ── */
+@media (max-width: 760px) {
+  .portail-barre {
+    padding: 1rem 1.25rem;
+  }
+  .portail-main {
+    padding: 3rem 1.25rem 4rem;
+  }
+  .portail-cartes {
+    grid-template-columns: 1fr;
+  }
+  .portail-carte {
+    min-height: 0;
+    padding: 1.8rem 1.5rem;
+  }
+  .portail-kanji {
+    font-size: 7rem;
+  }
+}
