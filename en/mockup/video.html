@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#09090d" />
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
+    <title>Exo presents the portfolio</title>
+    <!--
+      Version anglaise du plateau 1920×1080 de la vidéo (original : maquette/video.html).
+      Même structure, mêmes minutages (maquette/js/video.js) : seuls les textes sont traduits.
+      Ouvrir la page dans un navigateur = aperçu en boucle.
+      Générer le MP4 : node maquette/video/generer.mjs --en
+    -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500;700&family=Shippori+Mincho:wght@500;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../../maquette/css/video.css" />
+  </head>
+  <body>
+    <!-- Background (under the 3D) -->
+    <div class="plateau plateau--fond" aria-hidden="true">
+      <img class="fond__sakura" src="../../maquette/img/sakura-branche.svg" alt="" />
+      <img class="fond__rameau" src="../../maquette/img/sakura-rameau.svg" alt="" />
+      <p class="fond__kanji" lang="ja" data-scene="hero">未来</p>
+      <p class="fond__kanji" lang="ja" data-scene="profil">侍</p>
+      <p class="fond__kanji" lang="ja" data-scene="arsenal">刀</p>
+      <p class="fond__kanji" lang="ja" data-scene="projets">冒険</p>
+      <p class="fond__kanji" lang="ja" data-scene="veille">監視</p>
+      <p class="fond__kanji" lang="ja" data-scene="contact">縁</p>
+    </div>
+
+    <!-- 3D mascot (js/scene.js): it snaps to the .stage area of the [data-screen] section -->
+    <canvas id="scene3d" aria-hidden="true"></canvas>
+    <!-- Sakura petals (js/sakura.js), between the mascot and the foreground -->
+    <canvas id="sakura" aria-hidden="true"></canvas>
+
+    <!-- Foreground (above the 3D) -->
+    <div class="plateau plateau--avant">
+      <section class="ecran" id="ecran" data-screen="hero">
+        <div class="zone" id="zoneA"></div>
+        <div class="zone" id="zoneB"></div>
+      </section>
+
+      <!-- Permanent HUD -->
+      <p class="hud-logo">Philippe Viman<span class="hud-alias">Exotic<span lang="ja">未来</span></span></p>
+      <ol class="hud-points" aria-hidden="true"><li></li><li></li><li></li><li></li><li></li><li></li></ol>
+
+      <!-- 01 · HOME -->
+      <div class="scene" data-scene="hero">
+        <p class="chap"><b>01</b><span lang="ja">壱</span>Home</p>
+        <div class="hero">
+          <p class="pill"><span class="pill__dot"></span>BTS SIO · Open to an internship</p>
+          <h1 class="hero__nom"><span class="mot">Philippe</span> <span class="mot">Viman</span></h1>
+          <p class="hero__role"><span class="mot">Developer</span> <span class="mot amp">&amp;</span> <span class="mot neon">Creator</span></p>
+          <p class="hero__desc">BTS SIO student, passionate about web development, cybersecurity and building modern projects.</p>
+        </div>
+        <div class="bulle queue-bd" style="left: 880px; top: 80px; width: 600px"><p>Hey! I'm <b>Exo</b>, Philippe's computer.</p></div>
+        <div class="bulle queue-bd" style="left: 850px; top: 80px; width: 640px"><p>Follow me, I'll give you a tour of <b>his portfolio</b>!</p></div>
+      </div>
+
+      <!-- 02 · PROFILE -->
+      <div class="scene" data-scene="profil">
+        <p class="chap"><b>02</b><span lang="ja">弐</span>Character sheet</p>
+        <article class="fiche panneau">
+          <p class="fiche__ruby" lang="ja">フィリップ・ヴィマン</p>
+          <h2 class="fiche__nom">Philippe Viman</h2>
+          <p class="fiche__classe">Class: Web Developer — Alias: Exotic<span lang="ja">未来</span></p>
+          <dl class="fiche__stats">
+            <div><dt>Rank</dt><dd>BTS</dd><small>SIO in progress</small></div>
+            <div><dt>Quests</dt><dd><span data-compteur="4">0</span>+</dd><small>completed projects</small></div>
+            <div><dt>Techniques</dt><dd><span data-compteur="9">0</span></dd><small>technologies</small></div>
+            <div><dt>Goal</dt><dd><span data-compteur="2027" data-depart="2000">2000</span></dd><small>target degree</small></div>
+          </dl>
+          <p class="fiche__devise">“Build, learn, grow.”</p>
+        </article>
+        <div class="bulle queue-bg" style="left: 300px; top: 92px; width: 620px"><p>Meet my creator: <b>Philippe</b>, a BTS SIO student.</p></div>
+        <div class="bulle queue-bg" style="left: 300px; top: 92px; width: 560px"><p>His motto: build, learn, <b>grow</b>!</p></div>
+      </div>
+
+      <!-- 03 · ARSENAL -->
+      <div class="scene" data-scene="arsenal">
+        <p class="chap"><b>03</b><span lang="ja">参</span>The arsenal</p>
+        <div class="arsenal">
+          <article class="carte panneau">
+            <p class="label">01 — <span lang="ja">ウェブ開発</span></p>
+            <h3>Web Development</h3>
+            <p class="carte__tech">HTML / CSS / JavaScript</p>
+            <ul class="tags"><li>HTML5</li><li>CSS3</li><li>JavaScript</li><li>Node.js</li></ul>
+            <span class="carte__kanji" lang="ja">創</span>
+          </article>
+          <article class="carte panneau">
+            <p class="label">02 — <span lang="ja">システム管理</span></p>
+            <h3>Systems &amp; Networks</h3>
+            <p class="carte__tech">Linux / Windows / Cisco</p>
+            <ul class="tags"><li>Linux</li><li>Windows Server</li><li>VLAN</li></ul>
+            <span class="carte__kanji" lang="ja">網</span>
+          </article>
+          <article class="carte panneau">
+            <p class="label">03 — <span lang="ja">防御</span></p>
+            <h3>Cybersecurity</h3>
+            <p class="carte__tech">Firewall / DNS / Best practices</p>
+            <ul class="tags"><li>Firewall</li><li>Kali</li><li>DNS</li></ul>
+            <span class="carte__kanji" lang="ja">守</span>
+          </article>
+          <article class="carte panneau">
+            <p class="label">04 — <span lang="ja">ツール</span></p>
+            <h3>Tools &amp; Workflow</h3>
+            <ul class="tags"><li>Git</li><li>GitHub</li><li>VSCode</li><li>VirtualBox</li><li>VMware</li><li>PHP</li><li>Python</li><li>SQL</li><li>MariaDB</li><li>REST API</li><li>Tailwind</li></ul>
+            <span class="carte__kanji" lang="ja">道</span>
+          </article>
+        </div>
+        <div class="bulle queue-bd" style="left: 1060px; top: 70px; width: 560px"><p>His arsenal: web, systems, networks, <b>cybersecurity</b>…</p></div>
+        <div class="bulle queue-bd" style="left: 1100px; top: 70px; width: 520px"><p>… and one serious <b>toolbox</b>!</p></div>
+      </div>
+
+      <!-- 04 · PROJECTS -->
+      <div class="scene" data-scene="projets">
+        <p class="chap"><b>04</b><span lang="ja">肆</span>The quests</p>
+        <div class="quetes">
+          <article class="couv couv--lune">
+            <div class="couv__art"><span class="couv__vol"><span lang="ja">壱</span> 01</span><span class="couv__kanji" lang="ja">人工知能</span></div>
+            <div class="couv__corps"><p class="label">AI — Web — Interaction</p><h3>Exotic.IA</h3><p>A conversational AI to experiment with web interaction.</p></div>
+          </article>
+          <article class="couv couv--sakura">
+            <div class="couv__art"><span class="couv__vol"><span lang="ja">弐</span> 02</span><span class="couv__kanji" lang="ja">作品集</span></div>
+            <div class="couv__corps"><p class="label">Design — Identity — Web</p><h3>Portfolio Pro</h3><p>A purple/neon portfolio inspired by Japanese cyberpunk.</p></div>
+          </article>
+          <article class="couv couv--katana">
+            <div class="couv__art"><span class="couv__vol"><span lang="ja">参</span> 03</span><span class="couv__kanji" lang="ja">網路</span></div>
+            <div class="couv__corps"><p class="label">Linux — Windows — Virtualization</p><h3>Systems &amp; Networks</h3><p>Virtual environments and network configuration.</p></div>
+          </article>
+          <article class="couv couv--petales">
+            <div class="couv__art"><span class="couv__vol"><span lang="ja">肆</span> 04</span><span class="couv__kanji" lang="ja">学習</span></div>
+            <div class="couv__corps"><p class="label">Studies — Practice — Progress</p><h3>BTS SIO projects</h3><p>Scripts, websites, networking exercises and small apps.</p></div>
+          </article>
+        </div>
+        <div class="quetes__barre"><span></span></div>
+        <div class="bulle queue-bd" style="left: 1010px; top: 150px; width: 560px"><p>His quests: <b>4 projects</b>, from AI to networks.</p></div>
+        <div class="bulle queue-bd" style="left: 990px; top: 150px; width: 600px"><p>It's all on GitHub: <b>github.com/Eotics</b></p></div>
+      </div>
+
+      <!-- 05 · TECH WATCH -->
+      <div class="scene" data-scene="veille">
+        <p class="chap"><b>05</b><span lang="ja">伍</span>The radar</p>
+        <div class="radar">
+          <article class="flash panneau">
+            <p class="flash__tag"><span lang="ja">速報</span> · Flash 01</p>
+            <h3>The evolution of Claude AI</h3>
+            <p>From chatbot to agent: Claude Code, the MCP protocol and Skills.</p>
+            <p class="flash__src">Source: Anthropic</p>
+          </article>
+          <article class="flash panneau">
+            <p class="flash__tag"><span lang="ja">速報</span> · Flash 02</p>
+            <h3>Cybersecurity &amp; ransomware</h3>
+            <p>Hospitals, local authorities and small businesses targeted. NIS2 tightens the rules.</p>
+            <p class="flash__src">Source: CERT-FR</p>
+          </article>
+          <article class="flash panneau">
+            <p class="flash__tag"><span lang="ja">速報</span> · Flash 03</p>
+            <h3>The end of passwords</h3>
+            <p>Passkeys: a cryptographic key, nothing left to steal by phishing.</p>
+            <p class="flash__src">Source: FIDO Alliance</p>
+          </article>
+          <article class="flash panneau">
+            <p class="flash__tag"><span lang="ja">速報</span> · Flash 04</p>
+            <h3>Sovereign cloud</h3>
+            <p>Facing the US Cloud Act, France backs SecNumCloud offerings.</p>
+            <p class="flash__src">Source: CNIL</p>
+          </article>
+        </div>
+        <div class="bulle queue-bg" style="left: 300px; top: 92px; width: 600px"><p>He keeps an eye on tech news: his <b>tech watch</b>!</p></div>
+        <div class="bulle queue-bg" style="left: 300px; top: 92px; width: 560px"><p>AI, ransomware, passkeys, <b>sovereign cloud</b>…</p></div>
+      </div>
+
+      <!-- 06 · CONTACT -->
+      <div class="scene" data-scene="contact">
+        <p class="chap"><b>06</b><span lang="ja">陸</span>Contact</p>
+        <div class="finale">
+          <h2 class="finale__titre"><span class="mot">What's</span> <span class="mot"><em>next</em>?</span></h2>
+          <p class="finale__desc">Internship, work-study, project or just a question: I'm happy to talk.</p>
+          <p class="finale__mail">philippe.viman@yahoo.com</p>
+          <ul class="finale__liens"><li>LinkedIn</li><li>GitHub</li><li>Instagram</li><li>Discord</li><li>Linktree</li></ul>
+        </div>
+        <div class="bulle queue-bd" style="left: 880px; top: 70px; width: 560px"><p>An internship? Work-study? <b>Write to him!</b></p></div>
+        <div class="bulle queue-bd" style="left: 900px; top: 70px; width: 520px"><p>See you soon! <b lang="ja" style="white-space: nowrap">またね</b>!</p></div>
+      </div>
+
+      <!-- Transition between chapters: a katana slash crosses the screen -->
+      <div class="tranche" aria-hidden="true">
+        <span class="tranche__eclair"></span>
+        <span class="tranche__trait"><span></span></span>
+      </div>
+
+      <!-- Opening (the screen is cut in two) / ending -->
+      <div class="rideau" aria-hidden="true">
+        <div class="rideau__moitie rideau__moitie--haut"></div>
+        <div class="rideau__moitie rideau__moitie--bas"></div>
+        <span class="rideau__trait"><span></span></span>
+        <div class="rideau__intro">
+          <span class="rideau__chap" lang="ja">抜刀</span>
+          <span class="rideau__titre">Philippe Viman</span>
+          <span class="rideau__sous">Portfolio · presented by Exo</span>
+        </div>
+        <div class="rideau__fin">
+          <span class="rideau__matane" lang="ja">またね</span>
+          <span class="rideau__titre">Philippe Viman</span>
+          <span class="rideau__sous">philippe.viman@yahoo.com · github.com/Eotics</span>
+        </div>
+      </div>
+    </div>
+
+
+    <script src="../../maquette/vendor/gsap/gsap.min.js"></script>
+    <script src="../../maquette/js/sakura.js"></script>
+    <script src="../../maquette/js/video.js"></script>
+    <script src="../../maquette/js/scene.js"></script>
+  </body>
+</html>

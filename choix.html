@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Portfolio de Philippe Viman — choisissez entre le site professionnel et la maquette de la prochaine version." />
+    <meta name="theme-color" content="#07050f" />
+    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <link rel="alternate" hreflang="en" href="en/choice.html" />
+    <title>Choisir une version — Philippe Viman</title>
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Noto+Sans+JP:wght@300;400;500&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="portail.css" />
+    <script>try{if(localStorage.getItem("portfoliopro-theme")==="light")document.documentElement.setAttribute("data-theme","light")}catch(e){}</script>
+  </head>
+  <body>
+    <a class="lien-evitement" href="#contenu">Aller au contenu</a>
+    <canvas id="particles" aria-hidden="true"></canvas>
+
+    <header class="portail-barre">
+      <p class="portail-marque">Philippe Viman<span lang="ja">未来</span></p>
+      <div class="portail-actions">
+        <a class="portail-retour" href="index.html"><span aria-hidden="true">← </span>Changer de langue</a>
+        <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Mode clair" title="Mode clair / mode sombre">
+          <svg class="icone-soleil" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4" /><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41" /></svg>
+          <svg class="icone-lune" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9z" /></svg>
+        </button>
+      </div>
+    </header>
+
+    <main id="contenu" class="portail-main">
+      <div class="portail-tete reveal">
+        <div class="section-tag">Bienvenue</div>
+        <div class="section-jp" aria-hidden="true">道を選ぶ</div>
+        <h1 class="section-title">Choisissez <span>— votre version</span></h1>
+        <p class="portail-lead">
+          Deux visages du même portfolio : le site professionnel actuel, ou la maquette de la
+          prochaine version.
+        </p>
+      </div>
+
+      <ul class="portail-cartes">
+        <li>
+          <a class="portail-carte reveal" href="accueil.html">
+            <span class="portail-badge">Version actuelle</span>
+            <span class="portail-code" aria-hidden="true">01</span>
+            <h2 class="portail-nom">Site professionnel</h2>
+            <p class="portail-desc">
+              Mon portfolio complet : compétences, projets, veille informatique et contact.
+            </p>
+            <div class="tags" aria-hidden="true">
+              <span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span>
+            </div>
+            <span class="portail-action">Entrer <span aria-hidden="true">→</span></span>
+            <span class="portail-kanji" lang="ja" aria-hidden="true">職</span>
+          </a>
+        </li>
+        <li>
+          <a class="portail-carte reveal" href="maquette/index.html">
+            <span class="portail-badge">Expérimental</span>
+            <span class="portail-code" aria-hidden="true">02</span>
+            <h2 class="portail-nom">Maquette</h2>
+            <p class="portail-desc">
+              La prochaine version en préparation : mascotte 3D en temps réel, coup de katana et
+              pétales de sakura.
+            </p>
+            <div class="tags" aria-hidden="true">
+              <span class="tag">3D</span><span class="tag">GSAP</span><span class="tag">Three.js</span>
+            </div>
+            <span class="portail-action">Découvrir <span aria-hidden="true">→</span></span>
+            <span class="portail-kanji" lang="ja" aria-hidden="true">試</span>
+          </a>
+        </li>
+      </ul>
+    </main>
+
+    <footer>
+      <span class="footer-logo">Exotic<span lang="ja">未来</span></span>
+      <div class="footer-right">
+        <a class="footer-legal" href="mentions-legales.html">Mentions légales &amp; confidentialité</a>
+        <div>© 2026 — Philippe Viman</div>
+        <div class="footer-jp" aria-hidden="true">繋がりから始まるプロジェクト</div>
+      </div>
+    </footer>
+
+    <script src="theme.js"></script>
+    <script src="main.js"></script>
+  </body>
+</html>

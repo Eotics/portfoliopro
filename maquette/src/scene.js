@@ -304,7 +304,11 @@ function init() {
   let prochainClignement = 2;
   let poke = 0;
 
-  const PROJETS = ["EXOTIC.IA", "PORTFOLIO PRO", "SYS & RÉSEAUX", "PROJETS BTS"];
+  // Textes de l'écran : anglais quand la page est en anglais (en/mockup/), sinon français
+  const EN = document.documentElement.lang === "en";
+  const PROJETS = EN
+    ? ["EXOTIC.IA", "PORTFOLIO PRO", "SYS & NETWORKS", "BTS PROJECTS"]
+    : ["EXOTIC.IA", "PORTFOLIO PRO", "SYS & RÉSEAUX", "PROJETS BTS"];
 
   // Réglages communs du compagnon (regard, clignement, piqûre)
   const etatCompagnon = (cx, cy, echelle, expression) => ({
@@ -347,7 +351,7 @@ function init() {
       const n = Math.min(PROJETS.length - 1, Math.floor(rig.progress * PROJETS.length));
       x.font = '500 26px "Geist Mono", monospace';
       x.fillStyle = "#8b5cf6";
-      x.fillText("QUÊTE " + String(n + 1).padStart(2, "0") + " / 04", 28, 130);
+      x.fillText((EN ? "QUEST " : "QUÊTE ") + String(n + 1).padStart(2, "0") + " / 04", 28, 130);
       x.font = '700 44px "Geist", sans-serif';
       x.fillStyle = "#f4f4f6";
       x.fillText(PROJETS[n], 28, 222);
@@ -370,7 +374,7 @@ function init() {
       });
       x.font = '500 24px "Geist Mono", monospace';
       x.fillStyle = "#c4b5fd";
-      x.fillText("RADAR: 4 SUJETS", 28, 430);
+      x.fillText(EN ? "RADAR: 4 TOPICS" : "RADAR: 4 SUJETS", 28, 430);
       dessinerCompagnon(x, t, etatCompagnon(505, 330, 0.95, "curious"));
     } else {
       const contact = mode === "contact";

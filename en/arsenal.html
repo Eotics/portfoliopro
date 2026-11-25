@@ -1,0 +1,174 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Skills and technologies mastered by Philippe Viman — HTML, CSS, JavaScript, Linux, Windows, Git, GitHub, VSCode."
+    />
+    <meta name="theme-color" content="#07050f" />
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg" />
+    <link rel="alternate" hreflang="fr" href="../arsenal.html" />
+    <title>Arsenal — Philippe Viman</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Noto+Sans+JP:wght@300;400;500&family=JetBrains+Mono:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../style.css" />
+    <script>try{if(localStorage.getItem("portfoliopro-theme")==="light")document.documentElement.setAttribute("data-theme","light")}catch(e){}</script>
+  </head>
+  <body>
+    <a class="lien-evitement" href="#contenu">Skip to content</a>
+    <canvas id="particles" aria-hidden="true"></canvas>
+
+    <nav aria-label="Main navigation">
+      <a class="nav-logo" href="home.html"
+        >Philippe<span class="kanji">Viman</span></a
+      >
+      <button
+        class="nav-toggle"
+        id="nav-toggle"
+        aria-label="Open the menu"
+        aria-expanded="false"
+      >
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="home.html">Home</a></li>
+        <li><a href="arsenal.html" aria-current="page">Arsenal</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="tech-watch.html">Tech watch</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Light mode" title="Light / dark mode">
+        <svg class="icone-soleil" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4" /><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41" /></svg>
+        <svg class="icone-lune" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9z" /></svg>
+      </button>
+    </nav>
+
+    <main id="contenu">
+
+    <div
+      class="section"
+      style="
+        padding-top: 8rem;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      "
+    >
+      <div class="section-head reveal">
+        <div class="section-tag">Arsenal</div>
+        <div class="section-jp" aria-hidden="true">武器庫</div>
+        <h1 class="section-title">
+          Skills <span>— Technologies — Tools</span>
+        </h1>
+      </div>
+
+      <h2 class="visuellement-masque">My areas of expertise</h2>
+      <div class="arsenal-grid">
+        <a class="arsenal-block reveal" href="projects.html">
+          <div class="arsenal-block-jp" aria-hidden="true">ウェブ開発</div>
+          <h3>Web Development</h3>
+          <div class="arsenal-block-sub">HTML / CSS / JavaScript</div>
+          <p>
+            Building modern interfaces, responsive design, animations and
+            dynamic components.
+          </p>
+          <div class="tags">
+            <span class="tag">HTML5</span><span class="tag">CSS3</span
+            ><span class="tag">JavaScript</span>
+          </div>
+        </a>
+
+        <a class="arsenal-block reveal" href="projects.html">
+          <div class="arsenal-block-jp" aria-hidden="true">システム管理</div>
+          <h3>Systems</h3>
+          <div class="arsenal-block-sub">Linux / Windows</div>
+          <p>
+            Administration, virtualization, service management and network
+            configuration.
+          </p>
+          <div class="tags">
+            <span class="tag">Linux</span><span class="tag">Windows</span
+            ><span class="tag">VirtualBox</span>
+          </div>
+        </a>
+
+        <a
+          class="arsenal-block reveal"
+          href="https://github.com/Eotics"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <div class="arsenal-block-jp" aria-hidden="true">ツール</div>
+          <h3>Tools &amp; Workflow</h3>
+          <div class="arsenal-block-sub">Git / GitHub / VSCode</div>
+          <p>
+            Version control, collaboration, documentation and workflow
+            optimization.
+          </p>
+          <div class="tags">
+            <span class="tag">Git</span><span class="tag">GitHub</span
+            ><span class="tag">VSCode</span>
+          </div>
+        </a>
+      </div>
+
+      <div class="section-head reveal" style="margin-top: 5rem">
+        <div class="section-tag">Full view</div>
+        <div class="section-jp" aria-hidden="true">全スキル</div>
+        <h2 class="section-title">All my <span>skills</span></h2>
+      </div>
+
+      <div class="skills-full reveal">
+        <div class="skills-full-group">
+          <div class="skills-full-label">Development</div>
+          <div class="tags">
+            <span class="tag">HTML/CSS</span><span class="tag">JavaScript</span
+            ><span class="tag">Node.js</span> <span class="tag">Python</span
+            ><span class="tag">Java</span><span class="tag">C++</span>
+            <span class="tag">Git/GitHub</span><span class="tag">PHP</span
+            ><span class="tag">Tailwind</span> <span class="tag">REST API</span
+            ><span class="tag">AJAX</span><span class="tag">SQL</span>
+            <span class="tag">MySQL</span><span class="tag">MariaDB</span
+            ><span class="tag">JSON</span>
+          </div>
+        </div>
+        <div class="skills-full-group">
+          <div class="skills-full-label">Systems &amp; Networks</div>
+          <div class="tags">
+            <span class="tag">Cisco</span
+            ><span class="tag">Network administration</span
+            ><span class="tag">VLAN</span> <span class="tag">DNS</span
+            ><span class="tag">Firewall</span
+            ><span class="tag">Windows Server</span>
+            <span class="tag">Linux (Debian/Ubuntu/Kali)</span
+            ><span class="tag">VirtualBox</span><span class="tag">VMware</span>
+            <span class="tag">IT support</span
+            ><span class="tag">PC building</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    </main>
+
+    <div class="marquee-wrap" aria-hidden="true">
+      <div class="marquee-track" id="mtrack"></div>
+    </div>
+    <footer>
+      <a class="footer-logo" href="home.html">Exotic<span lang="ja">未来</span></a>
+      <div class="footer-right">
+        <a class="footer-legal" href="legal-notice.html">Legal notice &amp; privacy</a>
+        <div>© 2026 — Philippe Viman</div>
+        <div class="footer-jp" aria-hidden="true">繋がりから始まるプロジェクト</div>
+      </div>
+    </footer>
+
+    <script src="../theme.js"></script>
+    <script src="main.js"></script>
+  </body>
+</html>

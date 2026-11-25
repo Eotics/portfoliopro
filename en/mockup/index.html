@@ -1,0 +1,386 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Mockup of Philippe Viman's portfolio — katana, sakura and glass frames, real-time 3D." />
+    <meta name="theme-color" content="#09090d" />
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
+    <link rel="alternate" hreflang="fr" href="../../maquette/index.html" />
+    <title>Philippe Viman — Portfolio (mockup)</title>
+    <!-- Version anglaise de maquette/index.html : les styles, images et la 3D sont ceux de
+         ../../maquette/ ; seul main.js est copié ici (textes et chemin du son).
+         Vidéo anglaise : maquette/video/exo-presents-the-portfolio.mp4 (plateau en/mockup/video.html). -->
+    <script>document.documentElement.classList.add("js");</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500;700&family=Shippori+Mincho:wght@500;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../../maquette/vendor/lenis/lenis.css" />
+    <link rel="stylesheet" href="../../maquette/css/maquette.css" />
+  </head>
+  <body>
+    <a class="skip" href="#contenu">Skip to content</a>
+
+    <!-- Intro: a katana slash cuts the screen in two -->
+    <div class="loader" aria-hidden="true">
+      <div class="loader__half loader__half--top"></div>
+      <div class="loader__half loader__half--bottom"></div>
+      <span class="loader__slash"><span></span></span>
+      <div class="loader__content">
+        <span class="loader__chapter" lang="ja">抜刀</span>
+        <span class="loader__title">Philippe Viman</span>
+        <span class="loader__bar"><span></span></span>
+        <span class="loader__count">000</span>
+      </div>
+    </div>
+
+    <img class="hero__sakura" src="../../maquette/img/sakura-branche.svg" alt="" aria-hidden="true" />
+    <canvas id="scene3d" aria-hidden="true"></canvas>
+    <canvas id="sakura" aria-hidden="true"></canvas>
+    <div class="grain" aria-hidden="true"></div>
+
+    <!-- ── NAV ── -->
+    <header class="nav">
+      <div class="nav__inner container">
+        <a class="nav__logo" href="#accueil" aria-label="Philippe Viman — back to top">Philippe Viman<span class="nav__alias" aria-hidden="true">Exotic<span lang="ja">未来</span></span></a>
+        <span class="nav__badge">Mockup</span>
+        <nav class="nav__menu" aria-label="Main navigation">
+          <ul class="nav__links">
+            <li><a href="#profil"><span>02</span>Profile</a></li>
+            <li><a href="#arsenal"><span>03</span>Arsenal</a></li>
+            <li><a href="#projets"><span>04</span>Projects</a></li>
+            <li><a href="#veille"><span>05</span>Tech watch</a></li>
+          </ul>
+        </nav>
+        <a class="btn btn--primary btn--sm nav__cta" href="#contact">Contact me</a>
+        <button class="nav__burger" aria-expanded="false" aria-controls="menu" aria-label="Open the menu">
+          <span></span><span></span>
+        </button>
+      </div>
+      <div class="nav__progress" aria-hidden="true"><span></span></div>
+    </header>
+
+    <div class="menu" id="menu" hidden>
+      <ul class="container">
+        <li><a href="#profil"><span>02</span>Profile</a></li>
+        <li><a href="#arsenal"><span>03</span>Arsenal</a></li>
+        <li><a href="#projets"><span>04</span>Projects</a></li>
+        <li><a href="#veille"><span>05</span>Tech watch</a></li>
+        <li><a href="#contact"><span>06</span>Contact</a></li>
+      </ul>
+      <p class="menu__jp" lang="ja" aria-hidden="true">目次</p>
+    </div>
+
+    <main id="contenu">
+      <!-- ── 01 · HERO ── -->
+      <section class="hero" id="accueil" data-screen="hero">
+        <div class="container grid hero__grid">
+          <div class="hero__content">
+            <p class="pill"><span class="pill__dot"></span>BTS SIO · Open to an internship / work-study</p>
+            <h1 class="hero__title">
+              <span class="hero__line" data-split>Philippe Viman</span>
+              <span class="hero__line hero__line--role" data-split>Developer <em>&amp; Creator</em></span>
+            </h1>
+            <p class="hero__desc" data-lines>
+              BTS SIO student (a French two-year degree in IT services), passionate about web
+              development, cybersecurity and building modern projects. My goal: build, learn, grow.
+            </p>
+            <div class="hero__ctas">
+              <span class="magnet" data-magnetic>
+                <a class="btn btn--primary" href="#projets">See my projects
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7h10v10" /><path d="M7 17 17 7" /></svg>
+                </a>
+              </span>
+              <a class="btn btn--ghost" href="../../cv-philippe-viman.pdf" download hreflang="fr">Download CV (French)
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /><path d="m7 10 5 5 5-5" /><path d="M12 15V3" /></svg>
+              </a>
+              <button class="btn btn--ghost" type="button" data-video-ouvrir>Watch the video
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4v16l13-8z" /></svg>
+              </button>
+            </div>
+            <ul class="socials">
+              <li><a href="https://github.com/Eotics" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.4 5.4 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" /><path d="M9 18c-4.51 2-5-2-7-2" /></svg></a></li>
+              <li><a href="https://www.linkedin.com/in/philippe-viman/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z" /><rect width="4" height="12" x="2" y="9" /><circle cx="4" cy="4" r="2" /></svg></a></li>
+              <li><a href="https://www.instagram.com/sla_exotic/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><rect width="20" height="20" x="2" y="2" rx="5" /><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" /><path d="M17.5 6.5h.01" /></svg></a></li>
+            </ul>
+          </div>
+
+          <!-- Area reserved for the 3D mascot (the scene reads its position) -->
+          <div class="stage stage--hero" data-ry="-0.5" data-rx="0.08" data-lines="1" aria-hidden="true">
+            <p class="bubble"><span lang="ja">ようこそ</span> Click me</p>
+          </div>
+        </div>
+
+        <div class="hero__meta container" aria-hidden="true">
+          <span>(01) Home</span>
+          <span lang="ja" class="hero__meta-jp">未来を創る開発者</span>
+          <a class="hero__scroll" href="#profil" tabindex="-1">Scroll<span class="hero__scroll-line"></span></a>
+        </div>
+      </section>
+
+      <div class="coupe" aria-hidden="true">
+        <div class="coupe__bande"><div class="coupe__piste" data-marquee>
+          <span>Web Development <i></i> <b lang="ja">開発</b> <i></i> BTS SIO <i></i> <b lang="ja">学習</b> <i></i> Cybersecurity <i></i> <b lang="ja">防御</b> <i></i> Linux <i></i> <b lang="ja">未来</b> <i></i> JavaScript <i></i> <b lang="ja">創造</b> <i></i> Design <i></i> <b lang="ja">美</b> <i></i> Exotic.IA <i></i> <b lang="ja">人工知能</b> <i></i> GitHub <i></i> <b lang="ja">道</b> <i></i> </span>
+          <span>Web Development <i></i> <b lang="ja">開発</b> <i></i> BTS SIO <i></i> <b lang="ja">学習</b> <i></i> Cybersecurity <i></i> <b lang="ja">防御</b> <i></i> Linux <i></i> <b lang="ja">未来</b> <i></i> JavaScript <i></i> <b lang="ja">創造</b> <i></i> Design <i></i> <b lang="ja">美</b> <i></i> Exotic.IA <i></i> <b lang="ja">人工知能</b> <i></i> GitHub <i></i> <b lang="ja">道</b> <i></i> </span>
+        </div></div>
+        <span class="coupe__trait"></span>
+      </div>
+
+      <!-- ── 02 · PROFILE ── -->
+      <section class="section" id="profil" data-screen="profil" aria-labelledby="profil-title">
+        <span class="ornament" lang="ja" aria-hidden="true">侍</span>
+        <div class="container grid">
+          <div class="stage stage--left" data-ry="0.6" data-rx="0.04" data-lines="0" aria-hidden="true"></div>
+          <div class="col-right">
+            <header class="sec-head">
+              <p class="sec-head__meta"><span>02</span><span class="sec-head__rule"></span><span lang="ja">人物</span></p>
+              <h2 class="sec-head__title" id="profil-title" data-split>Character <em>sheet</em></h2>
+            </header>
+            <article class="card sheet" data-reveal>
+              <header class="sheet__head">
+                <figure class="sheet__photo">
+                  <span class="sheet__initiales" aria-hidden="true">PV</span>
+                  <img src="../../maquette/img/photo.jpg" alt="Photo of Philippe Viman" width="248" height="248" loading="lazy" onerror="this.remove()" />
+                  <span class="sheet__hanko" lang="ja" aria-hidden="true">未来</span>
+                </figure>
+                <div>
+                  <p class="sheet__name"><ruby>Philippe Viman<rt lang="ja">フィリップ・ヴィマン</rt></ruby></p>
+                  <p class="sheet__class">Class: Web Developer — Alias: Exotic<span lang="ja">未来</span></p>
+                </div>
+              </header>
+              <dl class="sheet__stats">
+                <div><dt>Rank</dt><dd>BTS<small>SIO in progress</small></dd></div>
+                <div><dt>Quests</dt><dd>4+<small>completed projects</small></dd></div>
+                <div><dt>Techniques</dt><dd>9<small>technologies</small></dd></div>
+                <div><dt>Goal</dt><dd>2027<small>target degree</small></dd></div>
+              </dl>
+              <p class="sheet__quote">“Build, learn, grow.”</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── 03 · ARSENAL ── -->
+      <section class="section" id="arsenal" data-screen="arsenal" aria-labelledby="arsenal-title">
+        <span class="ornament ornament--left" lang="ja" aria-hidden="true">刀</span>
+        <div class="container grid">
+          <div class="col-left">
+            <header class="sec-head">
+              <p class="sec-head__meta"><span>03</span><span class="sec-head__rule"></span><span lang="ja">武器庫</span></p>
+              <h2 class="sec-head__title" id="arsenal-title" data-split>The <em>arsenal</em></h2>
+            </header>
+            <div class="bento">
+              <article class="card bento__big card--sakura" data-reveal>
+                <p class="label">01 — <span lang="ja">ウェブ開発</span></p>
+                <h3>Web Development</h3>
+                <p class="card__tech">HTML / CSS / JavaScript</p>
+                <p>Modern interfaces, responsive design, animations and dynamic components.</p>
+                <ul class="tags"><li>HTML5</li><li>CSS3</li><li>JavaScript</li><li>Node.js</li></ul>
+                <span class="card__kanji" lang="ja" aria-hidden="true">創</span>
+              </article>
+              <article class="card" data-reveal>
+                <p class="label">02 — <span lang="ja">システム管理</span></p>
+                <h3>Systems &amp; Networks</h3>
+                <p class="card__tech">Linux / Windows / Cisco</p>
+                <ul class="tags"><li>Linux</li><li>Windows Server</li><li>VLAN</li></ul>
+                <span class="card__kanji" lang="ja" aria-hidden="true">網</span>
+              </article>
+              <article class="card" data-reveal>
+                <p class="label">03 — <span lang="ja">防御</span></p>
+                <h3>Cybersecurity</h3>
+                <p class="card__tech">Firewall / DNS / Best practices</p>
+                <ul class="tags"><li>Firewall</li><li>Kali</li><li>DNS</li></ul>
+                <span class="card__kanji" lang="ja" aria-hidden="true">守</span>
+              </article>
+              <article class="card bento__wide" data-reveal>
+                <p class="label">04 — <span lang="ja">ツール</span></p>
+                <h3>Tools &amp; Workflow</h3>
+                <ul class="tags"><li>Git</li><li>GitHub</li><li>VSCode</li><li>VirtualBox</li><li>VMware</li><li>PHP</li><li>Python</li><li>SQL</li><li>MySQL</li><li>MariaDB</li><li>REST API</li><li>Tailwind</li></ul>
+                <span class="card__kanji" lang="ja" aria-hidden="true">道</span>
+              </article>
+            </div>
+          </div>
+          <div class="stage stage--right stage--sticky" data-ry="-0.8" data-rx="0.12" data-lines="0" aria-hidden="true"></div>
+        </div>
+      </section>
+
+      <!-- ── 04 · PROJECTS (horizontal scroll) ── -->
+      <section class="quests" id="projets" data-screen="projets" aria-labelledby="projets-title">
+        <div class="quests__pin">
+          <div class="container grid quests__head">
+            <header class="sec-head col-left">
+              <p class="sec-head__meta"><span>04</span><span class="sec-head__rule"></span><span lang="ja">冒険</span></p>
+              <h2 class="sec-head__title" id="projets-title" data-split>The <em>quests</em></h2>
+            </header>
+            <div class="stage stage--quests" data-ry="0.45" data-rx="0.1" data-lines="0" aria-hidden="true"></div>
+          </div>
+          <div class="quests__viewport">
+            <div class="quests__track">
+              <article class="cover cover--lune" data-tilt>
+                <a href="https://github.com/Eotics" target="_blank" rel="noopener noreferrer">
+                  <div class="cover__art">
+                    <span class="cover__vol"><span lang="ja">壱</span> 01</span>
+                    <span class="cover__kanji" lang="ja" aria-hidden="true">人工知能</span>
+                  </div>
+                  <div class="cover__body">
+                    <p class="label">AI — Web — Interaction</p>
+                    <h3>Exotic.IA</h3>
+                    <p>A conversational AI to experiment with web interaction, futuristic UI and personalization.</p>
+                    <ul class="tags"><li>HTML</li><li>CSS</li><li>JavaScript</li></ul>
+                  </div>
+                </a>
+              </article>
+              <article class="cover cover--sakura" data-tilt>
+                <a href="https://github.com/Eotics/portfoliopro" target="_blank" rel="noopener noreferrer">
+                  <div class="cover__art">
+                    <span class="cover__vol"><span lang="ja">弐</span> 02</span>
+                    <span class="cover__kanji" lang="ja" aria-hidden="true">作品集</span>
+                  </div>
+                  <div class="cover__body">
+                    <p class="label">Design — Identity — Web</p>
+                    <h3>Portfolio Pro</h3>
+                    <p>A purple/neon portfolio inspired by Japanese cyberpunk to showcase my skills and my world.</p>
+                    <ul class="tags"><li>HTML</li><li>CSS</li><li>Branding</li></ul>
+                  </div>
+                </a>
+              </article>
+              <article class="cover cover--katana" data-tilt>
+                <a href="../arsenal.html">
+                  <div class="cover__art">
+                    <span class="cover__vol"><span lang="ja">参</span> 03</span>
+                    <span class="cover__kanji" lang="ja" aria-hidden="true">網路</span>
+                  </div>
+                  <div class="cover__body">
+                    <p class="label">Linux — Windows — Virtualization</p>
+                    <h3>Systems &amp; Networks</h3>
+                    <p>Virtual environments, network configuration and service management as part of the BTS SIO.</p>
+                    <ul class="tags"><li>Linux</li><li>Windows</li><li>VirtualBox</li></ul>
+                  </div>
+                </a>
+              </article>
+              <article class="cover cover--petales" data-tilt>
+                <a href="https://github.com/Eotics" target="_blank" rel="noopener noreferrer">
+                  <div class="cover__art">
+                    <span class="cover__vol"><span lang="ja">肆</span> 04</span>
+                    <span class="cover__kanji" lang="ja" aria-hidden="true">学習</span>
+                  </div>
+                  <div class="cover__body">
+                    <p class="label">Studies — Practice — Progress</p>
+                    <h3>BTS SIO projects</h3>
+                    <p>Scripts, websites, networking exercises, documentation and small apps built during my training.</p>
+                    <ul class="tags"><li>Python</li><li>Web</li><li>Networks</li></ul>
+                  </div>
+                </a>
+              </article>
+              <a class="cover cover--end" href="https://github.com/Eotics" target="_blank" rel="noopener noreferrer">
+                <span lang="ja" aria-hidden="true">道</span>
+                All quests on GitHub ↗
+              </a>
+            </div>
+          </div>
+          <div class="container quests__foot" aria-hidden="true">
+            <span class="quests__count">01 / 04</span>
+            <span class="quests__progress"><span></span></span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── 05 · TECH WATCH ── -->
+      <section class="section" id="veille" data-screen="veille" aria-labelledby="veille-title">
+        <span class="ornament" lang="ja" aria-hidden="true">監視</span>
+        <div class="container grid">
+          <div class="stage stage--left stage--sticky" data-ry="0.8" data-rx="0.06" data-lines="0" aria-hidden="true"></div>
+          <div class="col-right">
+            <header class="sec-head">
+              <p class="sec-head__meta"><span>05</span><span class="sec-head__rule"></span><span lang="ja">技術監視</span></p>
+              <h2 class="sec-head__title" id="veille-title" data-split>The <em>radar</em></h2>
+              <p class="sec-head__lead">My tech watch: four topics I follow closely.</p>
+            </header>
+            <div class="radar__grid">
+              <article class="card flash" data-reveal>
+                <p class="flash__tag"><span lang="ja">速報</span> Flash 01</p>
+                <h3>The evolution of Claude AI</h3>
+                <p>From chatbot to agent: Claude Code, the MCP protocol and Skills, abilities loaded on demand.</p>
+                <a class="flash__link" href="https://www.anthropic.com/news" target="_blank" rel="noopener noreferrer">Source: Anthropic ↗</a>
+              </article>
+              <article class="card flash" data-reveal>
+                <p class="flash__tag"><span lang="ja">速報</span> Flash 02</p>
+                <h3>Cybersecurity &amp; ransomware</h3>
+                <p>Ransomware targets hospitals, local authorities and small businesses. The NIS2 directive strengthens obligations.</p>
+                <a class="flash__link" href="https://www.cert.ssi.gouv.fr" target="_blank" rel="noopener noreferrer">Source: CERT-FR ↗</a>
+              </article>
+              <article class="card flash" data-reveal>
+                <p class="flash__tag"><span lang="ja">速報</span> Flash 03</p>
+                <h3>The end of passwords</h3>
+                <p>Passkeys replace the password with a cryptographic key: nothing left to steal through phishing.</p>
+                <a class="flash__link" href="https://fidoalliance.org" target="_blank" rel="noopener noreferrer">Source: FIDO Alliance ↗</a>
+              </article>
+              <article class="card flash" data-reveal>
+                <p class="flash__tag"><span lang="ja">速報</span> Flash 04</p>
+                <h3>Sovereign cloud</h3>
+                <p>Faced with the US Cloud Act, France is promoting SecNumCloud-certified offerings for sensitive data.</p>
+                <a class="flash__link" href="https://www.cnil.fr/en/" target="_blank" rel="noopener noreferrer">Source: CNIL ↗</a>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── 06 · CONTACT ── -->
+      <section class="section finale" id="contact" data-screen="contact" aria-labelledby="contact-title">
+        <img class="finale__sakura" src="../../maquette/img/sakura-rameau.svg" alt="" aria-hidden="true" />
+        <div class="container grid">
+          <div class="col-left">
+            <header class="sec-head">
+              <p class="sec-head__meta"><span>06</span><span class="sec-head__rule"></span><span lang="ja">縁</span></p>
+              <h2 class="sec-head__title" id="contact-title" data-split>Shall we write the <em>next chapter?</em></h2>
+              <p class="sec-head__lead">Internship, work-study, project or just a question: I'm happy to talk.</p>
+            </header>
+            <span class="magnet" data-magnetic>
+              <a class="btn btn--primary btn--xl" href="mailto:philippe.viman@yahoo.com">philippe.viman@yahoo.com
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7h10v10" /><path d="M7 17 17 7" /></svg>
+              </a>
+            </span>
+            <ul class="finale__links" data-reveal>
+              <li><a href="https://www.linkedin.com/in/philippe-viman/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a></li>
+              <li><a href="https://github.com/Eotics" target="_blank" rel="noopener noreferrer">GitHub ↗</a></li>
+              <li><a href="https://www.instagram.com/sla_exotic/" target="_blank" rel="noopener noreferrer">Instagram ↗</a></li>
+              <li><a href="https://discord.com/users/sla_exotic" target="_blank" rel="noopener noreferrer">Discord ↗</a></li>
+              <li><a href="https://linktr.ee/sla.exotic" target="_blank" rel="noopener noreferrer">Linktree ↗</a></li>
+            </ul>
+          </div>
+          <div class="stage stage--right stage--contact" data-ry="-0.35" data-rx="0.05" data-lines="0.35" aria-hidden="true"></div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container footer__inner">
+        <a class="nav__logo" href="#accueil">Philippe Viman<span class="nav__alias">Exotic<span lang="ja">未来</span></span></a>
+        <p>© 2026 Philippe Viman — <a href="../home.html">Back to the current website</a></p>
+        <p class="footer__jp" lang="ja">繋がりから始まるプロジェクト</p>
+      </div>
+    </footer>
+
+    <!-- "Exo presents the portfolio" video (English version): opens on top of the page -->
+    <dialog class="video-modal" id="video-modal" aria-label="Video: Exo presents the portfolio" data-lenis-prevent>
+      <div class="video-modal__cadre">
+        <button class="video-modal__fermer" type="button" aria-label="Close the video" data-video-fermer>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 6 6 18" /><path d="m6 6 12 12" /></svg>
+        </button>
+        <video class="video-modal__lecteur" src="../../maquette/video/exo-presents-the-portfolio.mp4" poster="../../maquette/video/affiche-en.jpg" controls playsinline preload="none"></video>
+      </div>
+    </dialog>
+
+    <script defer src="../../maquette/vendor/lenis/lenis.min.js"></script>
+    <script defer src="../../maquette/vendor/gsap/gsap.min.js"></script>
+    <script defer src="../../maquette/vendor/gsap/ScrollTrigger.min.js"></script>
+    <script defer src="../../maquette/vendor/gsap/SplitText.min.js"></script>
+    <script defer src="../../maquette/js/sakura.js"></script>
+    <script defer src="main.js"></script>
+    <script defer src="../../maquette/js/scene.js"></script>
+  </body>
+</html>

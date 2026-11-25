@@ -15,13 +15,14 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="style.css" />
+    <script>try{if(localStorage.getItem("portfoliopro-theme")==="light")document.documentElement.setAttribute("data-theme","light")}catch(e){}</script>
   </head>
   <body>
     <a class="lien-evitement" href="#contenu">Aller au contenu</a>
     <canvas id="particles" aria-hidden="true"></canvas>
 
     <nav aria-label="Navigation principale">
-      <a class="nav-logo" href="index.html"
+      <a class="nav-logo" href="accueil.html"
         >Philippe<span class="kanji">Viman</span></a
       >
       <button
@@ -33,12 +34,16 @@
         <span></span><span></span><span></span>
       </button>
       <ul class="nav-links" id="nav-links">
-        <li><a href="index.html">Accueil</a></li>
+        <li><a href="accueil.html">Accueil</a></li>
         <li><a href="arsenal.html">Arsenal</a></li>
         <li><a href="projects.html">Projets</a></li>
         <li><a href="veille.html">Veille</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
+      <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Mode clair" title="Mode clair / mode sombre">
+        <svg class="icone-soleil" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4" /><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41" /></svg>
+        <svg class="icone-lune" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9z" /></svg>
+      </button>
     </nav>
 
     <main id="contenu">
@@ -158,7 +163,7 @@
       <div class="marquee-track" id="mtrack"></div>
     </div>
     <footer>
-      <a class="footer-logo" href="index.html">Exotic<span lang="ja">未来</span></a>
+      <a class="footer-logo" href="accueil.html">Exotic<span lang="ja">未来</span></a>
       <div class="footer-right">
         <a class="footer-legal" href="mentions-legales.html">Mentions légales &amp; confidentialité</a>
         <div>© 2026 — Philippe Viman</div>
@@ -166,6 +171,7 @@
       </div>
     </footer>
 
+    <script src="theme.js"></script>
     <script src="main.js"></script>
   </body>
 </html>

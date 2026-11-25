@@ -1677,3 +1677,168 @@ textarea:focus-visible {
   font-size: 0.8rem;
   color: var(--cyan);
 }
+
+/* ══════════════════
+   BOUTON MODE SOMBRE / MODE CLAIR (theme.js)
+   Soleil affiché en mode sombre (passer au clair), lune en mode clair.
+══════════════════ */
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 38px;
+  height: 38px;
+  padding: 0;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  background: transparent;
+  color: var(--text);
+  cursor: pointer;
+  transition:
+    border-color 0.25s,
+    box-shadow 0.25s,
+    color 0.25s;
+}
+.theme-toggle:hover {
+  border-color: var(--violet2);
+  box-shadow: var(--glow);
+  color: var(--neon);
+}
+.theme-toggle svg {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.theme-toggle .icone-lune {
+  display: none;
+}
+:root[data-theme="light"] .theme-toggle .icone-soleil {
+  display: none;
+}
+:root[data-theme="light"] .theme-toggle .icone-lune {
+  display: block;
+}
+
+/* Place dans la barre de navigation : liens puis bouton, à droite */
+nav .nav-links {
+  margin-left: auto;
+}
+nav .theme-toggle {
+  order: 3;
+  margin-left: 2rem;
+}
+nav .nav-toggle {
+  order: 4;
+}
+@media (max-width: 640px) {
+  nav .theme-toggle {
+    margin-left: auto;
+    margin-right: 1rem;
+  }
+}
+
+/* ══════════════════
+   MODE CLAIR — actif quand <html data-theme="light"> (posé par theme.js).
+   Sans cet attribut, le site garde son mode sombre d'origine.
+══════════════════ */
+:root[data-theme="light"] {
+  color-scheme: light;
+  --bg: #f6f3fc;
+  --bg2: #ffffff;
+  --bg3: #efe9fa;
+  --violet: #6d28d9;
+  --violet2: #7c3aed;
+  --neon: #a21caf; /* plus foncé qu'en sombre : contraste ≥ 4,5:1 sur fond clair */
+  --neon2: #86198f;
+  --cyan: #0e7490;
+  --text: #2a1f45;
+  --muted: #5e5580;
+  --titre: #1a1030;
+  --border: rgba(109, 40, 217, 0.2);
+  --glow: 0 0 20px rgba(124, 58, 237, 0.22);
+  --glow2: 0 0 40px rgba(162, 28, 175, 0.18);
+}
+
+/* Barres en verre */
+:root[data-theme="light"] nav {
+  background: rgba(246, 243, 252, 0.82);
+}
+:root[data-theme="light"] footer {
+  background: rgba(255, 255, 255, 0.85);
+}
+
+/* Textes blancs en sombre → foncés en clair */
+:root[data-theme="light"] .nav-logo,
+:root[data-theme="light"] .nav-links a:hover,
+:root[data-theme="light"] .nav-links a.active,
+:root[data-theme="light"] .section-title,
+:root[data-theme="light"] .footer-logo,
+:root[data-theme="light"] .footer-legal:hover,
+:root[data-theme="light"] .hero-title .line1,
+:root[data-theme="light"] .service-name,
+:root[data-theme="light"] .skill-card h3,
+:root[data-theme="light"] .arsenal-block h3,
+:root[data-theme="light"] .project-card h3,
+:root[data-theme="light"] .link-name,
+:root[data-theme="light"] .legal h2,
+:root[data-theme="light"] .veille-titre,
+:root[data-theme="light"] .veille-etape h3,
+:root[data-theme="light"] .tag:hover {
+  color: var(--titre);
+}
+:root[data-theme="light"] .btn-primary:hover,
+:root[data-theme="light"] .btn-outline:hover {
+  color: var(--titre);
+  -webkit-text-fill-color: var(--titre);
+}
+
+:root[data-theme="light"] .hero-desc {
+  color: #4a4068;
+}
+:root[data-theme="light"] .section-jp,
+:root[data-theme="light"] .card-jp,
+:root[data-theme="light"] .arsenal-block-jp,
+:root[data-theme="light"] .project-jp {
+  color: rgba(124, 58, 237, 0.6);
+}
+:root[data-theme="light"] .footer-jp {
+  color: rgba(124, 58, 237, 0.5);
+}
+
+/* Le terminal de la page Contact reste un terminal sombre */
+:root[data-theme="light"] .contact-terminal {
+  background: #130f22;
+  border-color: rgba(124, 58, 237, 0.35);
+}
+:root[data-theme="light"] .terminal-bar {
+  background: #1b1530;
+  border-color: rgba(124, 58, 237, 0.25);
+}
+:root[data-theme="light"] .terminal-title {
+  color: #7e76aa;
+}
+:root[data-theme="light"] .terminal-body {
+  color: rgba(226, 217, 243, 0.7);
+}
+:root[data-theme="light"] #typewriter {
+  color: #d946ef;
+}
+:root[data-theme="light"] .term-cursor {
+  background: #d946ef;
+}
+
+:root[data-theme="light"] .form-status.success {
+  color: #15803d;
+}
+:root[data-theme="light"] .form-status.error {
+  color: #b91c1c;
+}
+:root[data-theme="light"] .lien-evitement {
+  background: #1a1030;
+  color: #fff;
+}

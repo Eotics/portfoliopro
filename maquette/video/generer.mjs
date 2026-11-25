@@ -14,8 +14,10 @@
 
    Usage (depuis la racine du dépôt) :
      node maquette/video/generer.mjs                   → maquette/video/exo-presente-le-portfolio.mp4
+     node maquette/video/generer.mjs --en              → maquette/video/exo-presents-the-portfolio.mp4
+                                                          (version anglaise : en/mockup/video.html)
      node maquette/video/generer.mjs --apercu 3,12.5   → images PNG de contrôle (dossier APERCU_DIR
-                                                          ou maquette/video/apercu)
+                                                          ou maquette/video/apercu ; avec --en aussi)
 ========================================== */
 
 import { execFileSync, spawn } from "node:child_process";
@@ -26,15 +28,18 @@ import { homedir, tmpdir } from "node:os";
 import path from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
 
+const args = process.argv.slice(2);
+// --en : version anglaise (plateau en/mockup/video.html, mêmes minutages, textes traduits)
+const EN = args.includes("--en");
+
 const ICI = path.dirname(fileURLToPath(import.meta.url));
-const PAGE = pathToFileURL(path.join(ICI, "..", "video.html")).href;
-const SORTIE = path.join(ICI, "exo-presente-le-portfolio.mp4");
+const PAGE = pathToFileURL(EN ? path.join(ICI, "..", "..", "en", "mockup", "video.html") : path.join(ICI, "..", "video.html")).href;
+const SORTIE = path.join(ICI, EN ? "exo-presents-the-portfolio.mp4" : "exo-presente-le-portfolio.mp4");
 const CACHE = path.join(homedir(), ".cache", "exo-video");
 const IPS = 30;
 const LARGEUR = 1920;
 const HAUTEUR = 1080;
 
-const args = process.argv.slice(2);
 const iApercu = args.indexOf("--apercu");
 const apercu = iApercu >= 0 ? args[iApercu + 1].split(",").map(Number) : null;
 
