@@ -8,8 +8,9 @@
     <link rel="icon" type="image/svg+xml" href="../../favicon.svg" />
     <link rel="alternate" hreflang="fr" href="../../maquette/index.html" />
     <title>Philippe Viman — Portfolio (mockup)</title>
-    <!-- Version anglaise de maquette/index.html : les styles, images, la 3D et la vidéo
-         sont ceux de ../../maquette/ ; seul main.js est copié ici (textes et chemin du son). -->
+    <!-- Version anglaise de maquette/index.html : les styles, images et la 3D sont ceux de
+         ../../maquette/ ; seul main.js est copié ici (textes et chemin du son).
+         Vidéo anglaise : maquette/video/exo-presents-the-portfolio.mp4 (plateau en/mockup/video.html). -->
     <script>document.documentElement.classList.add("js");</script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -93,7 +94,7 @@
               <a class="btn btn--ghost" href="../../cv-philippe-viman.pdf" download hreflang="fr">Download CV (French)
                 <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /><path d="m7 10 5 5 5-5" /><path d="M12 15V3" /></svg>
               </a>
-              <button class="btn btn--ghost" type="button" data-video-ouvrir>Watch the video (French)
+              <button class="btn btn--ghost" type="button" data-video-ouvrir>Watch the video
                 <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4v16l13-8z" /></svg>
               </button>
             </div>
@@ -364,13 +365,13 @@
       </div>
     </footer>
 
-    <!-- "Exo presents the portfolio" video (in French): opens on top of the page -->
-    <dialog class="video-modal" id="video-modal" aria-label="Video: Exo presents the portfolio (in French)" data-lenis-prevent>
+    <!-- "Exo presents the portfolio" video (English version): opens on top of the page -->
+    <dialog class="video-modal" id="video-modal" aria-label="Video: Exo presents the portfolio" data-lenis-prevent>
       <div class="video-modal__cadre">
         <button class="video-modal__fermer" type="button" aria-label="Close the video" data-video-fermer>
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 6 6 18" /><path d="m6 6 12 12" /></svg>
         </button>
-        <video class="video-modal__lecteur" src="../../maquette/video/exo-presente-le-portfolio.mp4" poster="../../maquette/video/affiche.jpg" controls playsinline preload="none"></video>
+        <video class="video-modal__lecteur" src="../../maquette/video/exo-presents-the-portfolio.mp4" poster="../../maquette/video/affiche-en.jpg" controls playsinline preload="none"></video>
       </div>
     </dialog>
 
