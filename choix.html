@@ -11,6 +11,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Noto+Sans+JP:wght@300;400;500&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="portail.css" />
+    <script>try{if(localStorage.getItem("portfoliopro-theme")==="light")document.documentElement.setAttribute("data-theme","light")}catch(e){}</script>
   </head>
   <body>
     <a class="lien-evitement" href="#contenu">Aller au contenu</a>
@@ -18,7 +19,13 @@
 
     <header class="portail-barre">
       <p class="portail-marque">Philippe Viman<span lang="ja">未来</span></p>
-      <a class="portail-retour" href="index.html"><span aria-hidden="true">← </span>Changer de langue</a>
+      <div class="portail-actions">
+        <a class="portail-retour" href="index.html"><span aria-hidden="true">← </span>Changer de langue</a>
+        <button class="theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Mode clair" title="Mode clair / mode sombre">
+          <svg class="icone-soleil" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4" /><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41" /></svg>
+          <svg class="icone-lune" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9z" /></svg>
+        </button>
+      </div>
     </header>
 
     <main id="contenu" class="portail-main">
@@ -76,6 +83,7 @@
       </div>
     </footer>
 
+    <script src="theme.js"></script>
     <script src="main.js"></script>
   </body>
 </html>

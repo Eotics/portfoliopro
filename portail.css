@@ -213,6 +213,34 @@
   color: rgba(217, 70, 239, 0.12);
 }
 
+/* Groupe à droite de la barre : lien de retour + bouton de thème */
+.portail-actions {
+  display: flex;
+  align-items: center;
+  gap: 1.4rem;
+}
+
+/* ── Mode clair (data-theme="light" posé par theme.js) ── */
+:root[data-theme="light"] .portail-barre {
+  background: rgba(246, 243, 252, 0.82);
+}
+:root[data-theme="light"] .portail-marque,
+:root[data-theme="light"] .portail-retour:hover,
+:root[data-theme="light"] .portail-nom,
+:root[data-theme="light"] .portail-action {
+  color: var(--titre);
+}
+:root[data-theme="light"] .portail-carte {
+  background: linear-gradient(160deg, #ffffff, #f1ebfb);
+}
+:root[data-theme="light"] .portail-kanji {
+  color: rgba(124, 58, 237, 0.08);
+}
+:root[data-theme="light"] .portail-carte:hover .portail-kanji,
+:root[data-theme="light"] .portail-carte:focus-visible .portail-kanji {
+  color: rgba(162, 28, 175, 0.14);
+}
+
 /* ── Mobile ── */
 @media (max-width: 760px) {
   .portail-barre {
