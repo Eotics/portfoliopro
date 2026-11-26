@@ -42,7 +42,8 @@ function init() {
     document.documentElement.classList.add("no-webgl");
     return;
   }
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.75));
+  // 1,25x max (au lieu de 1,75x) : la 3D reste nette et coûte environ deux fois moins cher
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.25));
   renderer.setClearColor(0x000000, 0);
 
   const effet = new OutlineEffect(renderer, { defaultThickness: 0.0055, defaultColor: [0.03, 0.02, 0.06] });
@@ -531,7 +532,12 @@ function init() {
     if (prochainClignement <= 0) { clignement = 0.14; prochainClignement = 2 + Math.random() * 3; }
     if (poke > 0) poke -= dt;
 
-    dessinerEcran(t);
+    // Écran redessiné ~30 fois par seconde (au lieu de 60) : moitié moins d'envois à la carte graphique.
+    // Seuil 0,029 s (un peu sous 1/30) : à 30 images/s (rendu de la vidéo), aucune image n'est sautée.
+    if (t - dernierEcran >= 0.029) {
+      dernierEcran = t;
+      dessinerEcran(t);
+    }
   }
 
   function afficher(dt) {
@@ -542,10 +548,31 @@ function init() {
 
   document.fonts && document.fonts.load('800 96px "Shippori Mincho"', "未来").then(dessinerSticker).catch(() => {});
 
+  // Qualité automatique : après le chargement, si la moyenne tombe sous ~45 images/s,
+  // la 3D passe en définition 1x (une seule fois)
+  let dernierEcran = -1;
+  let nbImages = 0;
+  let somme = 0;
+  let modeLeger = false;
+  function surveillerQualite(dt) {
+    if (modeLeger || horloge.elapsedTime < 4) return;
+    nbImages++;
+    somme += dt;
+    if (nbImages >= 90) {
+      if (somme / nbImages > 0.022) {
+        modeLeger = true;
+        renderer.setPixelRatio(1);
+      }
+      nbImages = 0;
+      somme = 0;
+    }
+  }
+
   function boucle() {
     requestAnimationFrame(boucle);
     const dt = Math.min(horloge.getDelta(), 0.05);
     if (!visible) return;
+    surveillerQualite(dt);
     afficher(dt);
   }
   boucle();
