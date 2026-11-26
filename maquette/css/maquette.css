@@ -1757,3 +1757,53 @@ html:has(.video-modal[open]) {
     scroll-behavior: auto !important;
   }
 }
+
+/* ══════════════════
+   PERFORMANCE (26/11/2026)
+   Le flou d'arrière-plan (backdrop-filter) était recalculé à chaque image au-dessus de la 3D
+   et des pétales, qui bougent sans arrêt : c'est ce qui faisait saccader la page.
+   On ne le garde que sur la barre de navigation (petite surface). Ailleurs, le verre devient
+   un fond sombre presque opaque, au rendu très proche.
+══════════════════ */
+:root {
+  --glass: rgba(20, 20, 25, 0.86);
+  --glass-hover: rgba(28, 28, 35, 0.9);
+}
+.btn--ghost,
+.video-modal__cadre,
+.menu,
+.pill,
+.card,
+.bubble,
+.socials a,
+.coupe__bande,
+.cover > a,
+.cover__vol,
+.finale__links a,
+.video-modal::backdrop {
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+.menu {
+  background: rgba(9, 9, 13, 0.96);
+}
+.bubble,
+.coupe__bande {
+  background: rgba(17, 17, 22, 0.9);
+}
+.cover__vol {
+  background: rgba(9, 9, 13, 0.82);
+}
+.video-modal::backdrop {
+  background: rgba(9, 9, 13, 0.92);
+}
+
+/* Éléments déplacés à chaque image pendant le défilement (parallaxe, bande, piste des projets) :
+   un calque graphique à part évite de les redessiner à chaque image (mesuré : 53 → 60 images/s) */
+.ornament,
+.quests__track,
+.coupe__piste,
+.hero__sakura,
+.finale__sakura {
+  will-change: transform;
+}

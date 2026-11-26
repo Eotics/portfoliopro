@@ -64,7 +64,7 @@
   }
 
   function redimensionner() {
-    dpr = Math.min(window.devicePixelRatio || 1, 2);
+    dpr = Math.min(window.devicePixelRatio || 1, 1.25); // 1,25 max : les pétales restent nets et coûtent bien moins cher qu'en 2x
     L = window.innerWidth;
     H = window.innerHeight;
     canvas.width = Math.round(L * dpr);
